@@ -1,0 +1,3 @@
+# This was cloned from a TextMate bundle for yasnippet.
+# --
+rug(${1:jitter(${2:x})})

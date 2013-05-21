@@ -1,0 +1,14 @@
+.emacs.d/elpa/*
+.emacs.d/org/*
+.emacs.d/auto-save-list*
+*~
+*.swp
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+.virthualenv
+*.errors
+xmonad-x86_64-linux

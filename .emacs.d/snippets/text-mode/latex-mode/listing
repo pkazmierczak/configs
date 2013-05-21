@@ -1,0 +1,3 @@
+# This was cloned from a TextMate bundle for yasnippet.
+# --
+${1:Listing}~\ref{${2:lst:}}$0
