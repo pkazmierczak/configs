@@ -1,0 +1,39 @@
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/ghcmod"]
+	path = .vim/bundle/ghcmod
+	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule ".vim/bundle/gitgutter"]
+	path = .vim/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/haskellmode"]
+	path = .vim/bundle/haskellmode
+	url = https://github.com/lukerandall/haskellmode-vim.git
+[submodule ".vim/bundle/latex-box"]
+	path = .vim/bundle/latex-box
+	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+[submodule ".vim/bundle/markdown"]
+	path = .vim/bundle/markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/neco-ghc"]
+	path = .vim/bundle/neco-ghc
+	url = https://github.com/ujihisa/neco-ghc.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/powerline"]
+	path = .vim/bundle/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule ".vim/bundle/scala"]
+	path = .vim/bundle/scala
+	url = https://github.com/derekwyatt/vim-scala.git
+[submodule ".vim/bundle/solarized"]
+	path = .vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/pandoc"]
+	path = .vim/bundle/pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git
