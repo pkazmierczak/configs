@@ -44,12 +44,12 @@ import qualified Data.Map as M
 
 -- Config {{{
 -- Define Terminal
-myTerminal      = "rxvt-unicode"
+myTerminal      = "gnome-terminal"
 -- Define modMask
 modMask' :: KeyMask
 modMask' = mod4Mask
 -- Define workspaces
-myWorkspaces    = ["1:main","2:web","3:vim","4:chat","5:music", "6:gimp", "7:misc"]
+myWorkspaces    = ["1:main","2:web","3:vim","4:music", "5:misc"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
 myStatusBar = "conky -c /home/piotr/.xmonad/.conky_dzen | dzen2 -x '2080' -w '1040' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
@@ -83,9 +83,7 @@ manageHook' = (composeAll . concat $
     , [className    =? c            --> doShift  "1:main"   |   c   <- myDev    ] -- move dev to main
     , [className    =? c            --> doShift  "2:web"    |   c   <- myWebs   ] -- move webs to main
     , [className    =? c            --> doShift  "3:vim"    |   c   <- myVim    ] -- move webs to main
-    , [className    =? c            --> doShift  "4:chat"   |   c   <- myChat   ] -- move chat to chat
-    , [className    =? c            --> doShift  "5:music"  |   c   <- myMusic  ] -- move music to music
-    , [className    =? c            --> doShift  "6:gimp"   |   c   <- myGimp   ] -- move img to div
+    , [className    =? c            --> doShift  "4:music"  |   c   <- myMusic  ] -- move music to music
     , [className    =? c            --> doCenterFloat       |   c   <- myFloats ] -- float my floats
     , [name         =? n            --> doCenterFloat       |   n   <- myNames  ] -- float my names
     , [isFullscreen                 --> myDoFullFloat                           ]
@@ -101,8 +99,6 @@ manageHook' = (composeAll . concat $
         myWebs    = ["Firefox","Google-chrome","Chromium", "Chromium-browser"]
         myMovie   = ["Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
-        myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
-        myGimp	  = ["Gimp"]
         myDev	  = ["gnome-terminal"]
         myVim	  = ["Gvim"]
 
@@ -116,9 +112,7 @@ manageHook' = (composeAll . concat $
 myDoFullFloat :: ManageHook
 myDoFullFloat = doF W.focusDown <+> doFullFloat
 -- }}}
-layoutHook'  =  onWorkspaces ["1:main","5:music"] customLayout $ 
-                onWorkspaces ["6:gimp"] gimpLayout $ 
-                onWorkspaces ["4:chat"] imLayout $
+layoutHook'  =  onWorkspaces ["1:main","4:music"] customLayout $ 
                 customLayout2
 
 --Bar
@@ -153,11 +147,6 @@ customLayout2 = avoidStruts $ Full ||| tiled ||| Mirror tiled ||| simpleFloat
   where
     tiled   = ResizableTall 1 (2/100) (1/2) []
 
-gimpLayout  = avoidStruts $ withIM (0.11) (Role "gimp-toolbox") $
-              reflectHoriz $
-              withIM (0.15) (Role "gimp-dock") Full
-
-imLayout    = avoidStruts $ withIM (1%5) (Or (Title "Buddy List") (And (Resource "main") (ClassName "psi"))) Grid 
 --}}}
 -- Theme {{{
 -- Color names are easier to remember:
@@ -207,7 +196,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,      xK_l        ), spawn "slock")
     -- Programs
     , ((0,                          xK_Print    ), spawn "scrot -e 'mv $f ~/screenshots/'")
-    , ((modMask,		            xK_o        ), spawn "chromium-browser")
+    , ((modMask,		            xK_o        ), spawn "firefox")
     , ((modMask,                    xK_m        ), spawn "nautilus --no-desktop --browser")
     -- Media Keys
     , ((0,                          0x1008ff12  ), spawn "amixer -q sset Headphone toggle")        -- XF86AudioMute
