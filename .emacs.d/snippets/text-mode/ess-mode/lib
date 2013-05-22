@@ -1,4 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-library("${1:libname}")
-$0

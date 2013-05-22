@@ -1,3 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-read.table("${1:filename}"${2:, header = ${3:TRUE},  sep = "${4:\t}",  stringsAsFactors = ${5:FALSE}})

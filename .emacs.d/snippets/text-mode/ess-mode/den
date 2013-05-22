@@ -1,3 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-density(${1:x}${2:, bw = ${3:bandwidth}})

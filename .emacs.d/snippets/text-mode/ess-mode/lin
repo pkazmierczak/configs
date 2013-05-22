@@ -1,3 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-lines(${1:x}${2:, color=${3:red}})

@@ -1,7 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-\section{${1:section name}} % (fold)
-\label{sec:$1}}}
-$0
-
-% section sec:$1 (end)

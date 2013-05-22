@@ -1,3 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-${1:Section}~\ref{${2:sec:}}$0

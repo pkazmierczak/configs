@@ -1,3 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-\\item[${1:description}] ${0:item}

@@ -1,4 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-###
-function(${1:x}) ${3:{$0\}}

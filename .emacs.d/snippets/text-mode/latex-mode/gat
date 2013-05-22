@@ -1,7 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-# --
-\begin{gather`echo $TM_SCOPE|grep math|
-sed -e 's/.*math.*/ed/'`}
-	$0
-\end{gather`echo $TM_SCOPE|grep math|
-sed -e 's/.*math.*/ed/'`}
