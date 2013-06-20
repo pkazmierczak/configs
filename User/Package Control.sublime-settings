@@ -1,0 +1,15 @@
+{
+	"installed_packages":
+	[
+		"Ensime",
+		"Git",
+		"GitGutter",
+		"LaTeXTools",
+		"Package Control",
+		"Pandoc Academic",
+		"Prolog",
+		"SublimeLinter",
+		"SublimeREPL",
+		"SublimeRope"
+	]
+}

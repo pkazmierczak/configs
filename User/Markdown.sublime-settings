@@ -1,0 +1,7 @@
+{
+	"spell_check": true,
+	"translate_tabs_to_spaces": true,
+	"word_wrap": true,
+	"wrap_width": 78,
+	"color_scheme": "Packages/Pandoc Academic/ColorScheme/Monokai Dark Adapted.tmTheme"
+}

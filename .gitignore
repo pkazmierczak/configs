@@ -12,3 +12,6 @@ cabal-dev
 .virthualenv
 *.errors
 xmonad-x86_64-linux
+*.last-run
+*.pyc
+SublimeREPLHistory*

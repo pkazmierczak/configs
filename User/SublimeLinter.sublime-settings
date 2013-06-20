@@ -1,0 +1,7 @@
+{
+    //I don't want to be bothered by issues on spaces around oeprators
+    "pep8_ignore":
+    [
+        "E251","E501","W191","E303"
+    ]
+}

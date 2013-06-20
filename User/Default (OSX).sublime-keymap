@@ -1,0 +1,18 @@
+[
+//Color scheme switcher
+{  
+    "keys": ["ctrl+f6"], "command": "toggle_color_scheme",
+    "args":
+    {
+        "color_scheme_1": "Packages/Color Scheme - Default/Solarized (Light).tmTheme" ,
+        "color_scheme_2": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme"
+    }
+},
+
+//Rope key bindings
+    { "keys": ["super+r", "super+d"], "command": "python_get_documentation", "context":
+        [
+            { "key": "selector", "operator": "equal", "operand": "source.python" }
+        ]
+    }
+]
