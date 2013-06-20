@@ -1,6 +1,7 @@
 {
 	"installed_packages":
 	[
+		"Emmet",
 		"Ensime",
 		"Git",
 		"GitGutter",
@@ -8,8 +9,11 @@
 		"Package Control",
 		"Pandoc Academic",
 		"Prolog",
+		"Search Stack Overflow",
 		"SublimeLinter",
 		"SublimeREPL",
-		"SublimeRope"
+		"SublimeRope",
+		"Theme - Soda",
+		"Tomorrow Color Schemes"
 	]
 }
