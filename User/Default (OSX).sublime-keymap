@@ -1,22 +1,26 @@
 [
 //Color scheme switcher
 {  
-    "keys": ["ctrl+f6"], "command": "toggle_color_scheme",
-    "args":
-    {
-        "color_scheme_1": "Packages/Tomorrow Color Schemes/Tomorrow.tmTheme" ,
-        "color_scheme_2": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme"
-    }
-},
+  "keys": ["ctrl+f6"], "command": "toggle_color_scheme",
+  "args":
+  {
+    "color_scheme_1": "Packages/Tomorrow Color Schemes/Tomorrow.tmTheme" ,
+    "color_scheme_2": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme"
+  }
+  },
 
 //Rope key bindings
-    { "keys": ["super+r", "super+d"], "command": "python_get_documentation", "context":
-        [
-            { "key": "selector", "operator": "equal", "operand": "source.python" }
-        ]
-    },
+{ "keys": ["super+r", "super+d"], "command": "python_get_documentation", "context":
+[
+{ "key": "selector", "operator": "equal", "operand": "source.python" }
+]
+},
 
-  { "keys": ["super+v"], "command": "paste_and_indent" }, 
-  { "keys": ["super+shift+v"], "command": "paste" } 
+// Paste and indent
+{ "keys": ["super+v"], "command": "paste_and_indent" }, 
+{ "keys": ["super+shift+v"], "command": "paste" },
+
+// Reindent
+{ "keys": ["f12"], "command": "reindent", "args": {"single_line": false} }
 
 ]

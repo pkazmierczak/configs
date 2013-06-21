@@ -8,12 +8,14 @@
 		"LaTeXTools",
 		"Package Control",
 		"Pandoc Academic",
-		"Prolog",
+		"Play 2.0",
 		"Search Stack Overflow",
+		"SublimeHaskell",
 		"SublimeLinter",
 		"SublimeREPL",
 		"SublimeRope",
-		"Theme - Soda",
-		"Tomorrow Color Schemes"
+		"SublimeTODO",
+		"Tomorrow Color Schemes",
+		"Wrap Plus"
 	]
 }
