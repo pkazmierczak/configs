@@ -51,6 +51,7 @@ set nospell
 autocmd BufNewFile,BufRead *.tex set spell
 
 let g:LatexBox_latexmk_options = "-pdf"
+let g:LatexBox_latexmk_async = 1
 nmap <buffer> <F5>  <Plug>LatexChangeEnv
 vmap <buffer> <F7>  <Plug>LatexWrapSelection
 let g:LatexBox_quickfix = 0

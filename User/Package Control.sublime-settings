@@ -2,15 +2,15 @@
 	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
-		"Emmet",
+		"BracketHighlighter",
 		"Ensime",
 		"Git",
 		"GitGutter",
 		"LaTeXTools",
 		"Package Control",
 		"Pandoc Academic",
+		"PlainTasks",
 		"Play 2.0",
-		"Search Stack Overflow",
 		"SublimeHaskell",
 		"SublimeLinter",
 		"SublimeREPL",

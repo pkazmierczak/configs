@@ -7,5 +7,25 @@
 		"Vintage"
 	],
 	"open_files_in_new_window": false,
-	"remember_open_files": false
+	"remember_open_files": true,
+
+	"todo":
+    {
+        "file_exclude_patterns":[
+            "*.css", "*.po", "*.mo"
+        ],
+        "folder_exclude_patterns": [
+            "static", "vendor", "tmp"
+        ],
+        "patterns":
+        {	
+            "TODO": "TODO[(]*.*[)]*:+(?P<todo>.*)$",
+            "NOTE": "NOTE[(]*.*[)]*:+(?P<note>.*)$",
+            "FIXME": "FIX ?ME[(]*.*[)]*:+(?P<fixme>\\S.*)$",
+            "CHANGED": "CHANGED[(]*.*[)]*:+(?P<changed>\\S.*)$",
+            "BUG": "BUG[(]*.*[)]*:+(?P<bug>.*)$"
+        },
+        "case_sensitive": true,
+        "result_title": "TODO Results"
+    }
 }

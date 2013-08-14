@@ -21,6 +21,8 @@
 { "keys": ["super+shift+v"], "command": "paste" },
 
 // Reindent
-{ "keys": ["f12"], "command": "reindent", "args": {"single_line": false} }
+{ "keys": ["f12"], "command": "reindent", "args": {"single_line": false} },
 
+// ć
+{ "keys": ["super+c"], "command": "plain_tasks_cancel" }
 ]
