@@ -23,6 +23,10 @@
 // Reindent
 { "keys": ["f12"], "command": "reindent", "args": {"single_line": false} },
 
-// ć
-{ "keys": ["super+c"], "command": "plain_tasks_cancel" }
+// ć and ó for PlainTasks
+{ "keys": ["super+alt+c"], "command": "plain_tasks_cancel", "context": [{"key": "selector", "operator": "equal", "operand": "text.todo" }] },
+{ "keys": ["super+alt+o"], "command": "plain_tasks_open_link","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
+{"keys": ["alt+c"], "command": "insert", "args": {"characters": "ć"}, "context": [{"key": "selector", "operator": "equal", "operand": "text.todo" }]},
+{"keys": ["alt+o"], "command": "insert", "args": {"characters": "ó"}, "context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }]}
+
 ]
