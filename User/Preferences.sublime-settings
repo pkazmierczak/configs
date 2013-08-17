@@ -1,6 +1,7 @@
 {
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow.tmTheme",
 	"create_window_at_startup": false,
+	"dictionary": "Packages/Language - English/en_GB.dic",
 	"hot_exit": false,
 	"ignored_packages":
 	[
@@ -8,24 +9,29 @@
 	],
 	"open_files_in_new_window": false,
 	"remember_open_files": true,
-
 	"todo":
-    {
-        "file_exclude_patterns":[
-            "*.css", "*.po", "*.mo"
-        ],
-        "folder_exclude_patterns": [
-            "static", "vendor", "tmp"
-        ],
-        "patterns":
-        {	
-            "TODO": "TODO[(]*.*[)]*:+(?P<todo>.*)$",
-            "NOTE": "NOTE[(]*.*[)]*:+(?P<note>.*)$",
-            "FIXME": "FIX ?ME[(]*.*[)]*:+(?P<fixme>\\S.*)$",
-            "CHANGED": "CHANGED[(]*.*[)]*:+(?P<changed>\\S.*)$",
-            "BUG": "BUG[(]*.*[)]*:+(?P<bug>.*)$"
-        },
-        "case_sensitive": true,
-        "result_title": "TODO Results"
-    }
+	{
+		"case_sensitive": true,
+		"file_exclude_patterns":
+		[
+			"*.css",
+			"*.po",
+			"*.mo"
+		],
+		"folder_exclude_patterns":
+		[
+			"static",
+			"vendor",
+			"tmp"
+		],
+		"patterns":
+		{
+			"BUG": "BUG[(]*.*[)]*:+(?P<bug>.*)$",
+			"CHANGED": "CHANGED[(]*.*[)]*:+(?P<changed>\\S.*)$",
+			"FIXME": "FIX ?ME[(]*.*[)]*:+(?P<fixme>\\S.*)$",
+			"NOTE": "NOTE[(]*.*[)]*:+(?P<note>.*)$",
+			"TODO": "TODO[(]*.*[)]*:+(?P<todo>.*)$"
+		},
+		"result_title": "TODO Results"
+	}
 }

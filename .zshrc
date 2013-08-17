@@ -36,5 +36,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/texbin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 
+# OPAM configuration
+. /Users/piotr/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
