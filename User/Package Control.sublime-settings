@@ -2,7 +2,6 @@
 	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
-		"BracketHighlighter",
 		"Ensime",
 		"Git",
 		"GitGutter",
@@ -10,8 +9,6 @@
 		"Package Control",
 		"Pandoc Academic",
 		"PlainTasks",
-		"Play 2.0",
-		"SublimeHaskell",
 		"SublimeLinter",
 		"SublimeREPL",
 		"SublimeRope",
