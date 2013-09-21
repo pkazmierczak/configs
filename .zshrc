@@ -34,7 +34,7 @@ plugins=(git osx brew sbt scala)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/texbin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
+export PATH=/usr/local/bin:/usr/local/Cellar/ruby/2.0.0-p247/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 

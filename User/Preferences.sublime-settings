@@ -33,5 +33,6 @@
 			"TODO": "TODO[(]*.*[)]*:+(?P<todo>.*)$"
 		},
 		"result_title": "TODO Results"
-	}
+	},
+	"translate_tabs_to_spaces": true
 }
