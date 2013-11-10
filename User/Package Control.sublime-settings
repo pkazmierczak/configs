@@ -3,7 +3,6 @@
 	"installed_packages":
 	[
 		"Ensime",
-		"Git",
 		"GitGutter",
 		"LaTeXTools",
 		"Package Control",
@@ -11,6 +10,7 @@
 		"PlainTasks",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
+		"SublimeGit",
 		"SublimeJava",
 		"SublimeLinter",
 		"SublimeREPL",
