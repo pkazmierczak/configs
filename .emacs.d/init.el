@@ -30,6 +30,8 @@
 
 (setq-default indent-tabs-mode nil)
 
+(setq backup-directory-alist `(("." . "~/.emacs-backups")))
+
 (add-to-list 'load-path
          "~/.emacs.d")
 
