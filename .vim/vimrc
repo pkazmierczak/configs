@@ -32,7 +32,6 @@ nnoremap gj j
 
 " set background=light
 colorscheme solarized
-let g:solarized_contrast="low"    "default value is normal
 " Toggle 'night mode'
 call togglebg#map("<F6>")
 
@@ -55,7 +54,7 @@ let g:LatexBox_latexmk_options = "-pdf"
 let g:LatexBox_latexmk_async = 1
 nmap <buffer> <F5>  <Plug>LatexChangeEnv
 vmap <buffer> <F7>  <Plug>LatexWrapSelection
-"let g:LatexBox_quickfix = 0
+let g:LatexBox_quickfix = 0
 if has("mac")
 	let g:LatexBox_viewer = "open"
 else
@@ -78,5 +77,4 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
-
 

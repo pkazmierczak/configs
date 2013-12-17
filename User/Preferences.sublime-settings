@@ -5,8 +5,7 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage",
-		"SublimeGit"
+		"Vintage"
 	],
 	"open_files_in_new_window": false,
 	"remember_open_files": false,

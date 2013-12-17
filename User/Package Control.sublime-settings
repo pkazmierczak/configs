@@ -3,19 +3,19 @@
 	"installed_packages":
 	[
 		"Ensime",
-		"GitGutter",
+		"Git",
 		"LaTeXTools",
 		"Package Control",
 		"Pandoc Academic",
 		"PlainTasks",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
-		"SublimeGit",
 		"SublimeJava",
 		"SublimeLinter",
 		"SublimeREPL",
 		"SublimeRope",
 		"Tomorrow Color Schemes",
+		"VCS Gutter",
 		"Wrap Plus"
 	]
 }
