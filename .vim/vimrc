@@ -30,7 +30,8 @@ nnoremap gk k
 nnoremap j gj
 nnoremap gj j
 
-" set background=light
+set background=light
+" let g:solarized_contrast = 'low'
 colorscheme solarized
 " Toggle 'night mode'
 call togglebg#map("<F6>")
