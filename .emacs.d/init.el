@@ -41,6 +41,11 @@
 
 (mapc 'install-if-needed to-install)
 
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/usr/texbin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+(setq exec-path (append exec-path '("/usr/texbin")))
+
+
 (fset 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
 (setq inhibit-startup-screen t
@@ -262,15 +267,6 @@
 
 ;;Inserts {} automaticly on _ and ^
 (setq TeX-electric-sub-and-superscript t)
-(cond ((eq system-type 'windows-nt))
-      ((eq system-type 'gnu/linux)
-       (setq TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and gv") (output-dvi "xdvi") (output-pdf "xdg-open") (output-html "xdg-open"))))))
-
-
-
-
-;; (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o")))
-;; (setq TeX-view-program-selection '((output-pdf "Evince")))
 
 
 ;;Loads and sets up reftex
