@@ -4,8 +4,8 @@
   "keys": ["ctrl+f6"], "command": "toggle_color_scheme",
   "args":
   {
-    "color_scheme_1": "Packages/Tomorrow Color Schemes/Tomorrow.tmTheme" ,
-    "color_scheme_2": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme"
+    "color_scheme_1": "Packages/Color Scheme - Default/Solarized (Light).tmTheme" ,
+    "color_scheme_2": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme"
   }
   },
 

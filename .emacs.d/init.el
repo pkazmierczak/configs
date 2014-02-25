@@ -36,8 +36,10 @@
         smex
         undo-tree
         color-theme
+        markdown-mode
         pandoc-mode
-        color-theme-solarized))
+        color-theme-solarized
+        langtool))
 
 (mapc 'install-if-needed to-install)
 
@@ -137,10 +139,8 @@
  '(dynamic-fonts-preferred-monospace-point-size 14)
  '(dynamic-fonts-preferred-proportional-point-size 14)
  '(electric-pair-pairs (quote ((36 . 36) (34 . 34))))
- '(ispell-program-name "aspell")
  '(max-lisp-eval-depth 1500)
  '(max-specpdl-size 3000)
- '(org-agenda-files (quote ("~/Dropbox/agenda.org")))
  '(org-pretty-entities t)
  '(predictive-add-to-dict-ask nil)
  '(predictive-auto-add-min-chars 3)
@@ -190,11 +190,27 @@
     kept-old-versions 2
     version-control t)
 
-(setq org-completion-use-ido t)
-
 ;; spellcheck
-(setq ispell-program-name "aspell" ; use aspell instead of ispell
-      ispell-extra-args '("--sug-mode=ultra"))
+(when (executable-find "hunspell")
+  (setq-default ispell-program-name "hunspell")
+  (setq ispell-really-hunspell t))
+
+;; grammar check
+(require 'langtool)
+(setq langtool-language-tool-jar "/usr/local/Cellar/languagetool/2.3/libexec/languagetool-commandline.jar"
+      langtool-mother-tongue "pl"
+      langtool-disabled-rules '("WHITESPACE_RULE"
+                                "EN_UNPAIRED_BRACKETS"
+                                "COMMA_PARENTHESIS_WHITESPACE"
+                                "EN_QUOTES"))
+
+;; Markdown and Pandoc
+(autoload 'markdown-mode "markdown-mode"
+       "Major mode for editing Markdown files" t)
+    (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+    (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(load "pandoc-mode")
+(add-hook 'markdown-mode-hook 'turn-on-pandoc)
 
 ;;Enables awesome file-finding
 (require 'ido)                      ; ido is part of emacs 
