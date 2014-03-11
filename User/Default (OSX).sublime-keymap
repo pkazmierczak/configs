@@ -1,13 +1,15 @@
 [
-//Color scheme switcher
+//Theme switcher
 {  
-  "keys": ["ctrl+f6"], "command": "toggle_color_scheme",
+  "keys": ["ctrl+f6"], "command": "toggle_theme",
   "args":
   {
-    "color_scheme_1": "Packages/Color Scheme - Default/Solarized (Light).tmTheme" ,
-    "color_scheme_2": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme"
+    "color_scheme_1": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme" ,
+    "color_scheme_2": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+    "theme_1": "Spacegray Light.sublime-theme",
+    "theme_2": "Spacegray.sublime-theme"
   }
-  },
+},
 
 //Rope key bindings
 { "keys": ["super+r", "super+d"], "command": "python_get_documentation", "context":
