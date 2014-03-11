@@ -1,14 +1,17 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme",
 	"create_window_at_startup": false,
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage"
+		"PlainTasks",
+		"Vintage",
+		"GitCommitMsg"
 	],
 	"open_files_in_new_window": false,
 	"remember_open_files": false,
+	"theme": "Spacegray Light.sublime-theme",
 	"todo":
 	{
 		"case_sensitive": true,

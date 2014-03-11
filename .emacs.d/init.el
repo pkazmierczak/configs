@@ -53,6 +53,8 @@
 (setq inhibit-startup-screen t
       initial-scratch-message "*scratch*\n\n")
 
+(global-set-key [f5] 'buffer-menu);; menu buforow
+
 (setq echo-keystrokes 0.4
       debug-on-error nil
       stack-trace-on-error nil
@@ -75,7 +77,7 @@
 (require 'autopair)
 (require 'yasnippet)
 (require 'flycheck)
-(global-flycheck-mode t)
+;(global-flycheck-mode t)
 
 (global-set-key [f7] 'find-file-in-repository)
 
@@ -314,6 +316,31 @@
 	LaTeX-section-section
 	LaTeX-section-label))
 
+; auto-fill is enabled for TeX...
+(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+; ...unless I work with the gang
+(defun my-auto-fill-disabling-hook ()
+  "Check to see if we should disable autofill."
+  (save-excursion
+    (when (or (re-search-forward "truls" 1000 t)
+              (re-search-forward "sjur" 1000 t)
+              (re-search-forward "erik" 1000 t))
+      (auto-fill-mode -1))))
+(add-hook 'find-file-hooks 'my-auto-fill-disabling-hook)
+ 
+;(add-hook 'LaTeX-mode-hook 'flymake-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-buffer)
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook 'flyspell-buffer)
+
+(setq flyspell-issue-message-flag nil)
+
+; http://stackoverflow.com/questions/8847952/is-it-possible-to-disable-a-minor-mode-e-g-flyspell-on-a-per-file-basis
+(defun my-no-flyspell-mode (&optional rest)
+  (flyspell-mode -1))
+
+
 ;;Lets reftex know what new enviorments I have, and what labels it should make
 (setq reftex-label-alist
       '(("lemma"   ?l "lem:"  "~\\ref{%s}" t ("lemma"   "lm.") -3)
@@ -345,6 +372,35 @@
 	     '("quote"	 LaTeX-env-label)
 	     '("proposition"  LaTeX-env-label)
 	     '("axiom" LaTeX-env-label))))
+;; Magic space by Michal Jankowski <michalj@fuw.edu.pl>
+;; 'Ręcznie' można ją włączyć za pomocą M-x local-set-key SPC tex-magic-space.
+;; Można też użyć funkcji tex-toggle-magic-space, przypisanej do C-c SPC.
+(defun tex-magic-space ()
+  "Magic-space - inserts non-breakable space after a single-letter word."
+  (interactive)
+  (if (string-match
+       "^\\(\\s \\|~\\)?[aeiouwz]$"
+       (buffer-substring (max (point-min) (- (point) 2)) (point)))
+      (insert "~")
+    (insert " ")
+    (and auto-fill-function
+         (funcall auto-fill-function))))
+
+;; Przypisuje/wyłącza przypisanie tex-magic-space do spacji,
+;; (przydatne przy pisaniu matematyki), tylko dla trybów LaTeX-owych
+(defun tex-toggle-magic-space ()
+  "Toggles TeX magic space, which inserts non-breakable space after a single-letter word"
+  (interactive)
+;   (if (local-key-binding " " 'tex-magic-space)
+;      (local-unset-key " ")
+;     (local-set-key " " tex-magic-space)
+  (progn
+    (if (equal (lookup-key TeX-mode-map " ") 'tex-magic-space)
+	(progn
+	  (define-key TeX-mode-map " " nil)
+	  (local-unset-key " ")) ; to be sure
+      (define-key TeX-mode-map " " 'tex-magic-space))
+    (message "SPC is binded to %s" (lookup-key TeX-mode-map " "))))
 
 (setq
  ;reftex-cite-format 'natbib
