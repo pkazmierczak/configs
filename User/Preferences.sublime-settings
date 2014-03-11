@@ -1,13 +1,13 @@
 {
 	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme",
 	"create_window_at_startup": false,
+	"font_face": "Source Code Pro",
+	"font_size": 14,
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"PlainTasks",
-		"Vintage",
-		"GitCommitMsg"
+		"Vintage"
 	],
 	"open_files_in_new_window": false,
 	"remember_open_files": false,
