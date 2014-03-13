@@ -104,7 +104,7 @@
 
 ;; if you need to change your python intepreter, if you want to change it
 (setq jedi:server-command
-      '("/usr/local/bin/python2" "/Users/piotr/.emacs.d/elpa/jedi-20140204.2226/jediepcserver.py"))
+      '("/usr/bin/python" "/Users/piotr/.emacs.d/elpa/jedi-20140204.2226/jediepcserver.py"))
 
 (add-hook 'python-mode-hook
       (lambda ()
