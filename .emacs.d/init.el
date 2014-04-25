@@ -11,7 +11,7 @@
 (add-to-list 'package-archives
          '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
-(package-refresh-contents)
+;(package-refresh-contents)
 
 (defun install-if-needed (package)
   (unless (package-installed-p package)
@@ -122,6 +122,36 @@
 ;; -------------------- extra nice things --------------------
 ;; use shift to move around windows
 (windmove-default-keybindings 'shift)
+;;; ======================================================================
+;;;; Full-screen hacks and other stuff by Truls
+
+(global-set-key [f11] 'fullscreen)
+
+(defun fullscreen (&optional f)
+  (interactive)
+  (menu-bar-mode 1)
+  (tool-bar-mode 0)
+  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+                         '(2 "_NET_WM_STATE_FULLSCREEN" 0))
+  )
+
+(global-set-key (kbd "s--") 'shrink-window-if-larger-than-buffer)
+
+(global-set-key [C-s-left] (lambda () (interactive) 
+                             (shrink-window-horizontally 5) ) )
+(global-set-key [C-s-right] (lambda () (interactive)
+                              (shrink-window-horizontally -5) ) )
+(global-set-key [C-s-up] (lambda () (interactive) (shrink-window 5) ))
+(global-set-key [C-s-down] (lambda () (interactive) (shrink-window -5) ) )
+
+(global-set-key [s-left]  (lambda () (interactive) (other-window -1)) )
+(global-set-key [s-right] (lambda () (interactive) (other-window  1)) )
+
+(when (equal system-type 'darwin)
+  (global-set-key [A-left]  (lambda () (interactive) (other-window -1)))
+  (global-set-key [A-right] (lambda () (interactive) (other-window 1)))
+)
+
 (show-paren-mode t)
  ; Turn beep off
 (setq visible-bell nil)

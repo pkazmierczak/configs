@@ -12,5 +12,5 @@ class ToggleThemeCommand(sublime_plugin.TextCommand):
 
         new_scheme = scheme1 if current_scheme == scheme2 else scheme2
         self.view.settings().set("color_scheme", new_scheme)
-        new_theme  = theme1 if current_theme == theme2 else theme2
+        new_theme  = theme1 if current_theme  == theme2 else theme2
         self.view.settings().set("theme", new_theme)
