@@ -2,13 +2,12 @@
 	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
-		"Ensime",
 		"Git",
 		"LaTeXTools",
+		"MarkdownEditing",
 		"Package Control",
 		"Pandoc Academic",
 		"Pandown",
-		"PlainTasks",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
 		"SublimeJava",
@@ -17,7 +16,6 @@
 		"SublimeRope",
 		"Theme - Spacegray",
 		"Tomorrow Color Schemes",
-		"VCS Gutter",
-		"Wrap Plus"
+		"VCS Gutter"
 	]
 }
