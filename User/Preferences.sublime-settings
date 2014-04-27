@@ -3,7 +3,7 @@
 	"create_window_at_startup": false,
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"font_face": "Source Code Pro",
-	"font_size": 14,
+	"font_size": 10,
 	"hot_exit": false,
 	"ignored_packages":
 	[

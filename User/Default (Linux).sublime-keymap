@@ -1,7 +1,7 @@
 [
 //Color scheme switcher
 {  
-    "keys": ["ctrl+f6"], "command": "toggle_color_scheme",
+    "keys": ["ctrl+f6"], "command": "toggle_theme",
     "args":
     {
         "color_scheme_1": "Packages/Color Scheme - Default/Solarized (Light).tmTheme" ,
