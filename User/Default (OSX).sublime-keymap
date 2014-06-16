@@ -2,13 +2,18 @@
 //Theme switcher
 {  
   "keys": ["ctrl+f6"], "command": "toggle_theme",
-  "args":
-  {
-    "color_scheme_1": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme" ,
-    "color_scheme_2": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
-    "theme_1": "Spacegray Light.sublime-theme",
-    "theme_2": "Spacegray.sublime-theme"
-  }
+  "args": {
+        "options": [
+            {
+              "color_scheme": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme" ,
+              "theme": "Spacegray Light.sublime-theme"
+            },
+            {
+              "color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+              "theme": "Spacegray.sublime-theme"
+            }
+        ]
+      }
 },
 
 //Rope key bindings
@@ -23,12 +28,6 @@
 { "keys": ["super+shift+v"], "command": "paste" },
 
 // Reindent
-{ "keys": ["f12"], "command": "reindent", "args": {"single_line": false} },
-
-// ć and ó for PlainTasks
-{ "keys": ["super+alt+c"], "command": "plain_tasks_cancel", "context": [{"key": "selector", "operator": "equal", "operand": "text.todo" }] },
-{ "keys": ["super+alt+o"], "command": "plain_tasks_open_link","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
-{ "keys": ["alt+c"], "command": "insert", "args": {"characters": "ć"}, "context": [{"key": "selector", "operator": "equal", "operand": "text.todo" }]},
-{ "keys": ["alt+o"], "command": "insert", "args": {"characters": "ó"}, "context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }]}
+{ "keys": ["f12"], "command": "reindent", "args": {"single_line": false} }
 
 ]
