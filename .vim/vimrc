@@ -1,5 +1,18 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Vundles!
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
 
 set number
 set vb t_vb=
