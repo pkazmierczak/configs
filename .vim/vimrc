@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -13,10 +12,19 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Vim-R-plugin'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 set number
 set vb t_vb=
 set smartindent
+set clipboard=unnamed        " yank and paste with the system clipboard
+
 set ts=2 sts=2 sw=2 expandtab tw=72
 if has("mac")
 	set guifont=Monaco:h12
@@ -27,9 +35,6 @@ set laststatus=2
 syntax on
 
 set autochdir
-
-filetype plugin on
-filetype indent on
 
 " trying to learn hjkl...
 noremap <Up> <Nop>
@@ -51,6 +56,13 @@ call togglebg#map("<F6>")
 
 " set powerline to display only short filenames
 let g:Powerline_stl_path_style = 'filename'
+
+" Ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.m4a,*.pdf
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Source the vimrc file after saving it
 if has("autocmd")
