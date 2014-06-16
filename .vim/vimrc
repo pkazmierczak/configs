@@ -16,6 +16,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Vim-R-plugin'
+Plugin 'sjl/gundo.vim'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -27,7 +29,7 @@ set clipboard=unnamed        " yank and paste with the system clipboard
 
 set ts=2 sts=2 sw=2 expandtab tw=72
 if has("mac")
-	set guifont=Monaco:h12
+	set guifont=Source\ Code\ Pro:h14
 else
 	set guifont=Inconsolata\ 11
 endif
