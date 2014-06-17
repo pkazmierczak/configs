@@ -18,6 +18,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Vim-R-plugin'
 Plugin 'sjl/gundo.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'snipMate'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -74,10 +76,11 @@ endif
 au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
 set complete+=k
 
-" Spelling only for tex files
+" LaTeX
 set nospell
 autocmd BufNewFile,BufRead *.tex set spell
-
+set conceallevel=2
+let g:tex_conceal= 'adgms'
 let g:LatexBox_latexmk_options = "-pdf"
 let g:LatexBox_latexmk_async = 1
 nmap <buffer> <F5>  <Plug>LatexChangeEnv
