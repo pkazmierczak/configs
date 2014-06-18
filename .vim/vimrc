@@ -20,6 +20,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'snipMate'
 Plugin 'tpope/vim-surround'
+Plugin 'jonathanfilip/vim-lucius'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -52,11 +53,22 @@ nnoremap gk k
 nnoremap j gj
 nnoremap gj j
 
-set background=light
+" set background=light
+" colorscheme solarized
 " let g:solarized_contrast = 'low'
-colorscheme solarized
-" Toggle 'night mode'
-call togglebg#map("<F6>")
+" " Toggle 'night mode'
+" call togglebg#map("<F6>")
+colorscheme lucius 
+let g:lucius_style = 'light'
+nnoremap <F6> :call ToggleColor()<cr>
+
+function! ToggleColor()
+    if (g:lucius_style == 'light')
+        LuciusDark
+    else
+        LuciusLight
+    endif
+endfunction
 
 " set powerline to display only short filenames
 let g:Powerline_stl_path_style = 'filename'
