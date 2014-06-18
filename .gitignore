@@ -1,6 +1,7 @@
 .emacs.d/elpa/*
 .emacs.d/org/*
 .emacs.d/auto-save-list*
+.vim/bundle/
 *~
 *.swp
 dist
