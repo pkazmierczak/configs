@@ -20,7 +20,11 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'snipMate'
 Plugin 'tpope/vim-surround'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'TaskList.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -29,6 +33,8 @@ set number
 set vb t_vb=
 set smartindent
 set clipboard=unnamed        " yank and paste with the system clipboard
+set guioptions-=L            " no scrollbars
+set guioptions-=r            " no scrollbars
 
 set ts=2 sts=2 sw=2 expandtab tw=72
 if has("mac")
@@ -41,42 +47,43 @@ syntax on
 
 set autochdir
 
-" trying to learn hjkl...
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
 " I think this is better for latex
 nnoremap k gk
 nnoremap gk k
 nnoremap j gj
 nnoremap gj j
 
-nnoremap u GundoToggle
+nnoremap U :GundoToggle<cr>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <F7> :Goyo<CR>
 
-colorscheme lucius 
-let g:lucius_style = 'light'
-nnoremap <F6> :call ToggleColor()<cr>
+" colorscheme lucius 
+" let g:lucius_style = 'light'
+" nnoremap <F6> :call ToggleColor()<cr>
+" 
+" function! ToggleColor()
+"     if (g:lucius_style == 'light')
+"         LuciusDark
+"     else
+"         LuciusLight
+"     endif
+" endfunction
 
-function! ToggleColor()
-    if (g:lucius_style == 'light')
-        LuciusDark
-    else
-        LuciusLight
-    endif
-endfunction
+set background=light
+" let g:solarized_contrast = 'low'
+colorscheme solarized
+" Toggle 'night mode'
+call togglebg#map("<F6>")
 
 " set powerline to display only short filenames
 let g:Powerline_stl_path_style = 'filename'
 
 " Ctrlp
-" let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = '0'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.m4a,*.pdf
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-nnoremap <c-p> :CtrlP /Users/piotr/Documents
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -89,7 +96,7 @@ set complete+=k
 " LaTeX
 set nospell
 autocmd BufNewFile,BufRead *.tex set spell
-" set conceallevel=2
+set conceallevel=2
 let g:tex_conceal= 'adgms'
 let g:LatexBox_latexmk_options = "-pdf"
 let g:LatexBox_latexmk_async = 1
@@ -104,17 +111,6 @@ endif
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['tex'] }
-
-" Append modeline after last line in buffer.
-" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
-" files.
-function! AppendModeline()
-  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
-        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
-  call append(line("$"), l:modeline)
-endfunction
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
