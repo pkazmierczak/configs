@@ -10,7 +10,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
@@ -21,6 +20,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'snipMate'
 Plugin 'tpope/vim-surround'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'TaskList.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -53,11 +53,8 @@ nnoremap gk k
 nnoremap j gj
 nnoremap gj j
 
-" set background=light
-" colorscheme solarized
-" let g:solarized_contrast = 'low'
-" " Toggle 'night mode'
-" call togglebg#map("<F6>")
+nnoremap u GundoToggle
+
 colorscheme lucius 
 let g:lucius_style = 'light'
 nnoremap <F6> :call ToggleColor()<cr>
@@ -74,11 +71,12 @@ endfunction
 let g:Powerline_stl_path_style = 'filename'
 
 " Ctrlp
-let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = '0'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.m4a,*.pdf
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+nnoremap <c-p> :CtrlP /Users/piotr/Documents
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -91,7 +89,7 @@ set complete+=k
 " LaTeX
 set nospell
 autocmd BufNewFile,BufRead *.tex set spell
-set conceallevel=2
+" set conceallevel=2
 let g:tex_conceal= 'adgms'
 let g:LatexBox_latexmk_options = "-pdf"
 let g:LatexBox_latexmk_async = 1
