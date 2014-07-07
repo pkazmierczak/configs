@@ -11,12 +11,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Vim-R-plugin'
 Plugin 'sjl/gundo.vim'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'snipMate'
 Plugin 'tpope/vim-surround'
 Plugin 'jonathanfilip/vim-lucius'
@@ -25,6 +21,7 @@ Plugin 'TaskList.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'kshenoy/vim-signature'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -57,6 +54,11 @@ nnoremap U :GundoToggle<cr>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F7> :Goyo<CR>
 
+" insert empty line without entering insert mode
+" http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 " colorscheme lucius 
 " let g:lucius_style = 'light'
 " nnoremap <F6> :call ToggleColor()<cr>
@@ -77,13 +79,6 @@ call togglebg#map("<F6>")
 
 " set powerline to display only short filenames
 let g:Powerline_stl_path_style = 'filename'
-
-" Ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = '0'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.m4a,*.pdf
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Source the vimrc file after saving it
 if has("autocmd")
