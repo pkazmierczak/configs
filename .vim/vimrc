@@ -13,15 +13,14 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
-Plugin 'snipMate'
 Plugin 'tpope/vim-surround'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'TaskList.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'kshenoy/vim-signature'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,28 +53,33 @@ nnoremap U :GundoToggle<cr>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F7> :Goyo<CR>
 
+" fugitive!
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
+
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
-" colorscheme lucius 
-" let g:lucius_style = 'light'
-" nnoremap <F6> :call ToggleColor()<cr>
-" 
-" function! ToggleColor()
-"     if (g:lucius_style == 'light')
-"         LuciusDark
-"     else
-"         LuciusLight
-"     endif
-" endfunction
+colorscheme lucius 
+let g:lucius_style = 'light'
+nnoremap <F6> :call ToggleColor()<cr>
 
-set background=light
-" let g:solarized_contrast = 'low'
-colorscheme solarized
-" Toggle 'night mode'
-call togglebg#map("<F6>")
+function! ToggleColor()
+    if (g:lucius_style == 'light')
+        LuciusDark
+    else
+        LuciusLight
+    endif
+endfunction
+
+" set background=light
+" " let g:solarized_contrast = 'low'
+" colorscheme solarized
+" " Toggle 'night mode'
+" call togglebg#map("<F6>")
 
 " set powerline to display only short filenames
 let g:Powerline_stl_path_style = 'filename'
@@ -91,10 +95,11 @@ set complete+=k
 " LaTeX
 set nospell
 autocmd BufNewFile,BufRead *.tex set spell
-set conceallevel=2
+set conceallevel=0
 let g:tex_conceal= 'adgms'
 let g:LatexBox_latexmk_options = "-pdf"
 let g:LatexBox_latexmk_async = 1
+let g:LatexBox_fold_toc = 0
 nmap <buffer> <F5>  <Plug>LatexChangeEnv
 vmap <buffer> <F7>  <Plug>LatexWrapSelection
 let g:LatexBox_quickfix = 0
@@ -106,6 +111,9 @@ endif
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['tex'] }
+let g:syntastic_quiet_messages = { "level": "warnings",
+                                 \ "type":  "style",}
+
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
