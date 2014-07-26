@@ -57,6 +57,7 @@ nnoremap <F7> :Goyo<CR>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gp :Git push<cr>
 
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
