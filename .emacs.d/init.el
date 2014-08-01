@@ -22,7 +22,7 @@
       '(python-mode 
         magit 
         yasnippet 
-        jedi 
+        jedi
         auto-complete 
         autopair 
         find-file-in-repository 
@@ -39,7 +39,8 @@
         markdown-mode
         pandoc-mode
         color-theme-solarized
-        langtool))
+        git-timemachine
+        rainbow-delimiters))
 
 (mapc 'install-if-needed to-install)
 
@@ -197,15 +198,6 @@
   (setq-default ispell-program-name "hunspell")
   (setq ispell-really-hunspell t))
 
-;; grammar check
-(require 'langtool)
-(setq langtool-language-tool-jar "/usr/local/Cellar/languagetool/2.3/libexec/languagetool-commandline.jar"
-      langtool-mother-tongue "pl"
-      langtool-disabled-rules '("WHITESPACE_RULE"
-                                "EN_UNPAIRED_BRACKETS"
-                                "COMMA_PARENTHESIS_WHITESPACE"
-                                "EN_QUOTES"))
-
 ;; Markdown and Pandoc
 (autoload 'markdown-mode "markdown-mode"
        "Major mode for editing Markdown files" t)
@@ -241,7 +233,6 @@
 
 (require 'color-theme)
 (load-theme 'solarized-light t)
-
 
 ;; TeX
 (require 'tex-site)
@@ -282,10 +273,6 @@
 
 ;;Compile to pdf
 (setq TeX-PDF-mode t)
-
-;;Inserts {} automaticly on _ and ^
-(setq TeX-electric-sub-and-superscript t)
-
 
 ;;Loads and sets up reftex
 (autoload 'reftex-mode "reftex" "RefTeX Minor Mode" t)
