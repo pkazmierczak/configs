@@ -9,7 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
@@ -37,7 +37,7 @@ set guioptions-=r            " no scrollbars
 
 set ts=2 sts=2 sw=2 expandtab tw=72
 if has("mac")
-	set guifont=Source\ Code\ Pro:h14
+	set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 else
 	set guifont=Inconsolata\ 11
 endif
@@ -85,9 +85,6 @@ endfunction
 " " Toggle 'night mode'
 " call togglebg#map("<F6>")
 
-" set powerline to display only short filenames
-let g:Powerline_stl_path_style = 'filename'
-
 " Source the vimrc file after saving it
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
@@ -95,6 +92,12 @@ endif
 
 au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
 set complete+=k
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='lucius'
+let g:airline#extensions#whitespace#enabled = 0
 
 " LaTeX
 set nospell
