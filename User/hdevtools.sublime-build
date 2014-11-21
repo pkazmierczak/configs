@@ -1,5 +1,0 @@
-{
-  "cmd": ["/Users/piotr/Library/Haskell/bin/hdevtools", "check", "-g", "-Wall", "$file"],
-  "file_regex": "^(.*?):(\\d+):(\\d+):",
-  "selector": "source.haskell"
-}

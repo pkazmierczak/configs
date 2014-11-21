@@ -2,20 +2,25 @@
 	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
-		"Enhanced-R",
+		"Anaconda",
+		"Djaneiro",
+		"Emmet",
 		"Git",
+		"GitGutter",
 		"LaTeXTools",
 		"Line Endings Unify",
+		"Markdown Preview",
 		"MarkdownEditing",
 		"Package Control",
 		"Pandown",
+		"requirementstxt",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
 		"SublimeLinter",
+		"SublimeLinter-pep8",
 		"SublimeREPL",
 		"SublimeRope",
 		"Theme - Spacegray",
-		"Tomorrow Color Schemes",
-		"VCS Gutter"
+		"Tomorrow Color Schemes"
 	]
 }
