@@ -40,7 +40,8 @@
         pandoc-mode
         color-theme-solarized
         git-timemachine
-        rainbow-delimiters))
+        rainbow-delimiters
+        cider))
 
 (mapc 'install-if-needed to-install)
 

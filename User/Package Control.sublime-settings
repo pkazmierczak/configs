@@ -3,12 +3,13 @@
 	"installed_packages":
 	[
 		"Anaconda",
-		"Djaneiro",
-		"Emmet",
+		"BracketHighlighter",
+		"Enhanced Clojure",
 		"Git",
 		"GitGutter",
 		"LaTeXTools",
 		"Line Endings Unify",
+		"lispindent",
 		"Markdown Preview",
 		"MarkdownEditing",
 		"Package Control",
@@ -18,7 +19,6 @@
 		"SublimeLinter",
 		"SublimeLinter-pep8",
 		"SublimeREPL",
-		"Theme - Spacegray",
-		"Tomorrow Color Schemes"
+		"Theme - Spacegray"
 	]
 }
