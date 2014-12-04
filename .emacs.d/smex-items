@@ -1,0 +1,16 @@
+
+;; ----- smex-history -----
+(
+ cider-jack-in
+ cd
+ 5x5
+ arp
+ dbx
+ dig
+ erc
+)
+
+;; ----- smex-data -----
+(
+ (cider-jack-in . 1)
+)

@@ -52,6 +52,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 (setq inhibit-startup-screen t
       initial-scratch-message "*scratch*\n\n")
 

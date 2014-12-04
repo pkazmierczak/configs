@@ -30,6 +30,7 @@ Plugin 'guns/vim-clojure-highlight'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-leiningen'
+Plugin 'vim-scripts/paredit.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -67,6 +68,9 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
+
+" rainbows!
+nnoremap <leader>rr :RainbowParenthesesToggle<cr>
 
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
