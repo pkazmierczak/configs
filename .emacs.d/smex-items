@@ -1,16 +1,20 @@
 
 ;; ----- smex-history -----
 (
+ clojure-mode
+ rainbow-delimiters-mode
+ paredit-mode
+ package-install
  cider-jack-in
  cd
  5x5
- arp
- dbx
- dig
- erc
 )
 
 ;; ----- smex-data -----
 (
  (cider-jack-in . 1)
+ (rainbow-delimiters-mode . 3)
+ (package-install . 1)
+ (paredit-mode . 1)
+ (clojure-mode . 1)
 )

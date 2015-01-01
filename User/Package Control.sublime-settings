@@ -1,23 +1,29 @@
 {
 	"auto_upgrade_last_run": null,
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
-		"Anaconda",
 		"BracketHighlighter",
 		"Enhanced Clojure",
 		"Git",
 		"GitGutter",
-		"LaTeXTools",
 		"Line Endings Unify",
 		"lispindent",
 		"Markdown Preview",
 		"MarkdownEditing",
 		"Package Control",
 		"Pandown",
+		"paredit",
 		"requirementstxt",
 		"SideBarEnhancements",
 		"SublimeLinter",
-		"SublimeLinter-pep8",
 		"SublimeREPL",
 		"Theme - Spacegray"
 	]
