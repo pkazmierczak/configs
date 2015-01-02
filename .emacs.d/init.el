@@ -37,18 +37,25 @@
         markdown-mode
         pandoc-mode
         color-theme-solarized
+        git-gutter
         git-timemachine
         rainbow-delimiters
         cider
         ac-slime
         clojure-mode
-        paredit))
+        paredit
+        company))
 
 (mapc 'install-if-needed to-install)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-screen t
       initial-scratch-message "*scratch*\n\n")
+
+;;; PATH
+(add-to-list 'exec-path "/usr/local/bin")
+
+
 
 ;;; FONTS
 (when (eq system-type 'darwin)
@@ -67,6 +74,8 @@
 ;;; Buffer menu
 (global-set-key [f5] 'buffer-menu)
 
+
+;;; Interface and other customizations
 (setq echo-keystrokes 0.4
       debug-on-error nil
       stack-trace-on-error nil
@@ -80,22 +89,16 @@
       scroll-conservatively 10000
       scroll-preserve-screen-position 1)
 
+(global-hl-line-mode +1)
+(global-prettify-symbols-mode +1)
+(line-number-mode 1)
+(column-number-mode 1)
+
 (setq-default comment-column 42
 	      fill-column 78
 	      indent-tabs-mode nil
 	      tab-width 4
 	      word-wrap t)
-
-(show-paren-mode t)
-
-(require 'magit)
-(global-set-key "\C-xg" 'magit-status)
-
-
-;; use shift to move around windows
-(windmove-default-keybindings 'shift)
- ; Turn beep off
-(setq visible-bell nil)
 
 (custom-set-variables
  '(column-number-mode t)
@@ -104,11 +107,8 @@
  '(max-specpdl-size 3000)
  '(org-pretty-entities t)
  '(show-paren-mode t)
- '(tool-bar-mode nil)
  '(which-function-mode t))
 
-(line-number-mode 1)
-(column-number-mode 1)
 
 ;; backups
 (setq
@@ -119,10 +119,24 @@
     kept-old-versions 2
     version-control t)
 
+
+;; GIT
+(require 'magit)
+(require 'git-gutter)
+(global-set-key "\C-xg" 'magit-status)
+(global-git-gutter-mode +1)
+
+;; use shift to move around windows
+(windmove-default-keybindings 'shift)
+
+
+
 ;; spellcheck
 (when (executable-find "hunspell")
   (setq-default ispell-program-name "hunspell")
   (setq ispell-really-hunspell t))
+
+
 
 ;; Markdown and Pandoc
 (autoload 'markdown-mode "markdown-mode"
@@ -131,6 +145,8 @@
     (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (load "pandoc-mode")
 (add-hook 'markdown-mode-hook 'turn-on-pandoc)
+
+
 
 ;;Enables awesome file-finding
 (require 'ido)                      ; ido is part of emacs 
@@ -143,11 +159,15 @@
 (if (require 'ido-ubiquitous "ido-ubiquitous" t)
     (setf ido-ubiquitous t))
 
+
+
 ;;When opening several buffers with different names, this gives them different
 ;;names based on their folder
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+
+
 
 ;;Super M-x, a supercharged M-x mode, much like ido, only for M-x
 (require 'smex)
@@ -155,7 +175,11 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
+
+;; Undo!
 (require 'undo-tree)
+(global-undo-tree-mode)
+
 
 
 ;; COLOR THEME
@@ -175,7 +199,14 @@
                     )
                   (color-theme-solarized dark-or-light)))
 
+
+
 ;;; Clojure!
-(global-set-key (kbd "C-c C-j") 'clojure-jack-in)
+(global-set-key (kbd "C-c C-j") 'cider-jack-in)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(setq nrepl-log-messages t)
+(setq nrepl-hide-special-buffers t)
+(add-hook 'cider-repl-mode-hook 'company-mode)
+(add-hook 'cider-mode-hook 'company-mode)

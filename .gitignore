@@ -1,6 +1,8 @@
 .emacs.d/elpa/*
 .emacs.d/org/*
 .emacs.d/auto-save-list*
+ido.last
+smex-items
 .vim/bundle/
 *~
 *.swp
