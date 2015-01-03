@@ -2,6 +2,8 @@
 .emacs.d/org/*
 .emacs.d/auto-save-list*
 ido.last
+.org-id-locations
+recentf
 smex-items
 .vim/bundle/
 *~

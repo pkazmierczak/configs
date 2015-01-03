@@ -84,7 +84,7 @@
       grep-scroll-output t
       ;;; Smooth scrolling
       redisplay-dont-pause t
-      scroll-margin 5
+      scroll-margin 10
       scroll-step 1
       scroll-conservatively 10000
       scroll-preserve-screen-position 1)
