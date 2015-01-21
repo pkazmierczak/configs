@@ -10,8 +10,8 @@
 	],
 	"installed_packages":
 	[
+		"Anaconda",
 		"BracketHighlighter",
-		"Enhanced Clojure",
 		"Git",
 		"GitGutter",
 		"Line Endings Unify",
@@ -20,11 +20,10 @@
 		"MarkdownEditing",
 		"Package Control",
 		"Pandown",
-		"paredit",
 		"requirementstxt",
+		"SCSS",
 		"SideBarEnhancements",
 		"SublimeLinter",
-		"SublimeREPL",
 		"Theme - Spacegray"
 	]
 }
