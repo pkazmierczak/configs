@@ -74,6 +74,10 @@ nnoremap <leader>gp :Git push<cr>
 nnoremap <leader>rr :RainbowParenthesesToggle<cr>
 nnoremap <leader>ee :%Eval<cr>
 
+" Python
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 nmap <S-Enter> O<Esc>
