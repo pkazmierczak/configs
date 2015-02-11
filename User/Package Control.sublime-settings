@@ -3,27 +3,23 @@
 	"in_process_packages":
 	[
 	],
-	"installed_dependencies":
-	[
-		"0_package_control_loader",
-		"bz2"
-	],
 	"installed_packages":
 	[
 		"Anaconda",
 		"BracketHighlighter",
+		"ChangeList",
+		"DashDoc",
 		"Git",
 		"GitGutter",
+		"Highlight",
 		"Line Endings Unify",
-		"lispindent",
-		"Markdown Preview",
-		"MarkdownEditing",
 		"Package Control",
-		"Pandown",
 		"requirementstxt",
+		"ScalaWorksheet",
 		"SCSS",
 		"SideBarEnhancements",
 		"SublimeLinter",
+		"Theme - Piatto",
 		"Theme - Spacegray"
 	]
 }
