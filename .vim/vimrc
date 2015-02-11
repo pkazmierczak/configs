@@ -24,6 +24,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'klen/python-mode'
+Plugin 'Valloric/YouCompleteMe'
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
@@ -72,6 +73,10 @@ nnoremap <leader>gp :Git push<cr>
 " Clojure
 nnoremap <leader>rr :RainbowParenthesesToggle<cr>
 nnoremap <leader>ee :%Eval<cr>
+
+" Python
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
 
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
