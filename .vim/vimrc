@@ -15,8 +15,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'junegunn/goyo.vim'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
@@ -32,6 +30,10 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
 " Plugin 'tpope/vim-leiningen'
 Plugin 'vim-scripts/paredit.vim'
+" colors
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'reedes/vim-colors-pencil'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
