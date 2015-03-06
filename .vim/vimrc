@@ -1,5 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -15,10 +15,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'junegunn/goyo.vim'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'kshenoy/vim-signature'
+Plugin 'kshenoy/vim-signature' "for displaying marks
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'klen/python-mode'
@@ -64,7 +63,6 @@ nnoremap gj j
 
 nnoremap U :GundoToggle<cr>
 nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <F7> :Goyo<CR>
 
 " fugitive!
 nnoremap <leader>gw :Gwrite<cr>
@@ -79,23 +77,34 @@ nnoremap <leader>ee :%Eval<cr>
 " Python
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_warnings = 0
+let g:pymode_trim_whitespaces = 1
+let g:pymode_folding = 0
+let g:pymode_lint_checkers = ['pyflake']
+let g:pymode_lint_ignore = "W"
+let g:pymode_lint_cwindow = 0
+let g:pymode_virtualenv = 1
 
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
-colorscheme lucius 
-let g:lucius_style = 'light'
-nnoremap <F6> :call ToggleColor()<cr>
+colorscheme pencil
+set background=light
+call togglebg#map("<F6>")
 
-function! ToggleColor()
-    if (g:lucius_style == 'light')
-        LuciusDark
-    else
-        LuciusLight
-    endif
-endfunction
+" colorscheme lucius 
+" let g:lucius_style = 'light'
+" nnoremap <F6> :call ToggleColor()<cr>
+" 
+" function! ToggleColor()
+"     if (g:lucius_style == 'light')
+"         LuciusDark
+"     else
+"         LuciusLight
+"     endif
+" endfunction
 
 " set background=light
 " " let g:solarized_contrast = 'low'
@@ -114,7 +123,7 @@ set complete+=k
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='lucius'
+let g:airline_theme='pencil'
 let g:airline#extensions#whitespace#enabled = 0
 
 " LaTeX
