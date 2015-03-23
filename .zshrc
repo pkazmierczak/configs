@@ -40,6 +40,8 @@ LEIN_FAST_TRAMPOLINE=y
 export LEIN_FAST_TRAMPOLINE
 alias cljsbuild="lein trampoline cljsbuild $@"
 
+GOPATH=/Users/piotr/devel/gocode
+export GOPATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 

@@ -27,3 +27,5 @@ Package Control.system-ca-bundle
 *.dat
 
 .emacs.d/url/cookies
+
+*.tmTheme
