@@ -14,21 +14,23 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired' "for bracket mappings
+Plugin 'tpope/vim-repeat'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'kshenoy/vim-signature' "for displaying marks
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'klen/python-mode'
 Plugin 'Valloric/YouCompleteMe'
+
 " Clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tpope/vim-fireplace'
-" Plugin 'tpope/vim-leiningen'
-Plugin 'vim-scripts/paredit.vim'
+" Plugin 'guns/vim-clojure-static'
+" Plugin 'guns/vim-clojure-highlight'
+" Plugin 'kien/rainbow_parentheses.vim'
+" Plugin 'tpope/vim-fireplace'
+" " Plugin 'tpope/vim-leiningen'
+" Plugin 'vim-scripts/paredit.vim'
+
 " colors
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'altercation/vim-colors-solarized'
@@ -71,17 +73,12 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
 
 " Clojure
-nnoremap <leader>rr :RainbowParenthesesToggle<cr>
-nnoremap <leader>ee :%Eval<cr>
+" nnoremap <leader>rr :RainbowParenthesesToggle<cr>
+" nnoremap <leader>ee :%Eval<cr>
 
 " Python
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_warnings = 0
-let g:pymode_trim_whitespaces = 1
-let g:pymode_folding = 0
-let g:pymode_lint_cwindow = 0
-let g:pymode_virtualenv = 1
+let g:syntastic_python_checkers = ['pep8']
+
 
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
@@ -138,11 +135,6 @@ if has("mac")
 else
 	let g:LatexBox_viewer = "xdg-open"
 endif
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['tex'] }
-let g:syntastic_quiet_messages = { "level": "warnings",
-                                 \ "type":  "style",}
 
 
 " NerdTree
