@@ -33,15 +33,18 @@ plugins=(git mercurial osx brew sbt scala)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/Cellar/ruby/2.0.0-p247/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
-
 LEIN_FAST_TRAMPOLINE=y
 export LEIN_FAST_TRAMPOLINE
 alias cljsbuild="lein trampoline cljsbuild $@"
 
-GOPATH=/Users/piotr/devel/gocode
+GOPATH=$HOME/devel/go-workspace
 export GOPATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
+
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/local/Cellar/ruby/2.0.0-p247/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
+
+export PATH=$PATH:$GOPATH/bin
+
 

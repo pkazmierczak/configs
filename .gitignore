@@ -29,3 +29,5 @@ Package Control.system-ca-bundle
 .emacs.d/url/cookies
 
 *.tmTheme
+
+User/ChangeList.json

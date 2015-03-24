@@ -22,6 +22,7 @@ Plugin 'kshenoy/vim-signature' "for displaying marks
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
 
 " Clojure
 " Plugin 'guns/vim-clojure-static'
@@ -79,6 +80,11 @@ nnoremap <leader>gp :Git push<cr>
 " Python
 let g:syntastic_python_checkers = ['pep8']
 
+" Go
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
 
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
@@ -139,4 +145,5 @@ endif
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
-
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
