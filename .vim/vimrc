@@ -23,6 +23,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 
 " Clojure
 " Plugin 'guns/vim-clojure-static'
@@ -66,6 +67,11 @@ nnoremap gj j
 
 nnoremap U :GundoToggle<cr>
 nnoremap <F5> :buffers<CR>:buffer<Space>
+
+" the silver searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " fugitive!
 nnoremap <leader>gw :Gwrite<cr>
