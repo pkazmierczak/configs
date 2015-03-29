@@ -1,6 +1,6 @@
 {
-	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme",
-	"color_scheme_option": 0,
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"color_scheme_option": 1,
 	"create_window_at_startup": false,
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"font_face": "Source Code Pro for Powerline",
@@ -12,6 +12,6 @@
 	],
 	"open_files_in_new_window": false,
 	"remember_open_files": false,
-	"theme": "Spacegray Light.sublime-theme",
+	"theme": "Spacegray.sublime-theme",
 	"translate_tabs_to_spaces": true
 }

@@ -31,3 +31,7 @@ Package Control.system-ca-bundle
 *.tmTheme
 
 User/ChangeList.json
+
+User/GoSublime-aux.sublime-settings
+
+GoSublime/
