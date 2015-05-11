@@ -8,8 +8,9 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage"
 	],
+	"vintage_start_in_command_mode": true,
+	"vintage_ctrl_keys": true,
 	"open_files_in_new_window": false,
 	"remember_open_files": false,
 	"theme": "Higuchi.sublime-theme",
