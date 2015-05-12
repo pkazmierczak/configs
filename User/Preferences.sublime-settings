@@ -14,7 +14,5 @@
 	"remember_open_files": false,
 	"theme": "Higuchi.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	// "vintage_ctrl_keys": true,
-	// "vintage_start_in_command_mode": true,
 	"vintageous_use_ctrl_keys": true
 }

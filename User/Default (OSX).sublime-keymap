@@ -31,7 +31,7 @@
 { "keys": ["f12"], "command": "reindent", "args": {"single_line": false} },
 
 
-// Ctrl+[ for vintageous fix before the fix #812: https://github.com/guillermooo/Vintageous/issues/812
+// Ctrl+[ for vintageous before they fix #693: https://github.com/guillermooo/Vintageous/issues/693
 
 { "keys": ["ctrl+["], "command": "_enter_normal_mode", 
   "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}, {"key": "vi_use_ctrl_keys"}]}
