@@ -5,12 +5,12 @@
   "args": {
         "options": [
             {
-              "color_scheme": "Packages/Theme - Nil/Sanakan.tmTheme" ,
-              "theme": "Higuchi.sublime-theme"
+              "theme": "Solarized Space Dark.sublime-theme",
+              "color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme"
             },
             {
-              "color_scheme": "Packages/Theme - Freesia/Triplet Lite.tmTheme",
-              "theme": "Freesia.sublime-theme"
+              "theme": "Solarized Space Light.sublime-theme",
+              "color_scheme": "Packages/Theme - Solarized Space/Solarized V (Light).tmTheme"
             }
         ]
       }
