@@ -7,7 +7,6 @@
 	[
 		"Anaconda",
 		"BracketHighlighter",
-		"ChangeList",
 		"DashDoc",
 		"Git",
 		"GitGutter",
@@ -19,8 +18,9 @@
 		"requirementstxt",
 		"SCSS",
 		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
 		"Theme - Solarized Space",
-		"Theme - Spacegray",
 		"Vintageous"
 	]
 }
