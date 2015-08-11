@@ -36,3 +36,5 @@ User/GoSublime-aux.sublime-settings
 
 GoSublime/
 User/Package Control.merged-ca-bundle
+.apm
+packages

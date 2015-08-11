@@ -1,0 +1,25 @@
+"*":
+  "exception-reporting":
+    userId: "73ef6a37-cd87-573a-8f77-4721bda6f4e5"
+  welcome:
+    showOnStartup: false
+  core:
+    audioBeep: false
+    projectHome: "/Users/piotr/devel"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  "one-light-ui": {}
+  editor:
+    invisibles: {}
+    fontFamily: "Source Code Pro for Powerline"
+  linter: {}
+  "vim-mode": {}
+  "python-jedi":
+    enablePython2: true
+    Pathtopython: "/Users/piotr/devel/showroom/venv/bin/python"
+  "go-plus":
+    goPath: "/Users/piotr/devel/go-workspace"
+  "git-history": {}
+  minimap: {}
