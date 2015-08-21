@@ -10,7 +10,8 @@
       "one-light-ui"
       "one-light-syntax"
     ]
-  "one-light-ui": {}
+  "one-light-ui":
+    layoutMode: "Compact"
   editor:
     invisibles: {}
     fontFamily: "Source Code Pro for Powerline"
@@ -23,3 +24,5 @@
     goPath: "/Users/piotr/devel/go-workspace"
   "git-history": {}
   minimap: {}
+  "one-dark-ui":
+    layoutMode: "Compact"
