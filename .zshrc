@@ -40,6 +40,9 @@ alias cljsbuild="lein trampoline cljsbuild $@"
 GOPATH=$HOME/devel/go-workspace
 export GOPATH
 
+EDITOR=/usr/local/bin/vim
+export EDITOR
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/Cellar/ruby/2.0.0-p247/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin

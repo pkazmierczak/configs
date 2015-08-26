@@ -27,14 +27,6 @@ Plugin 'klen/python-mode'
 Plugin 'fatih/vim-go'
 Plugin 'rizzatti/dash.vim' "Dash!
 
-" Clojure
-" Plugin 'guns/vim-clojure-static'
-" Plugin 'guns/vim-clojure-highlight'
-" Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'tpope/vim-fireplace'
-" " Plugin 'tpope/vim-leiningen'
-" Plugin 'vim-scripts/paredit.vim'
-
 " colors
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'altercation/vim-colors-solarized'
@@ -81,19 +73,21 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
 
-" Clojure
-" nnoremap <leader>rr :RainbowParenthesesToggle<cr>
-" nnoremap <leader>ee :%Eval<cr>
-
 " Python
 let g:syntastic_python_checkers = ['pep8']
 let g:pymode_python = 'python'
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope = 1
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_autoimport = 1
+let g:pymode_options_max_line_length = 100
+let g:pymode_lint_options_pep8 =
+        \ {'max_line_length': 100}
+let g:pymode_lint_ignore = "E501,W"
 
 " Golang
 let $GOPATH = '/Users/piotr/devel/go-workspace'
+let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -187,3 +181,22 @@ endif
 map <C-n> :NERDTreeToggle<CR>
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+" YCM
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1,
+      \ 'python' : 1
+      \}
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+nmap <C-m> :CtrlPMRUFiles<CR>
+
