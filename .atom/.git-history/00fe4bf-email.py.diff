@@ -1,0 +1,27 @@
+diff --git a/server/app/email.py b/server/app/email.py
+index 1ebe81f..ed9ddd6 100644
+--- a/server/app/email.py
++++ b/server/app/email.py
+@@ -1,2 +1,20 @@
+-def sendmail(env_name):
+-    pass
++from boto import ses
++from models import Environment
++
++
++def sendmail(env_name, email):
++    env = Environment.query.filter_by(env_name=env_name).first()
++
++    # I'm hardcoding SES region to Ireland, because the service is
++    # only availeble in 3 regions now: Ireland, US-West and US-East
++    conn = ses.connect_to_region('eu-west-1')
++    try:
++        conn.send_email(
++            'showroom@clodureach.com',
++            '[Showroom] The URL to the stack you just deployed',
++            'Here is the URL for your newly created stack: ' + env.url,
++            [email]
++        )
++        return True
++    except:
++        return False
