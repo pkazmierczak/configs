@@ -15,10 +15,10 @@
         // so `main` packages shouldn't result in the installation of a binary
         {"cmd": ["go", "install"]}
     ],
-    "fmt_cmd": ["goimports"]
-    // "on_save": [{
-    //     "cmd": "gs9o_open", "args": {
-    //         "run": ["sh", "go build . errors && go test -i && go test"],
-    //         "focus_view": false
-    // }}]
+    "fmt_cmd": ["goimports"],
+    "on_save": [{
+        "cmd": "gs9o_open", "args": {
+            "run": ["sh", "go build . errors && go test -i && go test"],
+            "focus_view": false
+    }}]
 }
