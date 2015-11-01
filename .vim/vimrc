@@ -19,11 +19,14 @@ Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
 Plugin 'kshenoy/vim-signature' "for displaying marks
 Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
+
+" Golang
 Plugin 'fatih/vim-go'
+Plugin 'garyburd/go-explorer'
 
 " colors
 Plugin 'jonathanfilip/vim-lucius'
@@ -58,11 +61,6 @@ nnoremap gj j
 
 nnoremap U :GundoToggle<cr>
 nnoremap <F5> :buffers<CR>:buffer<Space>
-
-" the silver searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 " fugitive!
 nnoremap <leader>gw :Gwrite<cr>
