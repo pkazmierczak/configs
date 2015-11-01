@@ -8,6 +8,7 @@
 	[
 		"Anaconda",
 		"BracketHighlighter",
+		"Colorsublime",
 		"DashDoc",
 		"Git",
 		"GitGutter",
@@ -23,6 +24,7 @@
 		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-annotations",
+		"SublimeLinter-ruby",
 		"Theme - Solarized Space",
 		"Vintageous"
 	]
