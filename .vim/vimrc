@@ -97,6 +97,9 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+" q destroys buffer
+nmap q :bd<cr>
+
 colorscheme lucius 
 let g:lucius_style = 'light'
 nnoremap <F6> :call ToggleColor()<cr>
