@@ -79,6 +79,7 @@ let g:pymode_options_max_line_length = 100
 let g:pymode_lint_options_pep8 =
         \ {'max_line_length': 100}
 " let g:pymode_lint_ignore = "E501,W"
+au FileType python nmap <leader>pa :PymodeLintAuto<cr>
 
 " Golang
 let $GOPATH = '/Users/piotr/devel/go-workspace'
