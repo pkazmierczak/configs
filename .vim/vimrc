@@ -11,7 +11,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired' "for bracket mappings
 Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -52,12 +51,6 @@ set laststatus=2
 syntax on
 
 set autochdir
-
-" I think this is better for latex
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
 
 nnoremap U :GundoToggle<cr>
 nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -134,24 +127,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='lucius'
 let g:airline#extensions#whitespace#enabled = 0
-
-" LaTeX
-set nospell
-autocmd BufNewFile,BufRead *.tex set spell
-set conceallevel=0
-let g:tex_conceal= 'adgms'
-let g:LatexBox_latexmk_options = "-pdf"
-let g:LatexBox_latexmk_async = 1
-let g:LatexBox_fold_toc = 0
-nmap <buffer> <F5>  <Plug>LatexChangeEnv
-vmap <buffer> <F7>  <Plug>LatexWrapSelection
-let g:LatexBox_quickfix = 0
-if has("mac")
-	let g:LatexBox_viewer = "open"
-else
-	let g:LatexBox_viewer = "xdg-open"
-endif
-
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
