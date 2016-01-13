@@ -22,6 +22,7 @@ Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'JuliaLang/julia-vim'
 
 " Golang
 Plugin 'fatih/vim-go'

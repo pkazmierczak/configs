@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/Solarized V (Light) (SL).tmTheme",
+	"color_scheme": "Packages/Theme - Cobalt2/cobalt2.tmTheme",
 	"color_scheme_option": 1,
 	"create_window_at_startup": false,
 	"dictionary": "Packages/Language - English/en_US.dic",
@@ -12,7 +12,7 @@
 	],
 	"open_files_in_new_window": false,
 	"remember_open_files": false,
-	"theme": "Solarized Space Light.sublime-theme",
+	"theme": "Cobalt2.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintageous_use_ctrl_keys": true
 }
