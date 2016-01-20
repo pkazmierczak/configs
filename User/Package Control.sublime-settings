@@ -10,7 +10,6 @@
 		"Babel",
 		"BracketHighlighter",
 		"DashDoc",
-		"Elm Language Support",
 		"Fix Mac Path",
 		"Git",
 		"GitGutter",
@@ -28,8 +27,7 @@
 		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-annotations",
-		"tern_for_sublime",
-		"Theme - Cobalt2",
+		"SublimeLinter-contrib-eslint",
 		"Theme - Solarized Space",
 		"Vintageous"
 	]
