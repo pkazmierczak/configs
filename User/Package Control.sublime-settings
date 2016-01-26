@@ -29,6 +29,7 @@
 		"SublimeLinter-annotations",
 		"SublimeLinter-contrib-eslint",
 		"Theme - Solarized Space",
-		"Vintageous"
+		"Vintageous",
+		"VintageousPluginSurround"
 	]
 }
