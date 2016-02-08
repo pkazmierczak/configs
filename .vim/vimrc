@@ -20,12 +20,22 @@ Plugin 'kshenoy/vim-signature' "for displaying marks
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
+
+" Python
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
 
 " Golang
 Plugin 'fatih/vim-go'
 Plugin 'garyburd/go-explorer'
+
+" JS
+Plugin 'isRuslan/vim-es6'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " colors
 Plugin 'jonathanfilip/vim-lucius'
