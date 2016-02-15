@@ -21,16 +21,20 @@
      ;; better-defaults
      emacs-lisp
      git
+     osx
+     version-control
+     dash
+
+     ;; languages
      markdown
      org
+     (org :variables
+          org-enable-github-support t)
      javascript
      python
      go
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; syntax-checking
-     version-control
+     (go :variables gofmt-command "goimports")
+     terraform
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -152,8 +156,6 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (setq-default dotspacemacs-configuration-layers '(python))
-  (setq-default dotspacemacs-configuration-layers '(osx))
   (add-to-list 'auto-mode-alist '("\\.es6\\'" . js2-mode))
   )
 
