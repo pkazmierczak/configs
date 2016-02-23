@@ -11,15 +11,19 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired' "for bracket mappings
 Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
+Plugin 'rizzatti/dash.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'kshenoy/vim-signature' "for displaying marks
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'mhinz/vim-startify'
+Plugin 'hashivim/vim-terraform'
 
 " Python
 Plugin 'klen/python-mode'
