@@ -31,7 +31,7 @@ DEFAULT_USER="piotr"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial osx brew virtualenvwrapper aws)
+plugins=(git osx brew aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,7 +47,14 @@ export EDITOR
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/Cellar/ruby/2.0.0-p247/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/texlive/2015/bin/x86_64-darwin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
 export PATH=$PATH:$GOPATH/bin
 
 alias glg="git log --graph --oneline --decorate --date=relative --all"
+
+function mfa () {
+   oathtool --base32 --totp "$(cat ~/.aws/$1.mfa)" ;
+ }
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

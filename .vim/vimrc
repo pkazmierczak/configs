@@ -34,12 +34,12 @@ Plugin 'fatih/vim-go'
 Plugin 'garyburd/go-explorer'
 
 " JS
-Plugin 'isRuslan/vim-es6'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'isRuslan/vim-es6'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " colors
 Plugin 'jonathanfilip/vim-lucius'
@@ -74,6 +74,9 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
+
+" Dash
+nmap <silent> <leader>d <Plug>DashSearch
 
 " Python
 let g:syntastic_python_checkers = []
