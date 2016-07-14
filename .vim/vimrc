@@ -24,6 +24,7 @@ Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mhinz/vim-startify'
 Plugin 'hashivim/vim-terraform'
+Plugin 'jceb/vim-orgmode'
 
 " Python
 Plugin 'klen/python-mode'

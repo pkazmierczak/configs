@@ -7,7 +7,6 @@
 	"installed_packages":
 	[
 		"Anaconda",
-		"Babel",
 		"BracketHighlighter",
 		"DashDoc",
 		"Dockerfile Syntax Highlighting",
@@ -16,7 +15,6 @@
 		"GitGutter",
 		"GoOracle",
 		"GoSublime",
-		"JsFormat",
 		"JSON Reindent",
 		"Line Endings Unify",
 		"Markdown Extended",
@@ -28,8 +26,6 @@
 		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-annotations",
-		"SublimeLinter-contrib-eslint",
-		"SublimeLinter-jsxhint",
 		"Terraform",
 		"Theme - Solarized Space",
 		"Vintageous",

@@ -47,7 +47,7 @@ export EDITOR
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/texlive/2015/bin/x86_64-darwin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/texlive/2015/bin/x86_64-darwin:/Users/piotr/.rvm/bin:/Users/piotr/Library/haskell/bin:/opt/puppetlabs/bin
 export PATH=$PATH:$GOPATH/bin
 
 alias glg="git log --graph --oneline --decorate --date=relative --all"
