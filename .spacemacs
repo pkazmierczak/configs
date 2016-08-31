@@ -33,7 +33,7 @@
 
      ;; languages
      (org :variables org-enable-github-support t)
-     (python :variables python-enable-yapf-format-on-save t)
+     python
      (go :variables gofmt-command "goimports")
      )
    ;; List of additional packages that will be installed without being
@@ -196,9 +196,12 @@ layers configuration."
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
- '(truncate-lines nil)
  '(org-agenda-files (quote ("~/org/projects.org" "~/org/work-hrs.org")))
- '(tool-bar-mode nil))
+ '(package-selected-packages
+   (quote
+    (log4e gntp request gitignore-mode fringe-helper git-gutter+ git-gutter pkg-info epl flx pos-tip pythonic yaml-mode window-numbering volatile-highlights toc-org spaceline powerline smooth-scrolling restart-emacs pyvenv persp-mode paradox hydra page-break-lines osx-trash orgit org-pomodoro org-plus-contrib open-junk-file neotree markdown-toc markdown-mode magit-gitflow leuven-theme info+ indent-guide hl-todo highlight-numbers helm-swoop helm-projectile helm-make projectile helm-descbinds helm-dash helm-company helm-c-yasnippet helm-ag google-translate gitconfig-mode git-timemachine git-messenger expand-region exec-path-from-shell evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup evil-exchange evil-escape company-anaconda buffer-move auto-yasnippet yasnippet auto-compile packed anaconda-mode aggressive-indent ace-link auto-complete avy company anzu iedit smartparens highlight flycheck git-commit with-editor go-mode helm popup helm-core async f dash s quelpa package-build use-package which-key bind-map evil spacemacs-theme ws-butler vi-tilde-fringe undo-tree stickyfunc-enhance srefactor spinner smeargle reveal-in-osx-finder rainbow-delimiters pytest pyenv-mode py-yapf puppet-mode popwin pip-requirements pcre2el pbcopy parent-mode org-repo-todo org-present org-bullets move-text mmm-mode macrostep lorem-ipsum linum-relative let-alist launchctl ido-vertical-mode hy-mode hungry-delete htmlize highlight-parentheses highlight-indentation help-fns+ helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-flx goto-chg golden-ratio go-eldoc gnuplot gitattributes-mode git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-lisp-state evil-indent-plus evil-iedit-state evil-args evil-anzu eval-sexp-fu elisp-slime-nav diminish diff-hl define-word dash-at-point cython-mode company-statistics company-quickhelp company-go clean-aindent-mode bracketed-paste bind-key auto-highlight-symbol ansible-doc ansible alert adaptive-wrap ace-window ace-jump-helm-line ac-ispell)))
+ '(tool-bar-mode nil)
+ '(truncate-lines nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

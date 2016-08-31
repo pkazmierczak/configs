@@ -29,7 +29,6 @@
 ;; make more packages available with the package installer
 (setq to-install
       '(magit
-        auctex
         org 
         ido-ubiquitous
         smex

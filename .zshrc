@@ -51,6 +51,8 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/texlive/2015
 export PATH=$PATH:$GOPATH/bin
 
 alias glg="git log --graph --oneline --decorate --date=relative --all"
+alias close="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias lock="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 
 function mfa () {
    oathtool --base32 --totp "$(cat ~/.aws/$1.mfa)" ;
