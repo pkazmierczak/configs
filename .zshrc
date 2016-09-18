@@ -39,8 +39,8 @@ LEIN_FAST_TRAMPOLINE=y
 export LEIN_FAST_TRAMPOLINE
 alias cljsbuild="lein trampoline cljsbuild $@"
 
-GOPATH=$HOME/devel/go-workspace
-export GOPATH
+# GOPATH=$HOME/devel/go-workspace
+# export GOPATH
 
 EDITOR=/usr/local/bin/vim
 export EDITOR

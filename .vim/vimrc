@@ -24,14 +24,6 @@ Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mhinz/vim-startify'
 
-" Python
-Plugin 'klen/python-mode'
-Plugin 'jmcantrell/vim-virtualenv'
-
-" Golang
-Plugin 'fatih/vim-go'
-Plugin 'garyburd/go-explorer'
-
 " JS
 " Plugin 'isRuslan/vim-es6'
 " Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -84,6 +76,8 @@ nnoremap <leader>gp :Git push<cr>
 nmap <silent> <leader>d <Plug>DashSearch
 
 " Python
+Plugin 'klen/python-mode'
+Plugin 'jmcantrell/vim-virtualenv'
 let g:syntastic_python_checkers = []
 let g:pymode_python = 'python'
 let g:pymode_rope = 0
@@ -97,8 +91,11 @@ let g:pymode_lint_options_pep8 =
 au FileType python nmap <leader>pa :PymodeLintAuto<cr>
 
 " Golang
+Plugin 'fatih/vim-go'
+Plugin 'garyburd/go-explorer'
 let $GOPATH = '/Users/piotr/devel/go-workspace'
 let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
