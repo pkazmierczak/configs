@@ -23,7 +23,13 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mhinz/vim-startify'
-
+Plugin 'neilagabriel/vim-geeknote'
+" Python
+Plugin 'klen/python-mode'
+Plugin 'jmcantrell/vim-virtualenv'
+" Go
+Plugin 'fatih/vim-go'
+Plugin 'garyburd/go-explorer'
 " JS
 " Plugin 'isRuslan/vim-es6'
 " Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -31,11 +37,9 @@ Plugin 'mhinz/vim-startify'
 " Plugin 'garbas/vim-snipmate'
 " Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
-
 " orhcestration
-Plugin 'hashivim/vim-terraform'
-Plugin 'rodjek/vim-puppet'
-
+" Plugin 'hashivim/vim-terraform'
+" Plugin 'rodjek/vim-puppet'
 " colors
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'altercation/vim-colors-solarized'
@@ -45,6 +49,7 @@ filetype plugin indent on    " required
 
 set number
 set vb t_vb=
+set so=5
 set smartindent
 set clipboard=unnamed        " yank and paste with the system clipboard
 set guioptions-=L            " no scrollbars
@@ -76,9 +81,7 @@ nnoremap <leader>gp :Git push<cr>
 nmap <silent> <leader>d <Plug>DashSearch
 
 " Python
-Plugin 'klen/python-mode'
-Plugin 'jmcantrell/vim-virtualenv'
-let g:syntastic_python_checkers = []
+let g:syntastic_python_checkers = ['pep8']
 let g:pymode_python = 'python'
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
@@ -91,8 +94,6 @@ let g:pymode_lint_options_pep8 =
 au FileType python nmap <leader>pa :PymodeLintAuto<cr>
 
 " Golang
-Plugin 'fatih/vim-go'
-Plugin 'garyburd/go-explorer'
 let $GOPATH = '/Users/piotr/devel/go-workspace'
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
@@ -113,7 +114,7 @@ nmap <CR> o<Esc>
 " q destroys buffer
 nmap q :bd<cr>
 
-colorscheme lucius 
+colorscheme lucius
 let g:lucius_style = 'light'
 nnoremap <F6> :call ToggleColor()<cr>
 
@@ -164,6 +165,7 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1,
       \ 'mail' : 1
       \}
+
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
