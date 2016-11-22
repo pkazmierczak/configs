@@ -23,6 +23,7 @@ SublimeREPLHistory*
 Package Control.cache
 Package Control.system-ca-bundle
 .SublimeREPLHistory*
+*.crt
 
 *.dat
 
