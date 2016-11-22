@@ -1,0 +1,9 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "vim.useCtrlKeys": true,
+    "editor.fontFamily": "Source Code Pro for Powerline",
+    "editor.fontSize": 13,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": true,
+    "python.formatting.provider": "autopep8"
+}
