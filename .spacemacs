@@ -5,17 +5,11 @@
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
   (setq-default
-   ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load. If it is the symbol `all' instead
-   ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
      ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
+     ;; Uncomment some layer names and press <SPC f e R>
      ;; ----------------------------------------------------------------
      auto-completion
      semantic
@@ -27,21 +21,26 @@
      markdown
      ivy
 
+     (org
+      :variables
+      org-enable-github-support t
+      org-startup-indented t
+      )
+
+     (deft
+      :variables
+      deft-directory "~/Dropbox/notes"
+      )
+
      ;; languages
-     (org :variables org-enable-github-support t)
      python
-     (go :variables gofmt-command "goimports")
+     (go
+      :variables
+      gofmt-command "goimports"
+      go-tab-width 2)
      )
-   ;; List of additional packages that will be installed without being
-   ;; wrapped in a layer. If you need some configuration for these
-   ;; packages then consider to create a layer, you can also put the
-   ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '()
-   ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
-   ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
-   ;; are declared in a layer which is not a member of
-   ;; the list `dotspacemacs-configuration-layers'
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
@@ -67,6 +66,9 @@ before layers configuration."
    dotspacemacs-enable-paste-micro-state nil
    dotspacemacs-fullscreen-at-startup nil
    dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-emacs-command-key "SPC"
+   dotspacemacs-emacs-leader-key "M-m"
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
@@ -78,7 +80,6 @@ before layers configuration."
   (setq powerline-default-separator 'arrow)
 
   ;; ORG
-  (setq org-startup-indented t)
   (setq org-capture-templates
         '(("t" "technical" entry (file "~/org/technical.org" "Tasks")
            "* %?\nEntered on %U\n")
@@ -114,7 +115,7 @@ before layers configuration."
  '(org-agenda-files (quote ("~/org/projects.org" "~/org/work-met.org")))
  '(package-selected-packages
    (quote
-    (wgrep smex ivy-hydra counsel-projectile counsel-dash dash-functional counsel swiper ivy yapfify uuidgen rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake py-isort ox-gfm osx-dictionary org-projectile org org-download live-py-mode link-hint jinja2-mode git-link eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump column-enforce-mode chruby bundler inf-ruby log4e gntp request gitignore-mode fringe-helper git-gutter+ git-gutter pkg-info epl flx pos-tip pythonic yaml-mode window-numbering volatile-highlights toc-org spaceline powerline smooth-scrolling restart-emacs pyvenv persp-mode paradox hydra page-break-lines osx-trash orgit org-pomodoro org-plus-contrib open-junk-file neotree markdown-toc markdown-mode magit-gitflow leuven-theme info+ indent-guide hl-todo highlight-numbers helm-swoop helm-projectile helm-make projectile helm-descbinds helm-dash helm-company helm-c-yasnippet helm-ag google-translate gitconfig-mode git-timemachine git-messenger expand-region exec-path-from-shell evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup evil-exchange evil-escape company-anaconda buffer-move auto-yasnippet yasnippet auto-compile packed anaconda-mode aggressive-indent ace-link auto-complete avy company anzu iedit smartparens highlight flycheck git-commit with-editor go-mode helm popup helm-core async f dash s quelpa package-build use-package which-key bind-map evil spacemacs-theme ws-butler vi-tilde-fringe undo-tree stickyfunc-enhance srefactor spinner smeargle reveal-in-osx-finder rainbow-delimiters pytest pyenv-mode py-yapf puppet-mode popwin pip-requirements pcre2el pbcopy parent-mode org-repo-todo org-present org-bullets move-text mmm-mode macrostep lorem-ipsum linum-relative let-alist launchctl ido-vertical-mode hy-mode hungry-delete htmlize highlight-parentheses highlight-indentation help-fns+ helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-flx goto-chg golden-ratio go-eldoc gnuplot gitattributes-mode git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-lisp-state evil-indent-plus evil-iedit-state evil-args evil-anzu eval-sexp-fu elisp-slime-nav diminish diff-hl define-word dash-at-point cython-mode company-statistics company-quickhelp company-go clean-aindent-mode bracketed-paste bind-key auto-highlight-symbol ansible-doc ansible alert adaptive-wrap ace-window ace-jump-helm-line ac-ispell)))
+    (deft wgrep smex ivy-hydra counsel-projectile counsel-dash dash-functional counsel swiper ivy yapfify uuidgen rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake py-isort ox-gfm osx-dictionary org-projectile org org-download live-py-mode link-hint jinja2-mode git-link eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump column-enforce-mode chruby bundler inf-ruby log4e gntp request gitignore-mode fringe-helper git-gutter+ git-gutter pkg-info epl flx pos-tip pythonic yaml-mode window-numbering volatile-highlights toc-org spaceline powerline smooth-scrolling restart-emacs pyvenv persp-mode paradox hydra page-break-lines osx-trash orgit org-pomodoro org-plus-contrib open-junk-file neotree markdown-toc markdown-mode magit-gitflow leuven-theme info+ indent-guide hl-todo highlight-numbers helm-swoop helm-projectile helm-make projectile helm-descbinds helm-dash helm-company helm-c-yasnippet helm-ag google-translate gitconfig-mode git-timemachine git-messenger expand-region exec-path-from-shell evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup evil-exchange evil-escape company-anaconda buffer-move auto-yasnippet yasnippet auto-compile packed anaconda-mode aggressive-indent ace-link auto-complete avy company anzu iedit smartparens highlight flycheck git-commit with-editor go-mode helm popup helm-core async f dash s quelpa package-build use-package which-key bind-map evil spacemacs-theme ws-butler vi-tilde-fringe undo-tree stickyfunc-enhance srefactor spinner smeargle reveal-in-osx-finder rainbow-delimiters pytest pyenv-mode py-yapf puppet-mode popwin pip-requirements pcre2el pbcopy parent-mode org-repo-todo org-present org-bullets move-text mmm-mode macrostep lorem-ipsum linum-relative let-alist launchctl ido-vertical-mode hy-mode hungry-delete htmlize highlight-parentheses highlight-indentation help-fns+ helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-flx goto-chg golden-ratio go-eldoc gnuplot gitattributes-mode git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-lisp-state evil-indent-plus evil-iedit-state evil-args evil-anzu eval-sexp-fu elisp-slime-nav diminish diff-hl define-word dash-at-point cython-mode company-statistics company-quickhelp company-go clean-aindent-mode bracketed-paste bind-key auto-highlight-symbol ansible-doc ansible alert adaptive-wrap ace-window ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t)
  '(tool-bar-mode nil)
  '(truncate-lines nil))
