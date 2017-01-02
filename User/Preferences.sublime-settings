@@ -1,6 +1,6 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme",
-	"color_scheme_option": 0,
+	"color_scheme": "Packages/User/SublimeLinter/Solarized V (Light) (SL).tmTheme",
+	"color_scheme_option": 1,
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"font_face": "Source Code Pro for Powerline",
 	"font_size": 13.0,
@@ -11,7 +11,7 @@
 		"Vintage"
 	],
 	"open_files_in_new_window": false,
-	"theme": "Solarized Space Dark.sublime-theme",
+	"theme": "Solarized Space Light.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintageous_use_ctrl_keys": true
 }
