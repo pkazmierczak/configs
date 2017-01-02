@@ -1,5 +1,4 @@
-;; -*- mode: emacs-lisp -*-
-;; This file is loaded by Spacemacs at startup.
+;; -*- mode: emacs-lisp -*- ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
 (defun dotspacemacs/layers ()
@@ -15,29 +14,28 @@
      semantic
      syntax-checking
      emacs-lisp
-     git
-     version-control
+     (git :variables
+          git-gutter-use-fringe t)
      osx
      markdown
      ivy
 
-     (org
-      :variables
-      org-enable-github-support t
-      org-startup-indented t
-      )
+     (org :variables
+          org-enable-github-support t
+          org-startup-indented t)
 
-     (deft
-      :variables
-      deft-directory "~/Dropbox/notes"
-      )
+     (deft :variables
+       deft-directory "~/Dropbox/notes")
 
      ;; languages
-     python
-     (go
-      :variables
-      gofmt-command "goimports"
-      go-tab-width 2)
+     (python :variables
+             python-fill-column 99
+             python-sort-imports-on-save t
+             python-enable-yapf-format-on-save t)
+     (go :variables
+         gofmt-command "goimports"
+         go-tab-width 2)
+
      )
    dotspacemacs-additional-packages '()
    dotspacemacs-excluded-packages '()
