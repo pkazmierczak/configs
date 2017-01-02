@@ -39,3 +39,5 @@ GoSublime/
 User/Package Control.merged-ca-bundle
 .apm
 packages
+
+.emacs.d/custom.el
