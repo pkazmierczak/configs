@@ -11,8 +11,8 @@
 (require 'package)
 
 (defvar my-packages
-  '(ace-window
-    auto-complete
+  '(auto-complete
+    counsel
     elpy
     evil
     exec-path-from-shell
@@ -22,15 +22,15 @@
     go-eldoc
     go-guru
     go-mode
-    ido-ubiquitous
     json-mode
     magit
     git-gutter
     git-timemachine
     markdown-mode
     markdown-preview-mode
+    org-bullets
     pastelmac-theme
-    powerline
+    projectile
     py-autopep8
     rainbow-delimiters
     yaml-mode))

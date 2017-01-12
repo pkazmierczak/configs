@@ -5,10 +5,6 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
-;; my emacs conf
-(setq user-full-name "Piotr Kazmirczak")
-(setq user-email-address "me@piotrkazmierczak.com")
-
 ;; setup packages
 (package-initialize)
 
@@ -20,14 +16,10 @@
 (require 'evil)
 (evil-mode t)
 
-(require 'powerline)
-(powerline-vim-theme)
-
 (exec-path-from-shell-initialize)
 
 ;;; Buffer menu
 (global-set-key [f5] 'buffer-menu)
-(global-set-key (kbd "M-p") 'ace-window)
 
 (global-git-gutter-mode +1)
 
@@ -35,16 +27,17 @@
 
 (windmove-default-keybindings 'shift)
 
-;;Enables awesome file-finding
-(require 'ido)                      ; ido is part of emacs
-(ido-mode t)                        ; for both buffers and files
-(setq ido-enable-flex-matching t
-      ido-everywhere t
-      ido-use-filename-at-point 'guess
-      ido-use-virtual-buffers t)
-
-(if (require 'ido-ubiquitous "ido-ubiquitous" t)
-    (setf ido-ubiquitous t))
+;; ivy + swiper + counsel
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 
 (set-face-attribute 'default nil :family "Source Code Pro for Powerline")
 
@@ -93,5 +86,31 @@
 (require 'development)
 
 (load-theme 'FlatUI t)
+
+(require 'org)
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-startup-indented 1)
+(setq org-capture-templates
+      '(("t" "technical" entry (file "~/org/technical.org" "Tasks")
+         "* %?\nEntered on %U\n")
+        ("w" "work" entry (file+datetree "~/org/work-journal.org" "Work journal")
+         "* %?\nEntered on %U\n"
+         :emptylines 1)
+        ("i" "idea" entry (file "~/org/ideas.org")
+         "* %?\nEntered on %U\n")
+        ("d" "doodles" entry (file "~/org/doodles.org")
+         "* %? %U\n")))
+(setq org-todo-keywords
+      '((sequence "IDEA" "TODO" "INPROGRESS" "ON HOLD" "BLOCKED" "|" "DONE" "DELEGATED")))
+(setq org-export-initial-scope
+      'subtree)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t))) ; this line activates ditaa
+
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-flyspell)
 
 (load custom-file)
