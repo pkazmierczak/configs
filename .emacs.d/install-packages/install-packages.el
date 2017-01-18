@@ -12,7 +12,6 @@
 
 (defvar my-packages
   '(auto-complete
-    counsel
     elpy
     evil
     exec-path-from-shell
@@ -22,6 +21,8 @@
     go-eldoc
     go-guru
     go-mode
+    helm
+    helm-projectile
     json-mode
     magit
     git-gutter
@@ -33,6 +34,7 @@
     projectile
     py-autopep8
     rainbow-delimiters
+    swiper
     yaml-mode))
 
 (add-to-list 'package-archives

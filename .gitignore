@@ -41,3 +41,5 @@ User/Package Control.merged-ca-bundle
 packages
 
 .emacs.d/custom.el
+
+.emacs.d/projectile-bookmarks.eld
