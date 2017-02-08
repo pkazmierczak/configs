@@ -1,1 +1,1 @@
-/Users/piotr/.vimrc
+../../.vimrc

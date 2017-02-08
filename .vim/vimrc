@@ -13,10 +13,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'rizzatti/dash.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'kshenoy/vim-signature' "for displaying marks
 Plugin 'kien/ctrlp.vim'
@@ -27,6 +26,8 @@ Plugin 'vimwiki/vimwiki'
 " Python
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'google/yapf'
+Plugin 'timothycrosley/isort'
 " Go
 Plugin 'fatih/vim-go'
 Plugin 'garyburd/go-explorer'
@@ -54,6 +55,7 @@ set smartindent
 set clipboard=unnamed        " yank and paste with the system clipboard
 set guioptions-=L            " no scrollbars
 set guioptions-=r            " no scrollbars
+set guioptions-=m            " no menubar
 set wildmenu
 set wildmode=longest:full,full
 
@@ -92,6 +94,8 @@ let g:pymode_lint_options_pep8 =
         \ {'max_line_length': 100}
 " let g:pymode_lint_ignore = "E501,W"
 au FileType python nmap <leader>pa :PymodeLintAuto<cr>
+autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
 
 " Golang
 let $GOPATH = '/Users/piotr/devel/go-workspace'
