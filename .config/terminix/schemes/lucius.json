@@ -1,0 +1,25 @@
+{
+    "background-color": "#eeeeee",
+    "comment": "Lucius",
+    "foreground-color": "#444444",
+    "name": "Lucius Light",
+    "palette": [
+        "#444444",
+        "#af0000",
+        "#008700",
+        "#af5f00",
+        "#005faf",
+        "#870087",
+        "#008787",
+        "#eeeeee",
+        "#444444",
+        "#af0000",
+        "#008700",
+        "#af5f00",
+        "#005faf",
+        "#870087",
+        "#008787",
+        "#eeeeee"
+    ],
+    "use-theme-colors": false
+}

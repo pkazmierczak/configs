@@ -118,25 +118,25 @@ nmap <CR> o<Esc>
 " q destroys buffer
 nmap q :bd<cr>
 
-" colorscheme lucius
-" let g:lucius_style = 'light'
-" nnoremap <F6> :call ToggleColor()<cr>
-" 
-" function! ToggleColor()
-"     if (g:lucius_style == 'light')
-"         LuciusDark
-"         AirlineRefresh
-"     else
-"         LuciusLight
-"         AirlineRefresh
-"     endif
-" endfunction
+colorscheme lucius
+let g:lucius_style = 'light'
+nnoremap <F6> :call ToggleColor()<cr>
 
-set background=light
-" let g:solarized_contrast = 'low'
-colorscheme solarized
-" Toggle 'night mode'
-call togglebg#map("<F6>")
+function! ToggleColor()
+    if (g:lucius_style == 'light')
+        LuciusDark
+        AirlineRefresh
+    else
+        LuciusLight
+        AirlineRefresh
+    endif
+endfunction
+
+" set background=light
+" " let g:solarized_contrast = 'low'
+" colorscheme solarized
+" " Toggle 'night mode'
+" call togglebg#map("<F6>")
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -149,7 +149,7 @@ set complete+=k
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme='lucius'
 let g:airline#extensions#whitespace#enabled = 0
 
 " NerdTree
