@@ -5,5 +5,6 @@ nm-applet &
 dropbox start &
 syncthing &
 /home/piotr/Enpass/runenpass.sh startWithTray &
+/home/piotr/bin/touchpad.sh &
 /home/piotr/bin/lock.sh &
 i3
