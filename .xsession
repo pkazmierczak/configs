@@ -7,7 +7,6 @@ syncthing &
 /home/piotr/Enpass/runenpass.sh startWithTray &
 /home/piotr/bin/touchpad.sh &
 dunst &
-emacs --daemon &
 compton -cCGb --backend glx --vsync opengl &
 /home/piotr/bin/lock.sh &
 i3

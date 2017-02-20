@@ -1,14 +1,11 @@
 [options]
 font = Source Code Pro 10
 
-# Solarized light color scheme
-
 [colors]
-foreground = #657b83
-foreground_bold = #073642
-#foreground_dim = #888888
-background = #fdf6e3
-cursor = #586e75
+foreground = #444444
+foreground_bold = #444444
+background = #eeeeee
+cursor = #5f87af
 
 # if unset, will reverse foreground and background
 #highlight = #839496
