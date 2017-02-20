@@ -40,7 +40,7 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
 # lock
-bindsym $mod+Shift+l exec $HOME/bin/lock.sh
+bindsym $mod+Shift+l exec --no-startup-id $HOME/bin/lock.sh
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
