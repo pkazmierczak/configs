@@ -2,11 +2,13 @@
 	"color_scheme": "Packages/User/SublimeLinter/Solarized V (Light) (SL).tmTheme",
 	"color_scheme_option": 1,
 	"dictionary": "Packages/Language - English/en_US.dic",
-	"font_face": "Source Code Pro for Powerline",
-	"font_size": 13.0,
+	"font_face": "Source Code Pro",
+	"font_size": 12.0,
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"DashDoc",
+		"Fix Mac Path",
 		"SideBarEnhancements",
 		"Vintage"
 	],

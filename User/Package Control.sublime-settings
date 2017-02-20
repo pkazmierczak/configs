@@ -3,6 +3,8 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"DashDoc",
+		"Fix Mac Path"
 	],
 	"installed_packages":
 	[
