@@ -6,5 +6,7 @@ dropbox start &
 syncthing &
 /home/piotr/Enpass/runenpass.sh startWithTray &
 /home/piotr/bin/touchpad.sh &
+dunst &
+compton -b &
 /home/piotr/bin/lock.sh &
 i3
