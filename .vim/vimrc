@@ -22,7 +22,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mhinz/vim-startify'
-Plugin 'vimwiki/vimwiki'
 " Python
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
@@ -73,9 +72,6 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
-
-" Dash
-nmap <silent> <leader>d <Plug>DashSearch
 
 " Python
 let g:syntastic_python_checkers = ['pep8']
