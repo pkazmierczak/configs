@@ -8,5 +8,6 @@ syncthing &
 /home/piotr/bin/touchpad.sh &
 dunst &
 compton -b &
+emacs --daemon &
 /home/piotr/bin/lock.sh &
 i3
