@@ -89,7 +89,7 @@ autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
 
 " Golang
-let $GOPATH = '/Users/piotr/devel/go-workspace'
+let $GOPATH = '/home/piotr/go'
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 au FileType go nmap <leader>r <Plug>(go-run)

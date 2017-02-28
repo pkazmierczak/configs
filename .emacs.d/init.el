@@ -94,7 +94,7 @@
 (setq helm-locate-fuzzy-match t)
 ;;; end helm
 
-(set-face-attribute 'default nil :family "Source Code Pro for Powerline")
+(set-face-attribute 'default nil :family "Source Code Pro")
 
 ;;; Interface and other customizations
 (setq echo-keystrokes 0.4
