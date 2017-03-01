@@ -23,6 +23,20 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
+# start chrome
+bindsym $mod+F1 exec google-chrome
+
+# start vscode
+bindsym $mod+F2 exec code
+
+# start hexchat
+bindsym $mod+F3 exec hexchat
+
+# start spotify
+bindsym $mod+F5 exec spotify
+# spotify always on workspace 5
+for_window [class="Spotify"] move container to workspace 5
+
 # kill focused window
 bindsym $mod+q kill
 
