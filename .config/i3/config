@@ -37,6 +37,9 @@ bindsym $mod+F5 exec spotify
 # spotify always on workspace 5
 for_window [class="Spotify"] move container to workspace 5
 
+# screenshot
+bindsym Print exec --no-startup-id scrot
+
 # kill focused window
 bindsym $mod+q kill
 
