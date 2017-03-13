@@ -1,6 +1,0 @@
-"1.0b5.1 (created: 2011/02/15 20:42:05)
-
-loadplugins '\.(js|penta)$'
-set guioptions=bCrsB
-
-" vim: set ft=pentadactyl:
