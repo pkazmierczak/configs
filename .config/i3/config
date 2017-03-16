@@ -34,8 +34,6 @@ bindsym $mod+F3 exec hexchat
 
 # start spotify
 bindsym $mod+F5 exec spotify
-# spotify always on workspace 5
-for_window [class="Spotify"] move container to workspace 5
 
 # screenshot
 bindsym Print exec --no-startup-id scrot
@@ -133,6 +131,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 for_window [class="Thunar"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mumble"] floating enable
+for_window [class="mpv"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
