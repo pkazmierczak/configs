@@ -43,3 +43,8 @@ packages
 .emacs.d/custom.el
 
 .emacs.d/projectile-bookmarks.eld
+storage
+compile-cache
+dev
+.npm
+.node-gyp

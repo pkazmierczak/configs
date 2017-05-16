@@ -1,0 +1,24 @@
+"*":
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  editor:
+    fontFamily: "Source Code Pro"
+    fontSize: 13
+  "exception-reporting":
+    userId: "b93fde8e-7963-ea29-7ee9-e71543cc74f7"
+  "git-diff":
+    showIconsInEditorGutter: true
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
+  welcome:
+    showOnStartup: false
