@@ -1,13 +1,19 @@
 {
     "vim.useCtrlKeys": true,
+    "vim.handleKeys": {
+         "<C-t>": false,
+         "<C-b>": false,
+         "<C-/>": false,
+         "<C-w>": false,
+         "<C-f>": false
+    },
     "editor.fontFamily": "Source Code Pro",
     "editor.fontSize": 13,
     "python.linting.pylintEnabled": false,
-    "python.linting.pep8Enabled": true,
     "python.linting.flake8Enabled": true,
     "python.formatting.provider": "autopep8",
     "git.confirmSync": false,
     "editor.cursorStyle": "block",
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Quiet Light"
 }

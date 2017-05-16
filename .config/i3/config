@@ -132,6 +132,7 @@ for_window [class="Thunar"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mumble"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="Enpass"] floating enable
 for_window [class="Thunderbird" instance="Msgcompose"] floating enable
 
 # reload the configuration file
