@@ -1,0 +1,205 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-117416-15421-bk7yra.44ovquxr/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-117416-15421-bk7yra.44ovquxr/package.tgz",
+        "spec": "/tmp/d-117416-15421-bk7yra.44ovquxr/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-117416-15421-tlm29y.q6jwyfzuxr"
+    ]
+  ],
+  "_from": "../d-117416-15421-bk7yra.44ovquxr/package.tgz",
+  "_id": "vim-modeline@0.5.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/vim-modeline",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-117416-15421-bk7yra.44ovquxr/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-117416-15421-bk7yra.44ovquxr/package.tgz",
+    "spec": "/tmp/d-117416-15421-bk7yra.44ovquxr/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117416-15421-bk7yra.44ovquxr/package.tgz",
+  "_shasum": "7ae6dba7441e5decb1b880f9316cadbb873ac431",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-117416-15421-bk7yra.44ovquxr/package.tgz",
+  "_where": "/tmp/apm-install-dir-117416-15421-tlm29y.q6jwyfzuxr",
+  "bugs": {
+    "url": "https://github.com/fkfk/vim-modeline/issues"
+  },
+  "configSchema": {
+    "readLineNum": {
+      "type": "integer",
+      "default": 5,
+      "minimum": 1
+    },
+    "prefix": {
+      "type": "array",
+      "default": [
+        "vi",
+        "vim",
+        "ex",
+        "atom"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "insertPrefix": {
+      "type": "string",
+      "enum": [
+        "vi",
+        "vim",
+        "ex",
+        "atom"
+      ],
+      "default": "atom"
+    },
+    "insertModelinePosition": {
+      "type": "string",
+      "enum": [
+        "first row",
+        "last row",
+        "above cursor row",
+        "below cursor row"
+      ],
+      "default": "last row"
+    },
+    "insertModelineType": {
+      "type": "string",
+      "enum": [
+        "short",
+        "long",
+        "original"
+      ],
+      "default": "long"
+    }
+  },
+  "dependencies": {
+    "iconv-lite": "^0.4.13",
+    "underscore-plus": "^1.6.6"
+  },
+  "description": "Enable Vim-style modeline in Atom.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "homepage": "https://github.com/fkfk/vim-modeline#readme",
+  "keywords": [
+    "vim",
+    "format",
+    "code",
+    "style",
+    "code-style"
+  ],
+  "license": "MIT",
+  "main": "./lib/vim-modeline",
+  "name": "vim-modeline",
+  "optionalDependencies": {},
+  "providedServices": {
+    "vim-modeline-event-handler": {
+      "description": "vim-modeline event handler",
+      "versions": {
+        "1.0.0": "provideVimModelineEventHandlerV1"
+      }
+    }
+  },
+  "readme": "# vim-modeline package\n\nEnable Vim-style modeline in Atom.\n\n## Supported options\n\n- `expandtab` / `noexpandtab`\n- `fileencoding`\n- `fileformat`\n- `filetype`\n- `spell` / `nospell`\n- `tabstop`\n\n## Example\n\n### Valid Vim-style modeline\n\n```coffeescript\n# vim:set expandtab tabstop=2 fenc=utf-8 ff=unix ft=coffee:\n```\n\n### Atom-specific modeline\n\n```coffeescript\n# atom:set useSoftTabs tabLength=2 encoding=utf-8 lineEnding=lf grammar=coffee:\n```\n\n## Atom-specific modeline\n\n- `useSoftTabs` -> `expandtab`\n- `encoding` -> `fileencoding`\n- `lineEnding` -> `fileformat`\n- `grammar` -> `filetype`\n- `tabLength` -> `tabstop`\n\n## Configuring filetype\n\nYou can add more filetype for a given language scope.\nTo do this, add the settings to the `~/.atom/config.cson` in the format below.\n\n```coffeescript\n'vim-modeline-filetypes':\n  # append scopeName\n  'as': [\n    'source.actionscript.3'\n  ]\n  # override scopeName\n  'markdown': 'text.md'\n```\n\n## vim-modeline Event Handler\n\nThis package can use the event handler using \"Service API\".\n\n- onDidParse\n- onDidSetLineEnding\n- onDidSetFileType\n- onDidSetEncoding\n- onDidSetSoftTabs\n- onDidSetTabLength\n\neg: get parse result in `init.coffee`.\n\n```coffeescript\natom.packages.serviceHub.consume \"vim-modeline-event-handler\", \"^1.0.0\", (handler) ->\n  handler.onDidParse ({editor, options}) ->\n    console.log editor\n    console.log options\n    someFunction(options)\n```\n\n## Conflict issue\n\nIf you use [auto-encoding](https://atom.io/packages/auto-encoding) package, file encoding doesn't match the modeline.\nIf you want use vim-modeline parse result, please invoke 'vim-modeline:detect' command after open TextEditor.\n\n## TODO\n\n- [ ] `softtabstop` support\n- [ ] `shiftwidth` support\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fkfk/vim-modeline.git"
+  },
+  "version": "0.5.2",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "iconv-lite",
+        "version": "0.4.17",
+        "path": "node_modules/iconv-lite/lib/index.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/vim-modeline-filetype.coffee",
+        "lib/vim-modeline.coffee"
+      ],
+      ".js": [
+        "node_modules/iconv-lite/encodings/dbcs-codec.js",
+        "node_modules/iconv-lite/encodings/dbcs-data.js",
+        "node_modules/iconv-lite/encodings/index.js",
+        "node_modules/iconv-lite/encodings/internal.js",
+        "node_modules/iconv-lite/encodings/sbcs-codec.js",
+        "node_modules/iconv-lite/encodings/sbcs-data-generated.js",
+        "node_modules/iconv-lite/encodings/sbcs-data.js",
+        "node_modules/iconv-lite/encodings/utf16.js",
+        "node_modules/iconv-lite/encodings/utf7.js",
+        "node_modules/iconv-lite/lib/bom-handling.js",
+        "node_modules/iconv-lite/lib/extend-node.js",
+        "node_modules/iconv-lite/lib/index.js",
+        "node_modules/iconv-lite/lib/streams.js",
+        "node_modules/underscore/underscore-min.js",
+        "node_modules/underscore/underscore.js",
+        "node_modules/underscore-plus/lib/underscore-plus.js"
+      ],
+      ".json": [
+        "node_modules/iconv-lite/encodings/tables/big5-added.json",
+        "node_modules/iconv-lite/encodings/tables/cp936.json",
+        "node_modules/iconv-lite/encodings/tables/cp949.json",
+        "node_modules/iconv-lite/encodings/tables/cp950.json",
+        "node_modules/iconv-lite/encodings/tables/eucjp.json",
+        "node_modules/iconv-lite/encodings/tables/gb18030-ranges.json",
+        "node_modules/iconv-lite/encodings/tables/gbk-added.json",
+        "node_modules/iconv-lite/encodings/tables/shiftjis.json",
+        "node_modules/iconv-lite/package.json",
+        "node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          ""
+        ],
+        "dependencies": {
+          "iconv-lite": "^0.4.13",
+          "underscore-plus": "^1.6.6"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
+}
