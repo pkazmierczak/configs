@@ -13,7 +13,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
@@ -23,7 +22,7 @@ Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mhinz/vim-startify'
 " Python
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'google/yapf'
 Plugin 'timothycrosley/isort'
@@ -75,16 +74,13 @@ nnoremap <leader>gp :Git push<cr>
 
 " Python
 let g:pymode_folding = 0
-let g:syntastic_python_checkers = ['pep8']
 let g:pymode_python = 'python'
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
-let g:pymode_options_max_line_length = 100
-let g:pymode_lint_options_pep8 =
-        \ {'max_line_length': 100}
-let g:pymode_lint_ignore = "E501,W"
+let g:pymode_lint_checkers = ['pylint']
+let g:pymode_lint_ignore = "E501,E402,W"
 au FileType python nmap <leader>pa :PymodeLintAuto<cr>
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
@@ -110,25 +106,25 @@ nmap <CR> o<Esc>
 " q destroys buffer
 nmap q :bd<cr>
 
-colorscheme lucius
-let g:lucius_style = 'light'
-nnoremap <F6> :call ToggleColor()<cr>
+" colorscheme lucius
+" let g:lucius_style = 'light'
+" nnoremap <F6> :call ToggleColor()<cr>
+" 
+" function! ToggleColor()
+"     if (g:lucius_style == 'light')
+"         LuciusDark
+"         AirlineRefresh
+"     else
+"         LuciusLight
+"         AirlineRefresh
+"     endif
+" endfunction
 
-function! ToggleColor()
-    if (g:lucius_style == 'light')
-        LuciusDark
-        AirlineRefresh
-    else
-        LuciusLight
-        AirlineRefresh
-    endif
-endfunction
-
-" set background=light
-" " let g:solarized_contrast = 'low'
-" colorscheme solarized
-" " Toggle 'night mode'
-" call togglebg#map("<F6>")
+set background=light
+" let g:solarized_contrast = 'low'
+colorscheme solarized
+" Toggle 'night mode'
+call togglebg#map("<F6>")
 
 " Source the vimrc file after saving it
 if has("autocmd")
