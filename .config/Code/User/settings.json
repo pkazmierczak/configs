@@ -5,16 +5,38 @@
          "<C-b>": false,
          "<C-/>": false,
          "<C-w>": false,
-         "<C-f>": false
+         "<C-f>": false,
+         "<S-d>": false
     },
-    "editor.fontFamily": "Source Code Pro",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.fontFamily": "Source Code Pro for Powerline",
     "editor.fontSize": 13,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none",
+    "editor.minimap.enabled": false,
+    "files.exclude":{
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true
+    },
     "python.linting.pylintEnabled": true,
+    "python.linting.pep8Enabled": true,
+    "python.linting.pep8Args": [
+        "--ignore", "E501"
+    ],
     "python.linting.flake8Enabled": false,
     "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Args": [
+        "--ignore", "E501"
+    ],
+    "python.formatting.formatOnSave": true,
+    "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
     "git.confirmSync": false,
-    "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Quiet Light",
-    "vim.disableAnnoyingNeovimMessage": true,
-    "java.errors.incompleteClasspath.severity": "ignore"
+    "workbench.colorTheme": "Solarized Light",
+    "go.formatOnSave": true,
+    "go.lintTool": "gometalinter",
+    "window.zoomLevel": 0
 }

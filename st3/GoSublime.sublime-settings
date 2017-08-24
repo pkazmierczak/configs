@@ -1,0 +1,24 @@
+{
+    "env": { "GOPATH": "$HOME/go" },
+    "comp_lint_enabled": true, 
+    // list of commands to run
+    "comp_lint_commands": [
+        // run `golint` on all files in the package
+        // "shell":true is required in order to run the command through your shell (to expand `*.go`)
+        // also see: the documentation for the `shell` setting in the default settings file ctrl+dot,ctrl+4
+        {"cmd": ["golint *.go"], "shell": true},
+
+        // run go vet on the package
+        {"cmd": ["go", "vet"]},
+
+        // run `go install` on the package. GOBIN is set,
+        // so `main` packages shouldn't result in the installation of a binary
+        {"cmd": ["go", "install"]}
+    ],
+    "fmt_cmd": ["goimports"],
+    "on_save": [{
+        "cmd": "gs9o_open", "args": {
+            "run": ["sh", "go build . errors && go test -i && go test"],
+            "focus_view": false
+    }}]
+}

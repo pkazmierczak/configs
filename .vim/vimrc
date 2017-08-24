@@ -21,6 +21,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mhinz/vim-startify'
+Plugin 'vim-syntastic/syntastic'
 " Python
 Plugin 'python-mode/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
@@ -53,9 +54,15 @@ set smartindent
 set clipboard=unnamed        " yank and paste with the system clipboard
 set guioptions-=L            " no scrollbars
 set guioptions-=r            " no scrollbars
-set guioptions-=m            " no menubar
 set wildmenu
 set wildmode=longest:full,full
+
+if has("mac")
+	set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+else
+	set guifont=Inconsolata\ 11
+endif
+
 
 set ts=2 sts=2 sw=2 expandtab tw=72
 set laststatus=2
@@ -81,12 +88,13 @@ let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
 let g:pymode_lint_checkers = ['pylint']
 let g:pymode_lint_ignore = "E501,E402,W"
+let g:pymode_python = 'python3'
 au FileType python nmap <leader>pa :PymodeLintAuto<cr>
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
 
 " Golang
-let $GOPATH = '/home/piotr/go'
+let $GOPATH = '/Users/piotr/go'
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 au FileType go nmap <leader>r <Plug>(go-run)
@@ -95,7 +103,9 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['golint', 'vet', 'errcheck']
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " insert empty line without entering insert mode

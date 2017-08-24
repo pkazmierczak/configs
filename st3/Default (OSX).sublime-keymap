@@ -1,0 +1,39 @@
+[
+//Theme switcher
+{  
+  "keys": ["ctrl+f6"], "command": "toggle_theme",
+  "args": {
+        "options": [
+            {
+              "theme": "Solarized Space Dark.sublime-theme",
+              "color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme"
+            },
+            {
+              "theme": "Solarized Space Light.sublime-theme",
+              "color_scheme": "Packages/Theme - Solarized Space/Solarized V (Light).tmTheme"
+            }
+        ]
+      }
+},
+
+//Rope key bindings
+{ "keys": ["super+r", "super+d"], "command": "python_get_documentation", "context":
+[
+{ "key": "selector", "operator": "equal", "operand": "source.python" }
+]
+},
+
+// Paste and indent
+{ "keys": ["super+v"], "command": "paste_and_indent" }, 
+{ "keys": ["super+shift+v"], "command": "paste" },
+
+// Reindent
+{ "keys": ["f12"], "command": "reindent", "args": {"single_line": false} },
+
+
+// Ctrl+[ for vintageous before they fix #693: https://github.com/guillermooo/Vintageous/issues/693
+
+{ "keys": ["ctrl+["], "command": "_enter_normal_mode", 
+  "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}, {"key": "vi_use_ctrl_keys"}]}
+
+]
