@@ -14,6 +14,8 @@
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Solarized Light",
+    "window.zoomLevel": 0,
     "files.exclude":{
         "**/.git": true,
         "**/.svn": true,
@@ -22,6 +24,8 @@
         "**/.DS_Store": true,
         "**/*.pyc": true
     },
+    "git.confirmSync": false,
+    "gitlens.annotations.line.trailing.format": "${author} wrote that shitty piece of code ${ago}",
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": true,
     "python.linting.pep8Args": [
@@ -34,9 +38,6 @@
     ],
     "python.formatting.formatOnSave": true,
     "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
-    "git.confirmSync": false,
-    "workbench.colorTheme": "Solarized Light",
     "go.formatOnSave": true,
-    "go.lintTool": "gometalinter",
-    "window.zoomLevel": 0
+    "go.lintTool": "gometalinter"
 }
