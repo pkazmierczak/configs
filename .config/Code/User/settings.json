@@ -9,13 +9,15 @@
          "<S-d>": false
     },
     "vim.disableAnnoyingNeovimMessage": true,
-    "editor.fontFamily": "Source Code Pro for Powerline",
-    "editor.fontSize": 13,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.minimap.enabled": false,
     "workbench.colorTheme": "Solarized Light",
     "window.zoomLevel": 0,
+    "window.nativeTabs": true,
     "files.exclude":{
         "**/.git": true,
         "**/.svn": true,
@@ -39,5 +41,6 @@
     "python.formatting.formatOnSave": true,
     "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
     "go.formatOnSave": true,
-    "go.lintTool": "gometalinter"
+    "go.lintTool": "golint",
+    "extensions.ignoreRecommendations": false
 }

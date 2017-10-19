@@ -55,7 +55,7 @@ before layers configuration."
    dotspacemacs-themes '(spacemacs-light
                          spacemacs-dark)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Source Code Pro for Powerline"
+   dotspacemacs-default-font '("Fira Code"
                                :size 14
                                :weight normal
                                :width normal
@@ -75,6 +75,7 @@ before layers configuration."
   )
 
 (defun dotspacemacs/user-config ()
+  (mac-auto-operator-composition-mode)
   (setq powerline-default-separator nil)
 
   ;; ORG

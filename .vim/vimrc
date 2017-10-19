@@ -1,51 +1,48 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" Vundles!
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired' "for bracket mappings
-Plugin 'tpope/vim-repeat'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'sjl/gundo.vim'
-Plugin 'kshenoy/vim-signature' "for displaying marks
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'mhinz/vim-startify'
-Plugin 'vim-syntastic/syntastic'
+Plug 'gmarik/Vundle.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired' "for bracket mappings
+Plug 'tpope/vim-repeat'
+Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'sjl/gundo.vim'
+Plug 'kshenoy/vim-signature' "for displaying marks
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'mhinz/vim-startify'
+Plug 'vim-syntastic/syntastic'
 " Python
-Plugin 'python-mode/python-mode'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'google/yapf'
-Plugin 'timothycrosley/isort'
+Plug 'python-mode/python-mode', { 'for': 'python' }
+Plug 'google/yapf', { 'for': 'python' }
+Plug 'timothycrosley/isort', { 'for': 'python' }
 " Go
-Plugin 'fatih/vim-go'
-Plugin 'garyburd/go-explorer'
-" JS
-" Plugin 'isRuslan/vim-es6'
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" orhcestration
-" Plugin 'hashivim/vim-terraform'
-" Plugin 'rodjek/vim-puppet'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'garyburd/go-explorer', { 'for': 'go' }
 " colors
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'altercation/vim-colors-solarized'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()            " required
 
 set number
 set vb t_vb=
@@ -71,7 +68,6 @@ syntax on
 set autochdir
 
 nnoremap U :GundoToggle<cr>
-nnoremap <F5> :buffers<CR>:buffer<Space>
 
 " fugitive!
 nnoremap <leader>gw :Gwrite<cr>
@@ -79,16 +75,25 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
 
+" ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nnoremap <C-;> :Ack
+
+" vim-rooter
+let g:rooter_silent_chdir = 1
+
 " Python
+let g:pymode_python = 'python3'
 let g:pymode_folding = 0
-let g:pymode_python = 'python'
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
+let g:pymode_rope_goto_definition_bind = "<C-]>"
 let g:pymode_lint_checkers = ['pylint']
 let g:pymode_lint_ignore = "E501,E402,W"
-let g:pymode_python = 'python3'
 au FileType python nmap <leader>pa :PymodeLintAuto<cr>
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
@@ -116,25 +121,25 @@ nmap <CR> o<Esc>
 " q destroys buffer
 nmap q :bd<cr>
 
-" colorscheme lucius
-" let g:lucius_style = 'light'
-" nnoremap <F6> :call ToggleColor()<cr>
-" 
-" function! ToggleColor()
-"     if (g:lucius_style == 'light')
-"         LuciusDark
-"         AirlineRefresh
-"     else
-"         LuciusLight
-"         AirlineRefresh
-"     endif
-" endfunction
+colorscheme lucius
+let g:lucius_style = 'light'
+nnoremap <F6> :call ToggleColor()<cr>
 
-set background=light
-" let g:solarized_contrast = 'low'
-colorscheme solarized
-" Toggle 'night mode'
-call togglebg#map("<F6>")
+function! ToggleColor()
+    if (g:lucius_style == 'light')
+        LuciusDark
+        AirlineRefresh
+    else
+        LuciusLight
+        AirlineRefresh
+    endif
+endfunction
+
+" set background=light
+" " let g:solarized_contrast = 'low'
+" colorscheme solarized
+" " Toggle 'night mode'
+" call togglebg#map("<F6>")
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -168,8 +173,6 @@ let g:ycm_filetype_blacklist = {
       \ 'mail' : 1
       \}
 
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-nmap <C-m> :CtrlPMRUFiles<CR>
-
+" fzf
+nmap ; :Buffers<CR>
+nmap <C-p> :Files<CR>
