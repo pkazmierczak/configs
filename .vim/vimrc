@@ -17,8 +17,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
 Plug 'sjl/gundo.vim'
 Plug 'kshenoy/vim-signature' "for displaying marks
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
   " - name:   name of the plugin
@@ -92,6 +91,7 @@ let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
 let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_rope_goto_definition_cmd = 'e'
 let g:pymode_lint_checkers = ['pylint']
 let g:pymode_lint_ignore = "E501,E402,W"
 au FileType python nmap <leader>pa :PymodeLintAuto<cr>
@@ -102,6 +102,8 @@ autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
 let $GOPATH = '/Users/piotr/go'
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -109,8 +111,8 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 let g:syntastic_go_checkers = ['golint', 'vet', 'errcheck']
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
+" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+" let g:go_metalinter_autosave = 1
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " insert empty line without entering insert mode
@@ -173,6 +175,8 @@ let g:ycm_filetype_blacklist = {
       \ 'mail' : 1
       \}
 
-" fzf
-nmap ; :Buffers<CR>
-nmap <C-p> :Files<CR>
+" ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+nmap <C-m> :CtrlPMRUFiles<CR>
