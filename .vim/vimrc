@@ -35,7 +35,7 @@ Plug 'python-mode/python-mode', { 'for': 'python' }
 Plug 'google/yapf', { 'for': 'python' }
 Plug 'timothycrosley/isort', { 'for': 'python' }
 " Go
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'garyburd/go-explorer', { 'for': 'go' }
 " colors
 Plug 'jonathanfilip/vim-lucius'
@@ -104,15 +104,20 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+" if !exists("autocommands_loaded")
+"   let autocommands_loaded = 1
+"   autocmd BufWritePost *.go :GoBuild
+" endif
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>l <Plug>(go-lint)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 let g:syntastic_go_checkers = ['golint', 'vet', 'errcheck']
-" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-" let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " insert empty line without entering insert mode
@@ -158,7 +163,7 @@ let g:airline_theme='lucius'
 let g:airline#extensions#whitespace#enabled = 0
 
 " NerdTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeFind<CR>
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 " YCM
