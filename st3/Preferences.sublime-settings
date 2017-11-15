@@ -8,9 +8,6 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"GitGutter",
-		"GoSublime",
-		"SublimeLinter",
 		"Vintage"
 	],
 	"open_files_in_new_window": false,

@@ -2,9 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"GitGutter",
-		"GoSublime",
-		"SublimeLinter"
 	],
 	"installed_packages":
 	[

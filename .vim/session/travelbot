@@ -8,15 +8,24 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 data-point-service/data_point_service/data_to_profile/fact_to_datapoint/conversions/visitor_browser_data_referrer.py
+badd +153 data-point-service/data_point_service/data_to_profile/raw_to_fact/fact_conversions.py
+badd +48 travelbot-common/data_point_constants/raw_user_input_keys.py
+badd +31 data-point-service/data_point_service/data_to_profile/tests/test_sfdc_conversions.py
+badd +35 data-point-service/data_point_service/data_to_profile/fact_to_datapoint/conversions/sfdc.py
 argglobal
 silent! argdel *
-edit data-point-service/data_point_service/data_to_profile/fact_to_datapoint/conversions/visitor_browser_data_referrer.py
+edit data-point-service/data_point_service/data_to_profile/tests/test_sfdc_conversions.py
 set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+exe '1resize ' . ((&lines * 74 + 40) / 81)
+exe '2resize ' . ((&lines * 3 + 40) / 81)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -27,13 +36,26 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 31) / 62)
+let s:l = 29 - ((28 * winheight(0) + 37) / 74)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
-lcd ~/devel/fineway-travelbot/data-point-service/data_point_service/data_to_profile/fact_to_datapoint/conversions
+29
+normal! 017|
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+exe '1resize ' . ((&lines * 74 + 40) / 81)
+exe '2resize ' . ((&lines * 3 + 40) / 81)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
