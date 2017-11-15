@@ -29,7 +29,7 @@ function! BuildYCM(info)
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'mhinz/vim-startify'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 " Python
 Plug 'python-mode/python-mode', { 'for': 'python' }
 Plug 'google/yapf', { 'for': 'python' }
@@ -68,6 +68,12 @@ set autochdir
 
 nnoremap U :GundoToggle<cr>
 
+" exclude quickfix from buffer list
+augroup qf
+  autocmd!
+  autocmd FileType qf set nobuflisted
+augroup END
+
 " fugitive!
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs :Gstatus<cr>
@@ -78,7 +84,7 @@ nnoremap <leader>gp :Git push<cr>
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-nnoremap <C-;> :Ack
+nnoremap <leader>; :Ack 
 
 " vim-rooter
 let g:rooter_silent_chdir = 1
@@ -112,13 +118,11 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <leader>l <Plug>(go-lint)
+au FileType go nmap <leader>l <Plug>(go-metalinter)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
-let g:syntastic_go_checkers = ['golint', 'vet', 'errcheck']
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_metalinter_enabled = ['vet', 'golint']
+" let g:go_metalinter_autosave = 1
 
 " insert empty line without entering insert mode
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
