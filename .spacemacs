@@ -28,15 +28,17 @@
           org-startup-indented t)
 
      ;; languages
+     (clojure :variables
+              clojure-enable-fancify-symbols t)
      javascript
      (python :variables
              python-fill-column 99
-             python-sort-imports-on-save t
-             python-enable-yapf-format-on-save t)
+             ;python-sort-imports-on-save t
+             ;python-enable-yapf-format-on-save t
+             )
      (go :variables
          gofmt-command "goimports"
          go-tab-width 2)
-     terraform
      )
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
@@ -55,8 +57,8 @@ before layers configuration."
    dotspacemacs-themes '(spacemacs-light
                          spacemacs-dark)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Fira Code"
-                               :size 14
+   dotspacemacs-default-font '("Source Code Pro for Powerline"
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -77,6 +79,7 @@ before layers configuration."
 (defun dotspacemacs/user-config ()
   (mac-auto-operator-composition-mode)
   (setq powerline-default-separator nil)
+  (setq scroll-margin 5)
 
   ;; ORG
   (setq org-capture-templates
