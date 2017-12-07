@@ -28,8 +28,6 @@
           org-startup-indented t)
 
      ;; languages
-     (clojure :variables
-              clojure-enable-fancify-symbols t)
      javascript
      (python :variables
              python-fill-column 99
