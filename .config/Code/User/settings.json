@@ -1,12 +1,12 @@
 {
     "vim.useCtrlKeys": true,
     "vim.handleKeys": {
-         "<C-t>": false,
-         "<C-b>": false,
-         "<C-/>": false,
-         "<C-w>": false,
-         "<C-f>": false,
-         "<S-d>": false
+        "<C-t>": false,
+        "<C-b>": false,
+        "<C-/>": false,
+        "<C-w>": false,
+        "<C-f>": false,
+        "<S-d>": false
     },
     "vim.disableAnnoyingNeovimMessage": true,
     "editor.fontFamily": "Fira Code",
@@ -15,10 +15,11 @@
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
     "workbench.colorTheme": "Solarized Light",
     "window.zoomLevel": 0,
     "window.nativeTabs": true,
-    "files.exclude":{
+    "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
@@ -31,14 +32,15 @@
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": true,
     "python.linting.pep8Args": [
-        "--ignore", "E501"
+        "--ignore",
+        "E501"
     ],
     "python.linting.flake8Enabled": false,
     "python.formatting.provider": "autopep8",
     "python.formatting.autopep8Args": [
-        "--ignore", "E501"
+        "--ignore",
+        "E501"
     ],
-    "python.formatting.formatOnSave": true,
     "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
     "go.formatOnSave": true,
     "go.lintTool": "golint",
