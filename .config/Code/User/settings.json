@@ -8,7 +8,6 @@
         "<C-f>": false,
         "<S-d>": false
     },
-    "vim.disableAnnoyingNeovimMessage": true,
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 12,
     "editor.fontLigatures": true,
@@ -28,7 +27,7 @@
         "**/*.pyc": true
     },
     "git.confirmSync": false,
-    "gitlens.annotations.line.trailing.format": "${author} wrote that shitty piece of code ${ago}",
+    "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": true,
     "python.linting.pep8Args": [
@@ -42,8 +41,18 @@
         "E501"
     ],
     "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
-    "go.formatOnSave": true,
     "go.lintTool": "golint",
     "extensions.ignoreRecommendations": false,
-    "telemetry.enableTelemetry": false
+    "telemetry.enableTelemetry": false,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    }
 }

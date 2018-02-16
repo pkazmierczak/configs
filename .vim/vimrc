@@ -105,7 +105,7 @@ autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
 
 " Golang
-let $GOPATH = '$HOME/go'
+let $GOPATH = '/Users/piotr/go'
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
@@ -132,25 +132,25 @@ nmap <CR> o<Esc>
 " q destroys buffer
 nmap q :bd<cr>
 
-colorscheme lucius
-let g:lucius_style = 'light'
-nnoremap <F6> :call ToggleColor()<cr>
+" colorscheme lucius
+" let g:lucius_style = 'light'
+" nnoremap <F6> :call ToggleColor()<cr>
+" 
+" function! ToggleColor()
+"     if (g:lucius_style == 'light')
+"         LuciusDark
+"         AirlineRefresh
+"     else
+"         LuciusLight
+"         AirlineRefresh
+"     endif
+" endfunction
 
-function! ToggleColor()
-    if (g:lucius_style == 'light')
-        LuciusDark
-        AirlineRefresh
-    else
-        LuciusLight
-        AirlineRefresh
-    endif
-endfunction
-
-" set background=light
-" " let g:solarized_contrast = 'low'
-" colorscheme solarized
-" " Toggle 'night mode'
-" call togglebg#map("<F6>")
+set background=light
+" let g:solarized_contrast = 'low'
+colorscheme solarized
+" Toggle 'night mode'
+call togglebg#map("<F6>")
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -163,7 +163,7 @@ set complete+=k
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='lucius'
+let g:airline_theme='solarized'
 let g:airline#extensions#whitespace#enabled = 0
 
 " NerdTree
