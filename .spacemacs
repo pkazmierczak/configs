@@ -17,6 +17,7 @@
      syntax-checking
      emacs-lisp
      git
+     ivy
      osx
      markdown
      version-control
@@ -73,7 +74,6 @@ before layers configuration."
   )
 
 (defun dotspacemacs/user-config ()
-  (mac-auto-operator-composition-mode)
   (setq powerline-default-separator nil)
   ; (setq scroll-margin 5)
   (setq smooth-scroll-margin 5)
