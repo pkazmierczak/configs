@@ -15,7 +15,7 @@
     "editor.renderWhitespace": "none",
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "papercolor-vscode",
     "window.zoomLevel": 0,
     "window.nativeTabs": true,
     "files.exclude": {

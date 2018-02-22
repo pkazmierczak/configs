@@ -75,7 +75,7 @@ set list                          " show trailing whitespace
 set listchars=tab:\|\ ,trail:▫
 set nospell                       " disable spelling
 set noswapfile                    " disable swapfile usage
-set nowrap
+set wrap
 set noerrorbells                  " No bells!
 set novisualbell                  " I said, no bells!
 set number                        " show number ruler
@@ -314,6 +314,10 @@ nnoremap <leader>; :Ack
 "----------------------------------------------
 " Plugin: neomake/neomake
 "----------------------------------------------
+call neomake#configure#automake('w')
+call neomake#configure#automake('nw', 750)
+call neomake#configure#automake('rw', 1000)
+
 " Configure signs.
 let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
