@@ -103,6 +103,15 @@ if has('mouse')
     set mouse=a
 endif
 
+" Set fonts if we're running a gui
+if has('gui')
+    if has("mac")
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    else
+        set guifont=Inconsolata\ 11
+    endif
+endif
+
 " Allow vim to set a custom font or color for a word
 syntax enable
 
