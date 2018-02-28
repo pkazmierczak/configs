@@ -54,6 +54,7 @@ Plug 'zchee/deoplete-jedi'                     " Go auto completion
 
 " Colorschemes
 Plug 'jonathanfilip/vim-lucius'
+Plug 'iCyMind/NeoSolarized'
 
 call plug#end()
 
@@ -131,7 +132,7 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 set background=light
-colorscheme lucius
+colorscheme NeoSolarized
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -249,7 +250,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='lucius'
+let g:airline_theme='solarized'
 
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'
