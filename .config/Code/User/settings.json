@@ -9,15 +9,16 @@
         "<S-d>": false
     },
     "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 12,
+    "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
-    "workbench.colorTheme": "papercolor-vscode",
+    "workbench.colorTheme": "Solarized Light",
     "window.zoomLevel": 0,
     "window.nativeTabs": true,
+    "window.zoomLevel": 1,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -54,5 +55,7 @@
         "suppressResultsExplorerNotice": false,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
-    }
+    },
+    "window.menuBarVisibility": "toggle",
+    "workbench.startupEditor": "newUntitledFile"
 }

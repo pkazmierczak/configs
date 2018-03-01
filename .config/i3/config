@@ -184,4 +184,4 @@ bindsym XF86MonBrightnessDown exec --no-startup-id sudo python /home/piotr/bin/x
 #         tray_output primary
 #         status_command i3status --config ~/.config/i3/i3status.conf
 # }
-#exec --no-startup-id xfce4-panel --disable-wm-check
+# exec --no-startup-id xfce4-panel --disable-wm-check

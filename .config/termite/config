@@ -1,29 +1,31 @@
 [options]
-font = Source Code Pro 10
+font = Hack 12
+# Solarized light color scheme
 
 [colors]
-foreground = #444444
-foreground_bold = #444444
-background = #eeeeee
-cursor = #5f87af
+foreground = #657b83
+foreground_bold = #073642
+#foreground_dim = #888888
+background = #fdf6e3
+cursor = #586e75
 
 # if unset, will reverse foreground and background
 #highlight = #839496
 
 # colors from color0 to color254 can be set
-color0 = #444444
-color1 = #af0000
-color2 = #008700
-color3 = #af5f00
-color4 = #005faf 
-color5 = #870087 
-color6 = #008787 
-color7 = #eeeeee 
-color8 = #444444 
-color9 = #af0000
-color10 = #008700
-color11 = #af5f00
-color12 = #005faf
-color13 = #870087
-color14 = #008787
-color15 = #eeeeee
+color0 = #073642
+color1 = #dc322f
+color2 = #859900
+color3 = #b58900
+color4 = #268bd2
+color5 = #d33682
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #002b36
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3
