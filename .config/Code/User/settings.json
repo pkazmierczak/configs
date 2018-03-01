@@ -16,9 +16,7 @@
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
     "workbench.colorTheme": "Solarized Light",
-    "window.zoomLevel": 0,
-    "window.nativeTabs": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 1.2,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
