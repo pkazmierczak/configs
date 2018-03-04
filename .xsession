@@ -13,5 +13,4 @@ compton -b --config .config/compton/compton.conf &
 /usr/lib/deja-dup/deja-dup-monitor &
 parcellite &
 /home/piotr/bin/touchpad.sh &
-xfce4-power-manager &
 i3
