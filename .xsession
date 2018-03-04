@@ -1,6 +1,6 @@
 /home/piotr/.fehbg &
 xrdb -load ~/.Xresources &
-xrandr --dpi 125 &
+xrandr --dpi 110 &
 setxkbmap -layout pl &
 setxkbmap -option "ctrl:nocaps" &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &

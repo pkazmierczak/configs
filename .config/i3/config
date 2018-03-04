@@ -23,6 +23,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
+# start a scratchpad terminal
+bindsym $mod+Shift+Return exec termite -t scratchpad
+
 # start thunar
 bindsym $mod+Shift+t exec thunar
 
@@ -120,6 +123,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # set some windows as always floating
 for_window [class="Thunar"] floating enable
+for_window [instance="termite" title="scratchpad"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mumble"] floating enable
 for_window [class="mpv"] floating enable
