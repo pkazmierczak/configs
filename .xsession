@@ -10,6 +10,7 @@ nm-applet &
 sleep 2 && dropbox start &
 dunst &
 compton -b --config .config/compton/compton.conf &
+redshift &
 /usr/lib/deja-dup/deja-dup-monitor &
 parcellite &
 /home/piotr/bin/touchpad.sh &
