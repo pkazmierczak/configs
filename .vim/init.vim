@@ -35,6 +35,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' "for bracket mappings
 Plug 'mhinz/vim-startify'
+Plug 'junegunn/goyo.vim'
 
 " Vim only plugins
 if !has('nvim')
