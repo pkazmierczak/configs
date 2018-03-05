@@ -9,7 +9,7 @@
         "<S-d>": false
     },
     "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 12,
+    "editor.fontSize": 13,
     "editor.fontLigatures": true,
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
@@ -52,6 +52,5 @@
         "suppressResultsExplorerNotice": false,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
-    },
-    "window.zoomLevel": 0
+    }
 }
