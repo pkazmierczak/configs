@@ -36,6 +36,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' "for bracket mappings
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Vim only plugins
 if !has('nvim')
@@ -73,8 +75,6 @@ set completeopt-=preview          " remove the horrendous preview window
 set cursorline                    " highlight the current line for the cursor
 set encoding=utf-8
 set expandtab                     " expands tabs to spaces
-set list                          " show trailing whitespace
-set listchars=tab:\|\ ,trail:▫
 set nospell                       " disable spelling
 set noswapfile                    " disable swapfile usage
 set wrap
@@ -581,3 +581,4 @@ au FileType yaml set expandtab
 au FileType yaml set shiftwidth=2
 au FileType yaml set softtabstop=2
 au FileType yaml set tabstop=2
+

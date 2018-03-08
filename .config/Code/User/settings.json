@@ -9,7 +9,7 @@
         "<S-d>": false
     },
     "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 13,
+    "editor.fontSize": 12,
     "editor.fontLigatures": true,
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
@@ -52,5 +52,6 @@
         "suppressResultsExplorerNotice": false,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
-    }
+    },
+    "gitlens.keymap": "alternate"
 }
