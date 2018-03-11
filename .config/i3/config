@@ -181,12 +181,12 @@ bindsym XF86MonBrightnessDown exec --no-startup-id sudo python /home/piotr/bin/x
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#   colors {
-#     statusline #eeeeee
-#   }
-#         position top
-#         tray_output primary
-#         status_command i3status --config ~/.config/i3/i3status.conf
-# }
+bar {
+  colors {
+    statusline #eeeeee
+  }
+        position top
+        tray_output primary
+        status_command i3status --config ~/.config/i3/i3status.conf
+}
 # exec --no-startup-id xfce4-panel --disable-wm-check

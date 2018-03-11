@@ -53,5 +53,7 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-    "gitlens.keymap": "alternate"
+    "gitlens.keymap": "alternate",
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0.5
 }
