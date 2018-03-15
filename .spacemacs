@@ -14,12 +14,14 @@
      ;; Uncomment some layer names and press <SPC f e R>
      ;; ----------------------------------------------------------------
      auto-completion
-     syntax-checking
      emacs-lisp
      git
      ivy
      osx
      markdown
+     ranger
+     syntax-checking
+     theming
      version-control
      yaml
 
@@ -28,11 +30,11 @@
           org-startup-indented t)
 
      ;; languages
-     (python :variables
-             python-fill-column 99
-             ;python-sort-imports-on-save t
-             ;python-enable-yapf-format-on-save t
-             )
+     ;; (python :variables
+     ;;         python-fill-column 99
+     ;;         ;python-sort-imports-on-save t
+     ;;         ;python-enable-yapf-format-on-save t
+     ;;         )
      (go :variables
          gofmt-command "goimports"
          go-tab-width 2)
@@ -51,8 +53,8 @@ before layers configuration."
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner nil
    dotspacemacs-startup-lists '(recents projects)
-   dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dark)
+   dotspacemacs-themes '(solarized-light
+                         solarized-dark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro for Powerline"
                                :size 13
@@ -74,8 +76,7 @@ before layers configuration."
   )
 
 (defun dotspacemacs/user-config ()
-  (setq powerline-default-separator nil)
-  ; (setq scroll-margin 5)
+  (setq powerline-default-separator 'arrow)
   (setq smooth-scroll-margin 5)
 
   ;; ORG

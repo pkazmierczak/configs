@@ -8,6 +8,7 @@
         "<C-f>": false,
         "<S-d>": false
     },
+    "vim.statusBarColorControl": true,
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 12,
     "editor.fontLigatures": true,
@@ -53,5 +54,6 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-    "gitlens.keymap": "alternate"
+    "gitlens.keymap": "alternate",
+    "explorer.confirmDelete": false
 }

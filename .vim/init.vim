@@ -30,7 +30,6 @@ Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sebdah/vim-delve'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' "for bracket mappings
@@ -38,6 +37,7 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 " Vim only plugins
 if !has('nvim')
@@ -48,9 +48,7 @@ endif
 " Language support
 Plug 'fatih/vim-go'                            " Go support
 Plug 'hashivim/vim-terraform'                  " Terraform syntax highlighting
-Plug 'lifepillar/pgsql.vim'                    " PostgreSQL syntax highlighting
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' } " Go auto completion
-Plug 'pangloss/vim-javascript'                 " JavaScript syntax highlighting
 Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
@@ -203,6 +201,7 @@ nnoremap <leader>q :close<cr>
 
 " Closing buffers
 nnoremap q :bd<cr>
+nnoremap Q :bd!<cr>
 
 "----------------------------------------------
 " Plugin: tpope/vim-fugitive
@@ -407,7 +406,6 @@ au FileType go set softtabstop=4
 au FileType go set tabstop=4
 
 " Mappings
-au FileType go nmap <F8> :GoMetaLinter<cr>
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
