@@ -33,7 +33,6 @@ Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' "for bracket mappings
-Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
@@ -94,8 +93,13 @@ if has('nvim')
     " install the neovim package for these binaries separately like this for
     " example:
     " pip3.6 install -U neovim
-    let g:python_host_prog = '/usr/local/python2'
-    let g:python3_host_prog = '/usr/local/bin/python3'
+    if has('mac')
+        let g:python_host_prog = '/usr/local/python2'
+        let g:python3_host_prog = '/usr/local/bin/python3'
+    else
+        let g:python_host_prog = '/usr/bin/python2'
+        let g:python3_host_prog = '/usr/bin/python3'
+    endif
 endif
 
 " Enable mouse if possible
@@ -255,9 +259,6 @@ let g:airline_theme='solarized'
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'
 "----------------------------------------------
-" Note: We are not using CtrlP much in this configuration. But vim-go depend on
-" it to run GoDecls(Dir).
-
 " Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
 let g:ctrlp_map = ''
 
@@ -319,7 +320,7 @@ let g:vim_markdown_toc_autofit = 1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-nnoremap <leader>; :Ack
+nnoremap <leader>; :Ack<Space>
 
 "----------------------------------------------
 " Plugin: neomake/neomake
@@ -408,7 +409,7 @@ au FileType go set tabstop=4
 " Mappings
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F10> :GoTest -short<cr>
-au FileType go nmap <F12> <Plug>(go-def)
+au FileType go nmap K <Plug>(go-def)
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
@@ -418,6 +419,7 @@ au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
 au FileType go nmap <leader>gdh <Plug>(go-def-split)
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gi <Plug>(go-info)
 
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
@@ -439,7 +441,7 @@ let g:go_highlight_extra_types = 1
 let g:go_echo_command_info = 1
 
 " Show type information
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 
 " Highlight variable uses
 let g:go_auto_sameids = 1
