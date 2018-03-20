@@ -1,16 +1,16 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */Users/piotr/.fzf/bin* ]]; then
-  export PATH="$PATH:/Users/piotr/.fzf/bin"
+if [[ ! "$PATH" == */home/piotr/.fzf/bin* ]]; then
+  export PATH="$PATH:/home/piotr/.fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/Users/piotr/.fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "/home/piotr/.fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/Users/piotr/.fzf/shell/key-bindings.bash"
+source "/home/piotr/.fzf/shell/key-bindings.bash"
 
 _gen_fzf_default_opts() {
   local base03="234"
