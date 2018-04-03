@@ -20,6 +20,18 @@ new_window pixel
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+set $default_gaps_inner 5
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+workspace $ws1 gaps inner 0
+workspace $ws1 gaps outer 0
+workspace $ws9 gaps inner 0
+workspace $ws9 gaps outer 0
+workspace $ws10 gaps inner 0
+workspace $ws10 gaps outer 0
+
 # start a terminal
 bindsym $mod+Return exec termite
 
@@ -182,11 +194,28 @@ bindsym XF86MonBrightnessDown exec --no-startup-id sudo python /home/piotr/bin/x
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  colors {
-    statusline #eeeeee
-  }
         position top
         tray_output primary
         status_command i3status --config ~/.config/i3/i3status.conf
+        colors {
+      background #002b36
+      statusline #839496
+      separator  #586e75
+      focused_workspace  #b58900 #b58900 #002b36
+      active_workspace   #586e75 #586e75 #002b36
+      inactive_workspace #073642 #002b36 #839496
+      urgent_workspace   #dc322f #dc322f #fdf6e3
+        }
 }
-# exec --no-startup-id xfce4-panel --disable-wm-check
+exec --no-startup-id /home/piotr/.fehbg
+exec --no-startup-id xrdb -load ~/.Xresources
+exec --no-startup-id xrandr --dpi 110
+exec --no-startup-id setxkbmap -layout pl
+exec --no-startup-id setxkbmap -option "ctrl:nocaps"
+exec --no-startup-id dunst
+exec --no-startup-id compton -b --config .config/compton/compton.conf
+exec --no-startup-id /home/piotr/bin/touchpad.sh
+exec --no-startup-id parcellite
+exec --no-startup-id redshift
+
+
