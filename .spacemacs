@@ -35,6 +35,7 @@
      ;;         ;python-sort-imports-on-save t
      ;;         ;python-enable-yapf-format-on-save t
      ;;         )
+     haskell
      (go :variables
          gofmt-command "goimports"
          go-tab-width 2)

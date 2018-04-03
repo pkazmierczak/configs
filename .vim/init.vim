@@ -28,7 +28,6 @@ Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -46,7 +45,6 @@ endif
 
 " Language support
 Plug 'fatih/vim-go'                            " Go support
-Plug 'hashivim/vim-terraform'                  " Terraform syntax highlighting
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' } " Go auto completion
 Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
@@ -223,15 +221,6 @@ if has('nvim')
     let g:deoplete#enable_at_startup = 1
 endif
 
-" Disable deoplete when in multi cursor mode
-function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
-endfunction
-
-function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete = 0
-endfunction
-
 "----------------------------------------------
 " Plugin: bling/vim-airline
 "----------------------------------------------
@@ -336,31 +325,6 @@ let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
 "----------------------------------------------
-" Plugin: scrooloose/nerdtree
-"----------------------------------------------
-nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <F2> :NERDTreeToggle<cr>
-
-" Files to ignore
-let NERDTreeIgnore = [
-    \ '\~$',
-    \ '\.pyc$',
-    \ '^\.DS_Store$',
-    \ '^node_modules$',
-    \ '^.ropeproject$',
-    \ '^__pycache__$'
-\]
-
-" Close vim if NERDTree is the only opened window.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Show hidden files by default.
-let NERDTreeShowHidden = 1
-
-" Allow NERDTree to change session root.
-let g:NERDTreeChDirMode = 2
-
-"----------------------------------------------
 " Plugin: sebdah/vim-delve
 "----------------------------------------------
 " Set the Delve backend.
@@ -385,12 +349,6 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Set the path to our snippets
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-
-"----------------------------------------------
-" Plugin: 'terryma/vim-multiple-cursors'
-"----------------------------------------------
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_skip_key='<C-b>'
 
 "----------------------------------------------
 " Plugin: zchee/deoplete-go
