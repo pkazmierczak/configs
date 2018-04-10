@@ -371,10 +371,9 @@ au FileType go nmap K <Plug>(go-def)
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
+au Filetype go nmap <leader>gb :GoBuild<cr>
+au Filetype go nmap <leader>gr :GoRun<cr>
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
-au FileType go nmap <leader>gd <Plug>(go-def)
-au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
-au FileType go nmap <leader>gdh <Plug>(go-def-split)
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gi <Plug>(go-info)
@@ -504,9 +503,9 @@ au FileType markdown set syntax=markdown
 " Language: Protobuf
 "----------------------------------------------
 au FileType proto set expandtab
-au FileType proto set shiftwidth=2
-au FileType proto set softtabstop=2
-au FileType proto set tabstop=2
+au FileType proto set shiftwidth=4
+au FileType proto set softtabstop=4
+au FileType proto set tabstop=4
 
 "----------------------------------------------
 " Language: Python
