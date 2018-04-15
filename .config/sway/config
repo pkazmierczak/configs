@@ -11,9 +11,7 @@
 
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:Source Code Pro 8
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 new_window pixel
 
@@ -24,13 +22,6 @@ set $default_gaps_inner 5
 set $default_gaps_outer 0
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
-
-workspace $ws1 gaps inner 0
-workspace $ws1 gaps outer 0
-workspace $ws9 gaps inner 0
-workspace $ws9 gaps outer 0
-workspace $ws10 gaps inner 0
-workspace $ws10 gaps outer 0
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -54,12 +45,8 @@ bindsym $mod+Shift+I exec escrotum --clipboard --select --selection-delay 100 $s
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
-bindsym $mod+Tab exec rofi -show window
-
 # lock
-bindsym $mod+Shift+l exec --no-startup-id $HOME/bin/lock.sh
+bindsym $mod+Shift+l exec --no-startup-id swaylock
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -155,7 +142,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "swaymsg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -192,27 +179,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo python /home/piotr/bin/xbacklight -inc 3
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo python /home/piotr/bin/xbacklight -dec 3
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        position top
-        tray_output primary
-        status_command i3status --config ~/.config/i3/i3status.conf
-        colors {
-      background #002b36
-      statusline #839496
-      separator  #586e75
-      focused_workspace  #b58900 #b58900 #002b36
-      active_workspace   #586e75 #586e75 #002b36
-      inactive_workspace #073642 #002b36 #839496
-      urgent_workspace   #dc322f #dc322f #fdf6e3
-        }
-}
-exec --no-startup-id /home/piotr/.fehbg
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id xrandr --dpi 110
 exec --no-startup-id dunst
-exec --no-startup-id compton -b --config .config/compton/compton.conf
 exec --no-startup-id /home/piotr/bin/touchpad.sh
 exec --no-startup-id parcellite
 exec --no-startup-id redshift
@@ -220,3 +189,13 @@ exec --no-startup-id dropbox start
 exec --no-startup-id setxkbmap -layout pl
 exec --no-startup-id setxkbmap -option "ctrl:nocaps"
 
+bar {
+    position top
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+include /etc/sway/config.d/*
