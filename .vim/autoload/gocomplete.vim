@@ -1,1 +1,1 @@
-/Users/piotr/.vim/plugged/gocode/vim/autoload/gocomplete.vim
+/home/piotr/.vim/plugged/gocode/vim/autoload/gocomplete.vim
