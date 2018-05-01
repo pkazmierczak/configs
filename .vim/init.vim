@@ -24,7 +24,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
-Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
@@ -35,7 +34,7 @@ Plug 'tpope/vim-unimpaired' "for bracket mappings
 Plug 'junegunn/goyo.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'wsdjeg/FlyGrep.vim'
 
 " Vim only plugins
 if !has('nvim')
@@ -133,7 +132,7 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 set background=light
-colorscheme NeoSolarized
+colorscheme neosolarized
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -303,13 +302,9 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 
 "----------------------------------------------
-" Plugin: mileszs/ack.vim
+" Plugin: wsdjeg/FlyGrep.vim
 "----------------------------------------------
-" Open ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-nnoremap <leader>; :Ack<Space>
+nnoremap <leader>; :FlyGrep<cr>
 
 "----------------------------------------------
 " Plugin: neomake/neomake
@@ -371,8 +366,8 @@ au FileType go nmap K <Plug>(go-def)
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-au Filetype go nmap <leader>gb :GoBuild<cr>
-au Filetype go nmap <leader>gr :GoRun<cr>
+au Filetype go nmap <leader>gb <Plug>(go-build)
+au Filetype go nmap <leader>gr <Plug>(go-run-split)
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
