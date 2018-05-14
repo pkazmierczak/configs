@@ -2,6 +2,7 @@
     "vim.useCtrlKeys": true,
     "vim.handleKeys": {
         "<C-t>": false,
+        "<C-r>": false,
         "<C-b>": false,
         "<C-/>": false,
         "<C-w>": false,
@@ -16,7 +17,7 @@
     "editor.renderWhitespace": "none",
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
-    "workbench.colorTheme": "Solarized Light",
+    "editor.wordWrap": "on",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -27,19 +28,6 @@
     },
     "git.confirmSync": false,
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
-    "python.linting.pylintEnabled": true,
-    "python.linting.pep8Enabled": true,
-    "python.linting.pep8Args": [
-        "--ignore",
-        "E501"
-    ],
-    "python.linting.flake8Enabled": false,
-    "python.formatting.provider": "autopep8",
-    "python.formatting.autopep8Args": [
-        "--ignore",
-        "E501"
-    ],
-    "python.pythonPath": "/usr/local/opt/python/libexec/bin/python",
     "go.lintTool": "golint",
     "extensions.ignoreRecommendations": false,
     "telemetry.enableTelemetry": false,
@@ -56,5 +44,6 @@
         "suppressWelcomeNotice": true
     },
     "gitlens.keymap": "chorded",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Solarized Light"
 }
