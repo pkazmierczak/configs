@@ -24,6 +24,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
+Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
@@ -34,7 +35,7 @@ Plug 'tpope/vim-unimpaired' "for bracket mappings
 Plug 'junegunn/goyo.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'wsdjeg/FlyGrep.vim'
+Plug 'kshenoy/vim-signature' " show marks in the gutter
 
 " Vim only plugins
 if !has('nvim')
@@ -302,9 +303,13 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 
 "----------------------------------------------
-" Plugin: wsdjeg/FlyGrep.vim
+" Plugin: mileszs/ack.vim
 "----------------------------------------------
-nnoremap <leader>; :FlyGrep<cr>
+" Open ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nnoremap <leader>; :Ack<Space>
 
 "----------------------------------------------
 " Plugin: neomake/neomake

@@ -13,13 +13,10 @@
      ;; ----------------------------------------------------------------
      ;; Uncomment some layer names and press <SPC f e R>
      ;; ----------------------------------------------------------------
-     auto-completion
      emacs-lisp
      git
      ivy
      osx
-     markdown
-     ranger
      syntax-checking
      theming
      version-control
@@ -29,16 +26,6 @@
           org-enable-github-support t
           org-startup-indented t)
 
-     ;; languages
-     ;; (python :variables
-     ;;         python-fill-column 99
-     ;;         ;python-sort-imports-on-save t
-     ;;         ;python-enable-yapf-format-on-save t
-     ;;         )
-     haskell
-     (go :variables
-         gofmt-command "goimports"
-         go-tab-width 2)
      )
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))

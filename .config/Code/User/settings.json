@@ -27,10 +27,13 @@
         "**/*.pyc": true
     },
     "git.confirmSync": false,
-    "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
     "go.lintTool": "golint",
+    "python.formatting.provider": "yapf",
     "extensions.ignoreRecommendations": false,
     "telemetry.enableTelemetry": false,
+    "gitlens.keymap": "chorded",
+    "gitlens.historyExplorer.enabled": true,
+    "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -43,7 +46,6 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-    "gitlens.keymap": "chorded",
     "explorer.confirmDelete": false,
     "workbench.colorTheme": "Solarized Light"
 }
