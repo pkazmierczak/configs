@@ -20,18 +20,6 @@ new_window pixel
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-set $default_gaps_inner 5
-set $default_gaps_outer 0
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
-
-workspace $ws1 gaps inner 0
-workspace $ws1 gaps outer 0
-workspace $ws9 gaps inner 0
-workspace $ws9 gaps outer 0
-workspace $ws10 gaps inner 0
-workspace $ws10 gaps outer 0
-
 # start a terminal
 bindsym $mod+Return exec termite
 
