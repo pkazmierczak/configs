@@ -28,20 +28,13 @@ Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
-Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' "for bracket mappings
-Plug 'junegunn/goyo.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature' " show marks in the gutter
 
-" Vim only plugins
-if !has('nvim')
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Needed to make sebdah/vim-delve work on Vim
-    Plug 'Shougo/vimshell.vim'                  " Needed to make sebdah/vim-delve work on Vim
-endif
 
 " Language support
 Plug 'fatih/vim-go'                            " Go support
@@ -323,12 +316,6 @@ let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
 let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-
-"----------------------------------------------
-" Plugin: sebdah/vim-delve
-"----------------------------------------------
-" Set the Delve backend.
-let g:delve_backend = "native"
 
 "----------------------------------------------
 " Plugin: Shougo/neosnippet
