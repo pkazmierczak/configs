@@ -126,7 +126,7 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 set background=light
-colorscheme neosolarized
+colorscheme NeoSolarized
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>

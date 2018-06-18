@@ -17,10 +17,16 @@
      git
      ivy
      osx
+     ranger
      syntax-checking
      theming
      version-control
      yaml
+
+     (go :variables
+         go-use-metalinter t
+         go-tab-width 4
+         gofmt-command "goimports")
 
      (org :variables
           org-enable-github-support t
@@ -61,6 +67,10 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
    )
+  (setq exec-path-from-shell-variables '("PATH"
+                                         "GOPATH"
+                                         "GOROOT"
+                                         "GOBIN"))
   )
 
 (defun dotspacemacs/user-config ()
