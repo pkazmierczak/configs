@@ -13,26 +13,30 @@
      ;; ----------------------------------------------------------------
      ;; Uncomment some layer names and press <SPC f e R>
      ;; ----------------------------------------------------------------
+     auto-completion
      emacs-lisp
      git
      ivy
      osx
      ranger
      syntax-checking
-     theming
-     version-control
+     (version-control :variables
+                      version-control-global-margin t
+                      version-control-diff-side 'left)
      yaml
 
      (go :variables
          go-use-metalinter t
          go-tab-width 4
          gofmt-command "goimports")
-
+     haskell
      (org :variables
           org-enable-github-support t
           org-startup-indented t)
+     rust
 
      )
+   dotspacemacs-additional-packages '(protobuf-mode)
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
 
@@ -75,7 +79,8 @@ before layers configuration."
 
 (defun dotspacemacs/user-config ()
   (setq powerline-default-separator 'arrow)
-  (setq smooth-scroll-margin 5)
+  (with-eval-after-load 'linum
+    (linum-relative-toggle))
 
   ;; ORG
   (setq org-capture-templates

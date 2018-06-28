@@ -8,14 +8,10 @@
 call plug#begin('~/.vim/plugged')
 
 " Dependencies
-Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
-Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
 Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
 " General plugins
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
@@ -39,7 +35,6 @@ Plug 'kshenoy/vim-signature' " show marks in the gutter
 " Language support
 Plug 'fatih/vim-go'                            " Go support
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' } " Go auto completion
-Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
 
@@ -195,7 +190,7 @@ nnoremap <leader>h :split<cr>
 nnoremap <leader>q :close<cr>
 
 " Closing buffers
-nnoremap q :bd<cr>
+nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
 "----------------------------------------------
@@ -287,15 +282,6 @@ let g:tagbar_type_go = {
 \ }
 
 "----------------------------------------------
-" Plugin: plasticboy/vim-markdown
-"----------------------------------------------
-" Disable folding
-let g:vim_markdown_folding_disabled = 1
-
-" Auto shrink the TOC, so that it won't take up 50% of the screen
-let g:vim_markdown_toc_autofit = 1
-
-"----------------------------------------------
 " Plugin: mileszs/ack.vim
 "----------------------------------------------
 " Open ack
@@ -316,26 +302,6 @@ let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
 let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-
-"----------------------------------------------
-" Plugin: Shougo/neosnippet
-"----------------------------------------------
-" Disable the default snippets (needed since we do not install
-" Shougo/neosnippet-snippets).
-"
-" Below you can disable default snippets for specific languages. If you set the
-" language to _ it sets the default for all languages.
-let g:neosnippet#disable_runtime_snippets = {
-    \ 'go': 1
-\}
-
-" Keybindings
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" Set the path to our snippets
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
 "----------------------------------------------
 " Plugin: zchee/deoplete-go
