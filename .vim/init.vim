@@ -34,7 +34,6 @@ Plug 'kshenoy/vim-signature' " show marks in the gutter
 
 " Language support
 Plug 'fatih/vim-go'                            " Go support
-" Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' } " Go auto completion
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
 
