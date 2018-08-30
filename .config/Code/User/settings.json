@@ -9,14 +9,13 @@
         "<C-f>": false,
         "<S-d>": false
     },
-    "vim.statusBarColorControl": true,
+    "vim.useSystemClipboard": true,
     "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 12,
-    "editor.fontLigatures": true,
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
+    "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.wordWrap": "on",
     "files.exclude": {
         "**/.git": true,
@@ -29,7 +28,10 @@
     "git.confirmSync": false,
     "go.lintTool": "golint",
     "python.formatting.provider": "yapf",
-    "extensions.ignoreRecommendations": false,
+    "python.linting.pylintArgs": [
+        "--disable=E1129"
+    ],
+    "extensions.ignoreRecommendations": true,
     "telemetry.enableTelemetry": false,
     "gitlens.keymap": "chorded",
     "gitlens.historyExplorer.enabled": true,
@@ -47,5 +49,6 @@
         "suppressWelcomeNotice": true
     },
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
+    "breadcrumbs.enabled": true,
 }

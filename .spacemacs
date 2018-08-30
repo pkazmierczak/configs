@@ -34,6 +34,7 @@
           org-enable-github-support t
           org-startup-indented t)
      rust
+     scheme
 
      )
    dotspacemacs-additional-packages '(protobuf-mode)
