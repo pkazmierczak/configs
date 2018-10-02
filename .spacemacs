@@ -52,7 +52,7 @@ before layers configuration."
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner nil
    dotspacemacs-startup-lists '(recents projects)
-   dotspacemacs-themes '(solarized-light
+   dotspacemacs-themes '(spacemacs-light
                          solarized-dark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro for Powerline"

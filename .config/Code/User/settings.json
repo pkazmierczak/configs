@@ -2,7 +2,6 @@
     "vim.useCtrlKeys": true,
     "vim.handleKeys": {
         "<C-t>": false,
-        "<C-r>": false,
         "<C-b>": false,
         "<C-/>": false,
         "<C-w>": false,
@@ -11,11 +10,12 @@
     },
     "vim.useSystemClipboard": true,
     "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 12,
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.wordWrap": "on",
     "files.exclude": {
         "**/.git": true,
@@ -32,7 +32,6 @@
         "--disable=E1129"
     ],
     "extensions.ignoreRecommendations": true,
-    "telemetry.enableTelemetry": false,
     "gitlens.keymap": "chorded",
     "gitlens.historyExplorer.enabled": true,
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
@@ -51,4 +50,7 @@
     "explorer.confirmDelete": false,
     "workbench.colorTheme": "Solarized Light",
     "breadcrumbs.enabled": true,
+    "telemetry.enableTelemetry": false,
+    "editor.renderControlCharacters": false,
+    "workbench.activityBar.visible": true,
 }
