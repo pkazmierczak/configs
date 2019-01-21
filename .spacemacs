@@ -29,15 +29,12 @@
          go-use-metalinter t
          go-tab-width 4
          gofmt-command "goimports")
-     haskell
      (org :variables
           org-enable-github-support t
           org-startup-indented t)
-     rust
-     scheme
-
+     terraform
      )
-   dotspacemacs-additional-packages '(protobuf-mode)
+   dotspacemacs-additional-packages '(protobuf-mode exec-path-from-shell)
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
 
@@ -64,6 +61,7 @@ before layers configuration."
    dotspacemacs-enable-paste-micro-state nil
    dotspacemacs-fullscreen-at-startup nil
    dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-theme 'spacemacs
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
@@ -72,27 +70,24 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
    )
-  (setq exec-path-from-shell-variables '("PATH"
-                                         "GOPATH"
-                                         "GOROOT"
-                                         "GOBIN"))
   )
 
 (defun dotspacemacs/user-config ()
+  (exec-path-from-shell-initialize)
   (setq powerline-default-separator 'arrow)
   (with-eval-after-load 'linum
     (linum-relative-toggle))
 
   ;; ORG
   (setq org-capture-templates
-        '(("t" "technical" entry (file "~/org/technical.org" "Tasks")
+        '(("t" "technical" entry (file "~/Dropbox/docs/org/technical.org" "Tasks")
            "* %?\nEntered on %U\n")
-          ("w" "work" entry (file+datetree "~/org/work-journal.org" "Work journal")
+          ("w" "work" entry (file+datetree "~/Dropbox/docs/org/work-journal.org" "Work journal")
            "* %?\nEntered on %U\n"
            :emptylines 1)
-          ("i" "idea" entry (file "~/org/ideas.org")
+          ("i" "idea" entry (file "~/Dropbox/docs/org/ideas.org")
            "* %?\nEntered on %U\n")
-          ("d" "doodles" entry (file "~/org/doodles.org")
+          ("d" "doodles" entry (file "~/Dropbox/docs/org/doodles.org")
            "* %? %U\n")))
   (setq org-todo-keywords
         '((sequence "IDEA" "TODO" "INPROGRESS" "ON HOLD" "BLOCKED" "|" "DONE" "DELEGATED")))

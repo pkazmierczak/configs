@@ -9,14 +9,16 @@
         "<S-d>": false
     },
     "vim.useSystemClipboard": true,
+
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 12,
-    "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
-    "editor.formatOnSave": true,
     "editor.wordWrap": "on",
+    "editor.renderControlCharacters": false,
+    "editor.renderIndentGuides": false,
+    "editor.minimap.enabled": false,
+
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -25,15 +27,16 @@
         "**/.DS_Store": true,
         "**/*.pyc": true
     },
-    "git.confirmSync": false,
     "go.lintTool": "golint",
+    "go.formatTool": "goimports",
     "python.formatting.provider": "yapf",
     "python.linting.pylintArgs": [
         "--disable=E1129"
     ],
     "extensions.ignoreRecommendations": true,
+
+    "git.confirmSync": false,
     "gitlens.keymap": "chorded",
-    "gitlens.historyExplorer.enabled": true,
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
@@ -47,10 +50,20 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
+
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Solarized Light",
     "breadcrumbs.enabled": true,
-    "telemetry.enableTelemetry": false,
-    "editor.renderControlCharacters": false,
+    "files.trimTrailingWhitespace": true,
     "workbench.activityBar.visible": true,
+    "workbench.fontAliasing": "auto",
+    "workbench.settings.editor": "json",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "telemetry.enableTelemetry": false,
+    "workbench.colorTheme": "Base2Tone_HeathLight",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "editor.multiCursorModifier": "alt",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "clock.dateFormat": "H:MM",
+    "explorer.confirmDragAndDrop": false,
 }

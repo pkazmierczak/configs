@@ -14,6 +14,7 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'enricobacis/vim-airline-clock'
 Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -34,12 +35,15 @@ Plug 'kshenoy/vim-signature' " show marks in the gutter
 
 " Language support
 Plug 'fatih/vim-go'                            " Go support
+Plug 'sebdah/vim-delve'                        " Go dlv support
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
+Plug 'hashivim/vim-terraform'
 
 " Colorschemes
 Plug 'jonathanfilip/vim-lucius'
 Plug 'iCyMind/NeoSolarized'
+Plug 'atelierbram/Base2Tone-vim'
 
 call plug#end()
 
@@ -120,7 +124,9 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 set background=light
-colo NeoSolarized
+" colo NeoSolarized
+colo Base2Tone_HeathLight
+set termguicolors
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -230,7 +236,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='solarized'
+let g:airline_theme='Base2Tone_HeathLight'
 
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'
@@ -329,6 +335,7 @@ au FileType go nmap <leader>gt :GoDeclsDir<cr>
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gi <Plug>(go-info)
+au FileType go nmap <Leader>db :DlvToggleBreakpoint<cr>
 
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
@@ -347,7 +354,7 @@ let g:go_highlight_extra_types = 1
 let g:go_echo_command_info = 1
 
 " Show type information
-let g:go_auto_type_info = 0
+let g:go_auto_type_info = 1
 
 " Highlight variable uses
 let g:go_auto_sameids = 1
@@ -399,6 +406,12 @@ let g:neomake_go_gometalinter_maker = {
   \   '%E%f:%l::%trror: %m,' .
   \   '%W%f:%l::%tarning: %m'
   \ }
+
+"----------------------------------------------
+" Language: terraform
+"----------------------------------------------
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 
 "----------------------------------------------
 " Language: gitcommit
