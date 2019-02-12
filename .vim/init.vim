@@ -43,7 +43,6 @@ Plug 'hashivim/vim-terraform'
 " Colorschemes
 Plug 'jonathanfilip/vim-lucius'
 Plug 'iCyMind/NeoSolarized'
-Plug 'atelierbram/Base2Tone-vim'
 Plug 'junegunn/seoul256.vim'
 
 call plug#end()
