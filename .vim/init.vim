@@ -44,6 +44,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'iCyMind/NeoSolarized'
 Plug 'atelierbram/Base2Tone-vim'
+Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 
@@ -124,8 +125,7 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 set background=light
-" colo NeoSolarized
-colo Base2Tone_HeathLight
+colo seoul256-light
 set termguicolors
 
 " Toggle background with <leader>bg
@@ -236,7 +236,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='Base2Tone_HeathLight'
+let g:airline_theme='zenburn'
 
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'

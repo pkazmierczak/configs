@@ -9,7 +9,6 @@
         "<S-d>": false
     },
     "vim.useSystemClipboard": true,
-
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 12,
     "editor.renderWhitespace": "none",
@@ -18,7 +17,8 @@
     "editor.renderControlCharacters": false,
     "editor.renderIndentGuides": false,
     "editor.minimap.enabled": false,
-
+    "editor.multiCursorModifier": "alt",
+    "editor.formatOnSave": false,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -34,7 +34,6 @@
         "--disable=E1129"
     ],
     "extensions.ignoreRecommendations": true,
-
     "git.confirmSync": false,
     "gitlens.keymap": "chorded",
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
@@ -50,20 +49,18 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
     "explorer.confirmDelete": false,
     "breadcrumbs.enabled": true,
     "files.trimTrailingWhitespace": true,
+    "workbench.colorTheme": "Solarized Light",
     "workbench.activityBar.visible": true,
     "workbench.fontAliasing": "auto",
     "workbench.settings.editor": "json",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "telemetry.enableTelemetry": false,
-    "workbench.colorTheme": "Base2Tone_HeathLight",
     "python.pythonPath": "/usr/local/bin/python3",
-    "editor.multiCursorModifier": "alt",
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
     "clock.dateFormat": "H:MM",
     "explorer.confirmDragAndDrop": false,
 }
