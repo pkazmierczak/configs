@@ -54,7 +54,6 @@
     "explorer.confirmDelete": false,
     "breadcrumbs.enabled": true,
     "files.trimTrailingWhitespace": true,
-    "workbench.colorTheme": "Solarized Light",
     "workbench.activityBar.visible": true,
     "workbench.fontAliasing": "auto",
     "workbench.settings.editor": "json",
@@ -63,4 +62,6 @@
     "python.pythonPath": "/usr/local/bin/python3",
     "clock.dateFormat": "H:MM",
     "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Solarized Light",
+    "git.autofetch": true,
 }

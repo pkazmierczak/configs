@@ -43,6 +43,7 @@ Plug 'hashivim/vim-terraform'
 " Colorschemes
 Plug 'jonathanfilip/vim-lucius'
 Plug 'iCyMind/NeoSolarized'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -122,8 +123,8 @@ nnoremap <space> zz
 "----------------------------------------------
 " Colors
 "----------------------------------------------
-set background=light
-colo NeoSolarized
+set background=dark
+colo gruvbox
 set termguicolors
 
 " Toggle background with <leader>bg
@@ -234,7 +235,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'
