@@ -39,6 +39,7 @@ Plug 'sebdah/vim-delve'                        " Go dlv support
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'hashivim/vim-terraform'
+Plug 'JuliaEditorSupport/julia-vim'            " Julia
 
 " Colorschemes
 Plug 'jonathanfilip/vim-lucius'
@@ -123,8 +124,8 @@ nnoremap <space> zz
 "----------------------------------------------
 " Colors
 "----------------------------------------------
-set background=dark
-colo gruvbox
+set background=light
+colo NeoSolarized
 set termguicolors
 
 " Toggle background with <leader>bg
@@ -235,7 +236,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='gruvbox'
+let g:airline_theme='solarized'
 
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'

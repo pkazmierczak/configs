@@ -18,7 +18,7 @@
     "editor.renderIndentGuides": false,
     "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "alt",
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -62,6 +62,7 @@
     "python.pythonPath": "/usr/local/bin/python3",
     "clock.dateFormat": "H:MM",
     "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Solarized Light",
     "git.autofetch": true,
+    "workbench.colorTheme": "Solarized Light",
+    "terminal.integrated.rendererType": "dom",
 }
