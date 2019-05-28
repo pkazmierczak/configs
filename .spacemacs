@@ -9,7 +9,7 @@
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
-   '(
+   '(haskell
      ;; ----------------------------------------------------------------
      ;; Uncomment some layer names and press <SPC f e R>
      ;; ----------------------------------------------------------------
@@ -75,8 +75,6 @@ before layers configuration."
 (defun dotspacemacs/user-config ()
   (exec-path-from-shell-initialize)
   (setq powerline-default-separator 'arrow)
-  (with-eval-after-load 'linum
-    (linum-relative-toggle))
 
   ;; ORG
   (setq org-capture-templates

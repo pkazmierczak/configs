@@ -22,7 +22,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
-Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' "for bracket mappings
@@ -39,7 +38,6 @@ Plug 'hashivim/vim-terraform'
 " Colorschemes
 Plug 'jonathanfilip/vim-lucius'
 Plug 'iCyMind/NeoSolarized'
-
 call plug#end()
 
 "----------------------------------------------
@@ -337,6 +335,10 @@ let g:go_metalinter_enabled = [
 
 " Set whether the JSON tags should be snakecase or camelcase.
 let g:go_addtags_transform = "snakecase"
+
+" Use gopls
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " neomake configuration for Go.
 let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
