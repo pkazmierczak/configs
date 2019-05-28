@@ -19,12 +19,10 @@ Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding i
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
-Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' "for bracket mappings
@@ -32,19 +30,15 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature' " show marks in the gutter
 
-
 " Language support
 Plug 'fatih/vim-go'                            " Go support
-Plug 'sebdah/vim-delve'                        " Go dlv support
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'hashivim/vim-terraform'
-Plug 'JuliaEditorSupport/julia-vim'            " Julia
 
 " Colorschemes
 Plug 'jonathanfilip/vim-lucius'
 Plug 'iCyMind/NeoSolarized'
-Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -117,9 +111,6 @@ autocmd BufLeave * silent! :wa
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Center the screen quickly
-nnoremap <space> zz
 
 "----------------------------------------------
 " Colors
@@ -249,42 +240,6 @@ let g:ctrlp_map = ''
 "----------------------------------------------
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-m> :History<cr>
-
-"----------------------------------------------
-" Plugin: 'majutsushi/tagbar'
-"----------------------------------------------
-" Add shortcut for toggling the tag bar
-nnoremap <F8> :TagbarToggle<cr>
-
-" Language: Go
-" Tagbar configuration for Golang
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
 "----------------------------------------------
 " Plugin: mileszs/ack.vim
