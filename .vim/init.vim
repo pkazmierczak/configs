@@ -30,7 +30,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature' " show marks in the gutter
 
 " Language support
-Plug 'fatih/vim-go'                            " Go support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'hashivim/vim-terraform'
