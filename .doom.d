@@ -1,1 +1,0 @@
-/Users/piotr/.doom.d
