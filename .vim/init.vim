@@ -36,7 +36,6 @@ Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
-Plug 'jonathanfilip/vim-lucius'
 Plug 'iCyMind/NeoSolarized'
 call plug#end()
 
