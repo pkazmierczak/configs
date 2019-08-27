@@ -24,10 +24,10 @@ Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired' "for bracket mappings
+Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'kshenoy/vim-signature' " show marks in the gutter
+Plug 'kshenoy/vim-signature'       " show marks in the gutter
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -225,6 +225,7 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_theme='solarized'
+let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'
