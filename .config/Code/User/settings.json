@@ -1,102 +1,40 @@
 {
-    "vim.useCtrlKeys": true,
-    "vim.handleKeys": {
-        "<C-t>": false,
-        "<C-b>": false,
-        "<C-/>": false,
-        "<C-w>": false,
-        "<C-f>": false,
-        "<S-d>": false
-    },
     "vim.useSystemClipboard": true,
     "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 12,
     "editor.renderWhitespace": "none",
     "editor.fontLigatures": true,
     "editor.wordWrap": "on",
     "editor.renderControlCharacters": false,
-    "editor.renderIndentGuides": false,
     "editor.minimap.enabled": false,
-    "editor.multiCursorModifier": "alt",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/*.pyc": true
-    },
-    "python.formatting.provider": "yapf",
+    "editor.autoClosingBrackets": "never",
+    "editor.renderIndentGuides": false,
+    "workbench.tree.renderIndentGuides": "none",
     "python.linting.pylintArgs": [
         "--disable=E1129"
     ],
-    "extensions.ignoreRecommendations": true,
-    "git.confirmSync": false,
-    "git.autofetch": true,
-    "gitlens.keymap": "chorded",
+    "go.useLanguageServer": true,
+    "go.liveErrors": { "enabled": false },
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true,
+        "wantCompletionDocumentation": true
+    },
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
-    },
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "explorer.confirmDelete": false,
-    "breadcrumbs.enabled": true,
-    "files.trimTrailingWhitespace": true,
-    "workbench.activityBar.visible": true,
-    "workbench.fontAliasing": "auto",
-    "workbench.settings.editor": "json",
-    "workbench.settings.enableNaturalLanguageSearch": false,
-    "telemetry.enableTelemetry": false,
-    "python.pythonPath": "/usr/local/bin/python3",
-    "clock.dateFormat": "H:MM",
-    "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Solarized Light",
-    "terminal.integrated.rendererType": "dom",
-    "vs-kubernetes": {
-        "vs-kubernetes.minikube-path": "/Users/piotr/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    },
-    "go.buildOnSave": "off",
-    "go.coverOnTestPackage": false,
-    "go.lintTool": "gometalinter",
-    "go.lintFlags": [
-        "--fast",
-        "--concurrency=3",
-        "--enable-gc",
-        "--tests",
-        "-D",
-        "aligncheck",
-        "-D",
-        "dupl",
-        "-D",
-        "gocyclo",
-        "-D",
-        "gotype",
-        "-E",
-        "misspell",
-        "-E",
-        "unused",
-        "%:p:h",
-    ],
-    "go.useLanguageServer": false,
-    "go.vetOnSave": "workspace",
+    "gitlens.advanced.telemetry.enabled": false,
     "cSpell.userWords": [
+        "GOPATH",
         "Kaźmierczak",
         "Piotr",
+        "gcloud",
+        "gitlab",
         "gitlens",
+        "messagebird",
         "whitelisted"
     ],
     "cSpell.enabledLanguageIds": [
@@ -127,7 +65,9 @@
         "text",
         "typescript",
         "typescriptreact",
-        "yaml",
-        "yml"
     ],
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "search.location": "panel",
+    "workbench.colorTheme": "Solarized Light",
 }

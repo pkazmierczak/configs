@@ -13,9 +13,12 @@
       doom-one-brighter-comments nil)
 
 ;; Load the theme (doom-one, doom-dark, etc.)
-(load-theme 'doom-solarized-light t)
+; (load-theme 'doom-solarized-light t)
 
 ;; Enable custom neotree theme
 (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
 
 (setq doom-font (font-spec :family "Source Code Pro for Powerline" :size 13))
+
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)

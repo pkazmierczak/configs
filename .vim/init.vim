@@ -37,6 +37,7 @@ Plug 'hashivim/vim-terraform'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
+Plug 'jnurmine/Zenburn'
 call plug#end()
 
 "----------------------------------------------
