@@ -1,1 +1,1 @@
-/Users/piotr/.vim/plugged/gocode/vim/autoload/gocomplete.vim
+/Users/pkazmierczak/.vim/plugged/gocode/vim/autoload/gocomplete.vim

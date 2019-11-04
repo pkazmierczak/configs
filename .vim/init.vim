@@ -33,7 +33,10 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
+Plug 'buoto/gotests-vim'                       " gotests
 Plug 'hashivim/vim-terraform'
+Plug 'plytophogy/vim-virtualenv'               " Python
+Plug 'PieterjanMontens/vim-pipenv'             " Python
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
@@ -71,10 +74,6 @@ set so=5
 
 " neovim specific settings
 if has('nvim')
-    " Set the Python binaries neovim is using. Please note that you will need to
-    " install the neovim package for these binaries separately like this for
-    " example:
-    " pip3.6 install -U neovim
     if has('mac')
         let g:python_host_prog = '/usr/local/python2'
         let g:python3_host_prog = '/usr/local/bin/python3'

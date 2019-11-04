@@ -23,7 +23,7 @@
     },
     "gopls": {
         "usePlaceholders": true,
-        "wantCompletionDocumentation": true
+        "completionDocumentation": true
     },
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
     "gitlens.advanced.telemetry.enabled": false,
@@ -35,6 +35,7 @@
         "gitlab",
         "gitlens",
         "messagebird",
+        "naasutils",
         "whitelisted"
     ],
     "cSpell.enabledLanguageIds": [
@@ -69,5 +70,6 @@
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "search.location": "panel",
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Solarized Dark",
+    "python.formatting.provider": "yapf",
 }

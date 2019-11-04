@@ -9,7 +9,7 @@
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
-   '(haskell
+   '(
      ;; ----------------------------------------------------------------
      ;; Uncomment some layer names and press <SPC f e R>
      ;; ----------------------------------------------------------------
@@ -32,6 +32,7 @@
      (org :variables
           org-enable-github-support t
           org-startup-indented t)
+     python
      terraform
      )
    dotspacemacs-additional-packages '(protobuf-mode exec-path-from-shell)
