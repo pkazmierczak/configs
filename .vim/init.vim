@@ -110,9 +110,13 @@ autocmd BufWritePre * :%s/\s\+$//e
 "----------------------------------------------
 " Colors
 "----------------------------------------------
-set background=light
-colo NeoSolarized
-set termguicolors
+colo zenburn
+
+if has('mac')
+    set background=light
+    colo NeoSolarized
+    set termguicolors
+endif
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -222,7 +226,11 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
+if has('mac')
 let g:airline_theme='solarized'
+else
+let g:airline_theme='zenburn'
+endif
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
