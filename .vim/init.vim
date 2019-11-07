@@ -35,8 +35,6 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'hashivim/vim-terraform'
-Plug 'plytophogy/vim-virtualenv'               " Python
-Plug 'PieterjanMontens/vim-pipenv'             " Python
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'

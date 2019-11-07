@@ -70,6 +70,6 @@
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "search.location": "panel",
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Solarized Light",
     "python.formatting.provider": "yapf",
 }
