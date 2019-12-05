@@ -10,8 +10,12 @@
     "editor.renderIndentGuides": false,
     "workbench.tree.renderIndentGuides": "none",
     "python.linting.pylintArgs": [
-        "--disable=E1129"
+    "--disable=E1129,C0114"
     ],
+    "python.jediEnabled": true,
+    "[python]": {
+        "editor.formatOnSave": true
+    },
     "go.useLanguageServer": true,
     "go.liveErrors": { "enabled": false },
     "[go]": {
@@ -39,37 +43,16 @@
         "whitelisted"
     ],
     "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "handlebars",
-        "html",
-        "jade",
-        "java",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "jsonc",
-        "latex",
-        "less",
         "markdown",
-        "php",
         "plaintext",
-        "pug",
-        "python",
-        "restructuredtext",
-        "rust",
-        "scala",
-        "scss",
-        "text",
-        "typescript",
-        "typescriptreact",
     ],
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "search.location": "panel",
-    "workbench.colorTheme": "Solarized Light",
-    "python.formatting.provider": "yapf",
+    "workbench.colorTheme": "Zenburn",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "window.nativeFullScreen": false,
+    "clock.alignment": "Right",
+    "clock.format": "HH:MM",
 }

@@ -32,8 +32,9 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 " Language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
-Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'buoto/gotests-vim'                       " gotests
+Plug 'zchee/deoplete-jedi'                     " Python auto completion
+Plug 'davidhalter/jedi-vim'                    " Python auto completion
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
@@ -227,9 +228,9 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
 if has('mac')
-let g:airline_theme='solarized'
+    let g:airline_theme='solarized'
 else
-let g:airline_theme='zenburn'
+    let g:airline_theme='zenburn'
 endif
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
@@ -371,6 +372,27 @@ let g:neomake_go_gometalinter_maker = {
   \ }
 
 "----------------------------------------------
+" Language: Python
+"----------------------------------------------
+au FileType python set expandtab
+au FileType python set shiftwidth=4
+au FileType python set softtabstop=4
+au FileType python set tabstop=4
+
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#goto_assignments_command = ''  " dynamically done for ft=python.
+let g:jedi#goto_definitions_command = ''  " dynamically done for ft=python.
+let g:jedi#use_tabs_not_buffers = 0  " current default is 1.
+let g:jedi#rename_command = '<Leader>gR'
+let g:jedi#usages_command = '<Leader>gu'
+let g:jedi#completions_enabled = 0
+let g:jedi#smart_auto_mappings = 1
+
+" Unite/ref and pydoc are more useful.
+let g:jedi#documentation_command = '<Leader>_K'
+let g:jedi#auto_close_doc = 1
+
+"----------------------------------------------
 " Language: terraform
 "----------------------------------------------
 let g:terraform_align=1
@@ -431,14 +453,6 @@ au FileType proto set expandtab
 au FileType proto set shiftwidth=4
 au FileType proto set softtabstop=4
 au FileType proto set tabstop=4
-
-"----------------------------------------------
-" Language: Python
-"----------------------------------------------
-au FileType python set expandtab
-au FileType python set shiftwidth=4
-au FileType python set softtabstop=4
-au FileType python set tabstop=4
 
 "----------------------------------------------
 " Language: SQL
