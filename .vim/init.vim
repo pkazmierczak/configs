@@ -39,7 +39,6 @@ Plug 'hashivim/vim-terraform'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
-Plug 'jnurmine/Zenburn'
 call plug#end()
 
 "----------------------------------------------
@@ -111,13 +110,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 "----------------------------------------------
 " Colors
 "----------------------------------------------
-colo zenburn
 
-if has('mac')
-    set background=light
-    colo NeoSolarized
-    set termguicolors
-endif
+set background=light
+colo NeoSolarized
+set termguicolors
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -135,11 +131,6 @@ endif
 " Clear search highlights
 map <leader>c :nohlsearch<cr>
 
-" These mappings will make it so that going to the next one in a search will
-" center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
 "----------------------------------------------
 " Navigation
 "----------------------------------------------
@@ -148,10 +139,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" Move between buffers with Shift + arrow key...
-nnoremap <S-Left> :bprevious<cr>
-nnoremap <S-Right> :bnext<cr>
 
 " ... but skip the quickfix when navigating
 augroup qf
@@ -227,11 +214,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-if has('mac')
-    let g:airline_theme='solarized'
-else
-    let g:airline_theme='zenburn'
-endif
+let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
