@@ -12,7 +12,11 @@
     "python.linting.pylintArgs": [
     "--disable=E1129,C0114"
     ],
-    "python.jediEnabled": true,
+    "python.jediEnabled": false,
+    "python.linting.banditEnabled": false,
+    "python.linting.pylintEnabled": false,
+    "python.formatting.provider": "black",
+    "python.linting.pylamaEnabled": true,
     "[python]": {
         "editor.formatOnSave": true
     },
@@ -49,10 +53,13 @@
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "search.location": "panel",
-    "workbench.colorTheme": "Zenburn",
+    "workbench.colorTheme": "Solarized Light",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "window.nativeFullScreen": false,
     "clock.alignment": "Right",
     "clock.format": "HH:MM",
+    "python.linting.pylamaArgs": [
+        "--ignore=E501"
+    ],
 }

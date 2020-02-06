@@ -1,6 +1,5 @@
 "----------------------------------------------
 " Plugin management
-"
 " Download vim-plug from the URL below and follow the installation
 " instructions:
 " https://github.com/junegunn/vim-plug
@@ -35,6 +34,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'zchee/deoplete-jedi'                     " Python auto completion
 Plug 'davidhalter/jedi-vim'                    " Python auto completion
+Plug 'psf/black'                               " Python linter
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
@@ -391,6 +391,9 @@ let g:jedi#smart_auto_mappings = 1
 " Unite/ref and pydoc are more useful.
 let g:jedi#documentation_command = '<Leader>_K'
 let g:jedi#auto_close_doc = 1
+
+autocmd BufWritePre *.py execute ':Black'
+au FileType python nmap <leader>i :%!isort -<cr>
 
 "----------------------------------------------
 " Language: terraform

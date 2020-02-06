@@ -17,6 +17,7 @@
      emacs-lisp
      git
      ivy
+     lsp
      osx
      ranger
      syntax-checking
@@ -29,11 +30,8 @@
          go-use-metalinter t
          go-tab-width 4
          gofmt-command "goimports")
-     (org :variables
-          org-enable-github-support t
-          org-startup-indented t)
-     python
-     terraform
+     (python :variables
+             python-backend 'lsp python-lsp-server 'mspyls)
      )
    dotspacemacs-additional-packages '(protobuf-mode exec-path-from-shell)
    dotspacemacs-excluded-packages '()
