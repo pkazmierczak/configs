@@ -30,7 +30,6 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'zchee/deoplete-jedi'                     " Python auto completion
 Plug 'davidhalter/jedi-vim'                    " Python auto completion
@@ -115,7 +114,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 set background=light
 colo NeoSolarized
-set termguicolors
+" set termguicolors
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -254,12 +253,6 @@ let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
 let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
 "----------------------------------------------
-" Plugin: zchee/deoplete-go
-"----------------------------------------------
-" Enable completing of go pointers
-let g:deoplete#sources#go#pointer = 1
-
-"----------------------------------------------
 " Language: Golang
 "----------------------------------------------
 au FileType go set noexpandtab
@@ -281,6 +274,12 @@ au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gi <Plug>(go-info)
 au FileType go nmap <Leader>db :DlvToggleBreakpoint<cr>
+
+" Set omni_patterns
+set completeopt+=noselect
+call deoplete#custom#option('omni_patterns', {
+            \ 'go': '[^. *\t]\.\w*',
+            \})
 
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
