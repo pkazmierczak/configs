@@ -1,6 +1,7 @@
 {
     "vim.useSystemClipboard": true,
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "Source Code Pro for Powerline",
+    "editor.fontSize": 12.5,
     "editor.renderWhitespace": "none",
     "editor.fontLigatures": true,
     "editor.wordWrap": "on",
@@ -9,19 +10,25 @@
     "editor.autoClosingBrackets": "never",
     "editor.renderIndentGuides": false,
     "workbench.tree.renderIndentGuides": "none",
+    "workbench.colorTheme": "Solarized Light+",
     "python.linting.pylintArgs": [
-    "--disable=E1129,C0114"
+        "--disable=E1129,C0114"
     ],
     "python.jediEnabled": false,
     "python.linting.banditEnabled": false,
     "python.linting.pylintEnabled": false,
     "python.formatting.provider": "black",
     "python.linting.pylamaEnabled": true,
+    "python.linting.pylamaArgs": [
+        "--ignore=E501"
+    ],
     "[python]": {
         "editor.formatOnSave": true
     },
     "go.useLanguageServer": true,
-    "go.liveErrors": { "enabled": false },
+    "go.liveErrors": {
+        "enabled": false
+    },
     "[go]": {
         "editor.snippetSuggestions": "none",
         "editor.formatOnSave": true,
@@ -35,31 +42,15 @@
     },
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
     "gitlens.advanced.telemetry.enabled": false,
-    "cSpell.userWords": [
-        "GOPATH",
-        "Kaźmierczak",
-        "Piotr",
-        "gcloud",
-        "gitlab",
-        "gitlens",
-        "messagebird",
-        "naasutils",
-        "whitelisted"
-    ],
-    "cSpell.enabledLanguageIds": [
-        "markdown",
-        "plaintext",
-    ],
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "search.location": "panel",
-    "workbench.colorTheme": "Solarized Light",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "window.nativeFullScreen": false,
     "clock.alignment": "Right",
     "clock.format": "HH:MM",
-    "python.linting.pylamaArgs": [
-        "--ignore=E501"
-    ],
+    "window.nativeFullScreen": false,
+    "[haskell]": {
+        "editor.defaultFormatter": "alanz.vscode-hie-server"
+    },
+    "extensions.ignoreRecommendations": false,
 }

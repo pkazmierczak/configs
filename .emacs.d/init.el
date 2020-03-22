@@ -30,7 +30,6 @@
     git-timemachine
     markdown-mode
     markdown-preview-mode
-    org-bullets
     pastelmac-theme
     projectile
     py-autopep8
@@ -40,8 +39,7 @@
     yaml-mode))
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/")
-             '("org" . "http://orgmode.org/elpa/"))
+             '("melpa" . "http://melpa.org/packages/"))
 
 
 (when (not package-archive-contents)
@@ -201,33 +199,5 @@
 (add-hook 'go-mode-hook
           (lambda () (local-set-key (kbd "C-]") #'godef-jump)))
 
-
-
-;; ORG
-(require 'org)
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(setq org-startup-indented 1)
-(setq org-capture-templates
-      '(("t" "technical" entry (file "~/org/technical.org" "Tasks")
-         "* %?\nEntered on %U\n")
-        ("w" "work" entry (file+datetree "~/org/work-journal.org" "Work journal")
-         "* %?\nEntered on %U\n"
-         :emptylines 1)
-        ("i" "idea" entry (file "~/org/ideas.org")
-         "* %?\nEntered on %U\n")
-        ("d" "doodles" entry (file "~/org/doodles.org")
-         "* %? %U\n")))
-(setq org-todo-keywords
-      '((sequence "IDEA" "TODO" "INPROGRESS" "ON HOLD" "BLOCKED" "|" "DONE" "DELEGATED")))
-(setq org-export-initial-scope
-      'subtree)
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ditaa . t))) ; this line activates ditaa
-
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-(add-hook 'org-mode-hook 'turn-on-flyspell)
 
 (load custom-file)

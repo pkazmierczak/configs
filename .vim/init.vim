@@ -36,6 +36,8 @@ Plug 'zchee/deoplete-jedi'                     " Python auto completion
 Plug 'davidhalter/jedi-vim'                    " Python auto completion
 Plug 'psf/black'                               " Python linter
 Plug 'hashivim/vim-terraform'
+Plug 'sdiehl/vim-ormolu'                       " haskell gofmt
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
@@ -377,6 +379,19 @@ let g:jedi#auto_close_doc = 1
 
 autocmd BufWritePre *.py execute ':Black'
 au FileType python nmap <leader>i :%!isort -<cr>
+
+"----------------------------------------------
+" Language: haskell
+"----------------------------------------------
+let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper', '--lsp'] }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 "----------------------------------------------
 " Language: terraform
