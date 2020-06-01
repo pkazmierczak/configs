@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump pipenv docker-compose)
+plugins=(git autojump pipenv fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,3 +101,4 @@ export LC_ALL=$LANG
 alias vim="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/Users/piotr/git-fuzzy/bin:$PATH"
