@@ -101,4 +101,4 @@ export LC_ALL=$LANG
 alias vim="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/Users/piotr/git-fuzzy/bin:$PATH"
+export PATH="/Users/piotr/git-fuzzy/bin:/Users/piotr/go/bin:$PATH"
