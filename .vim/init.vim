@@ -38,6 +38,11 @@ Plug 'hashivim/vim-terraform'
 Plug 'sdiehl/vim-ormolu'                       " haskell gofmt
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
+" scheme
+Plug 'Olical/vim-scheme', { 'for': 'scheme', 'on': 'SchemeConnect' }
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
 call plug#end()
