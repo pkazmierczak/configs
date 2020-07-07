@@ -29,7 +29,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 
 " Language support
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'zchee/deoplete-jedi'                     " Python auto completion
 Plug 'davidhalter/jedi-vim'                    " Python auto completion
