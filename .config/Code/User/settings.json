@@ -1,7 +1,7 @@
 {
     "vim.useSystemClipboard": true,
-    "editor.fontFamily": "Source Code Pro for Powerline",
-    "editor.fontSize": 12.5,
+    "editor.fontFamily": "Fira Code",
+    "editor.letterSpacing": 0.3,
     "editor.renderWhitespace": "none",
     "editor.fontLigatures": true,
     "editor.wordWrap": "on",
@@ -10,7 +10,6 @@
     "editor.autoClosingBrackets": "never",
     "editor.renderIndentGuides": false,
     "workbench.tree.renderIndentGuides": "none",
-    "workbench.colorTheme": "Solarized Light+",
     "python.linting.pylintArgs": [
         "--disable=E1129,C0114"
     ],
@@ -48,9 +47,12 @@
     "explorer.confirmDelete": false,
     "clock.alignment": "Right",
     "clock.format": "HH:MM",
-    "window.nativeFullScreen": false,
-    "[haskell]": {
-        "editor.defaultFormatter": "alanz.vscode-hie-server"
-    },
     "extensions.ignoreRecommendations": false,
+    "search.searchOnType": false,
+    "githubPullRequests.defaultMergeMethod": "squash",
+    "githubPullRequests.telemetry.enabled": false,
+    "python.linting.mypyEnabled": true,
+    "window.nativeFullScreen": false,
+    "workbench.colorTheme": "Solarized Light+",
+    "python.languageServer": "Microsoft",
 }

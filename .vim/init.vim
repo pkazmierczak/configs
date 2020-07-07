@@ -29,17 +29,18 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 
 " Language support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'zchee/deoplete-jedi'                     " Python auto completion
 Plug 'davidhalter/jedi-vim'                    " Python auto completion
-Plug 'psf/black'                               " Python linter
+Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
 Plug 'hashivim/vim-terraform'
 Plug 'sdiehl/vim-ormolu'                       " haskell gofmt
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
+Plug 'jonathanfilip/vim-lucius'
 call plug#end()
 
 "----------------------------------------------
@@ -114,7 +115,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 set background=light
 colo NeoSolarized
-" set termguicolors
+set termguicolors
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -301,7 +302,7 @@ let g:go_echo_command_info = 1
 let g:go_auto_type_info = 1
 
 " Highlight variable uses
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 
 " Fix for location list when vim-go is used together with Syntastic
 let g:go_list_type = "quickfix"
