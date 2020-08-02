@@ -45,6 +45,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
+Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
 "----------------------------------------------
@@ -117,9 +118,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Colors
 "----------------------------------------------
 
-set background=light
-colo NeoSolarized
-" set termguicolors
+" set background=light
+let g:gruvbox_material_background = 'soft'
+colo gruvbox-material
+set termguicolors
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -220,7 +222,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox_material'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
@@ -303,10 +305,10 @@ let g:go_highlight_extra_types = 1
 let g:go_echo_command_info = 1
 
 " Show type information
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 
 " Highlight variable uses
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 
 " Fix for location list when vim-go is used together with Syntastic
 let g:go_list_type = "quickfix"
