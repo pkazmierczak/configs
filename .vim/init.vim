@@ -33,19 +33,15 @@ Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'zchee/deoplete-jedi'                     " Python auto completion
 Plug 'davidhalter/jedi-vim'                    " Python auto completion
-Plug 'psf/black'                               " Python linter
+Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
 Plug 'hashivim/vim-terraform'
 Plug 'sdiehl/vim-ormolu'                       " haskell gofmt
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
-" scheme
-Plug 'Olical/vim-scheme', { 'for': 'scheme', 'on': 'SchemeConnect' }
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
 Plug 'sainnhe/gruvbox-material'
+Plug 'jonathanfilip/vim-lucius'
 call plug#end()
 
 "----------------------------------------------
