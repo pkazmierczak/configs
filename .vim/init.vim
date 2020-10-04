@@ -114,10 +114,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Colors
 "----------------------------------------------
 
-" set background=light
-let g:gruvbox_material_background = 'soft'
-colo gruvbox-material
+set background=light
 set termguicolors
+colo NeoSolarized
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -218,7 +217,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='gruvbox_material'
+let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
