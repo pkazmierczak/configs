@@ -5,38 +5,36 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
-;; setup packages
 (package-initialize)
 
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
 (defvar my-packages
-  '(auto-complete
+  '(company
+    company-lsp
+    counsel
     elpy
     evil
     exec-path-from-shell
-    flycheck
+    geiser
     go-add-tags
     go-autocomplete
     go-eldoc
     go-guru
     go-mode
-    helm
-    helm-projectile
+    ivy
+    lsp-mode
+    lsp-ui
     json-mode
     magit
     git-gutter
     git-timemachine
     markdown-mode
-    markdown-preview-mode
-    pastelmac-theme
     projectile
-    py-autopep8
     rainbow-delimiters
     solarized-theme
-    swiper
-    yaml-mode))
+    swiper))
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
@@ -76,60 +74,6 @@
 ;; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 
 
-;; helm
-(require 'helm)
-(require 'helm-config)
-
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
-
-(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t
-      helm-echo-input-in-header-line t)
-
-(defun spacemacs//helm-hide-minibuffer-maybe ()
-  "Hide minibuffer in Helm session if we use the header line as input field."
-  (when (with-helm-buffer helm-echo-input-in-header-line)
-    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-      (overlay-put ov 'window (selected-window))
-      (overlay-put ov 'face
-                   (let ((bg-color (face-background 'default nil)))
-                     `(:background ,bg-color :foreground ,bg-color)))
-      (setq-local cursor-type nil))))
-
-
-(add-hook 'helm-minibuffer-set-up-hook
-          'spacemacs//helm-hide-minibuffer-maybe)
-
-(setq helm-autoresize-max-height 0)
-(setq helm-autoresize-min-height 20)
-(helm-autoresize-mode 1)
-
-(helm-mode 1)
-
-(global-set-key (kbd "M-x") 'helm-M-x)
-(setq helm-M-x-fuzzy-match t)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x m") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(when (executable-find "ack-grep")
-  (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
-        helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
-(setq helm-semantic-fuzzy-match t
-      helm-imenu-fuzzy-match    t)
-(setq helm-locate-fuzzy-match t)
-;;; end helm
-
 (set-face-attribute 'default nil :family "Source Code Pro for Powerline")
 
 ;;; Interface and other customizations
@@ -162,42 +106,53 @@
 
 (require 'rainbow-delimiters)
 
-(global-flycheck-mode)
-
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'subword-mode)
+
+;; LSP
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :hook (go-mode . lsp-deferred))
+
+;;Set up before-save hooks to format buffer and add/delete imports.
+;;Make sure you don't have other gofmt/goimports hooks enabled.
+
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;;Optional - provides fancier overlays.
+
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode
+  :init
+)
+
+;;Company mode is a standard completion package that works well with lsp-mode.
+;;company-lsp integrates company mode completion with lsp-mode.
+;;completion-at-point also works out of the box but doesn't support snippets.
+
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1))
+
+(use-package company-lsp
+  :ensure t
+  :commands company-lsp)
 
 ;; md and json
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
-(require 'markdown-preview-mode)
 
-;; GOLANG
-(require 'go-mode)
-
-(exec-path-from-shell-copy-env "GOPATH")
-
-(require 'auto-complete)
-(require 'go-autocomplete)
-(ac-config-default)
-
-(setq gofmt-command "goimports")
-(add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook `go-mode-hook `flycheck-mode)
-
-(require 'go-guru)
-(add-hook `go-mode-hook `go-guru-hl-identifier-mode)
-(set-face-attribute 'highlight nil :background "#FF0" :foreground "#000")
-
-(require 'go-add-tags)
-(global-set-key (kbd "C-c t") 'go-add-tags)
-
-(require 'go-eldoc)
-(add-hook 'go-mode-hook 'go-eldoc-setup)
-(add-hook 'go-mode-hook
-          (lambda () (local-set-key (kbd "C-]") #'godef-jump)))
-
+;; scheme
+(setq geiser-mit-binary "/usr/local/bin/mit-scheme")
+(setq geiser-active-implementations '(mit))
 
 (load custom-file)

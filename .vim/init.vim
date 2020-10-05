@@ -14,7 +14,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -35,8 +34,6 @@ Plug 'zchee/deoplete-jedi'                     " Python auto completion
 Plug 'davidhalter/jedi-vim'                    " Python auto completion
 Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
 Plug 'hashivim/vim-terraform'
-Plug 'sdiehl/vim-ormolu'                       " haskell gofmt
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
@@ -88,15 +85,6 @@ if has('mouse')
     set mouse=a
 endif
 
-" Set fonts if we're running a gui
-if has('gui')
-    if has("mac")
-        set guifont=Source\ Code\ Pro\ for\ Powerline:h12
-    else
-        set guifont=Inconsolata\ 11
-    endif
-endif
-
 " Allow vim to set a custom font or color for a word
 syntax enable
 
@@ -114,8 +102,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 "----------------------------------------------
 
 set background=light
-colo NeoSolarized
 set termguicolors
+colo NeoSolarized
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -186,13 +174,6 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
 
-"----------------------------------------------
-" Plugin: Shougo/deoplete.nvim
-"----------------------------------------------
-if has('nvim')
-    " Enable deoplete on startup
-    let g:deoplete#enable_at_startup = 1
-endif
 
 "----------------------------------------------
 " Plugin: bling/vim-airline
@@ -218,12 +199,6 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
-
-"----------------------------------------------
-" Plugin: 'ctrlpvim/ctrlp.vim'
-"----------------------------------------------
-" Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
-let g:ctrlp_map = ''
 
 "----------------------------------------------
 " Plugin: 'junegunn/fzf.vim'
@@ -278,9 +253,6 @@ au FileType go nmap <Leader>db :DlvToggleBreakpoint<cr>
 
 " Set omni_patterns
 set completeopt+=noselect
-call deoplete#custom#option('omni_patterns', {
-            \ 'go': '[^. *\t]\.\w*',
-            \})
 
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
@@ -299,7 +271,7 @@ let g:go_highlight_extra_types = 1
 let g:go_echo_command_info = 1
 
 " Show type information
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 
 " Highlight variable uses
 let g:go_auto_sameids = 0
@@ -363,19 +335,6 @@ au FileType python set expandtab
 au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
-
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#goto_assignments_command = ''  " dynamically done for ft=python.
-let g:jedi#goto_definitions_command = ''  " dynamically done for ft=python.
-let g:jedi#use_tabs_not_buffers = 0  " current default is 1.
-let g:jedi#rename_command = '<Leader>gR'
-let g:jedi#usages_command = '<Leader>gu'
-let g:jedi#completions_enabled = 0
-let g:jedi#smart_auto_mappings = 1
-
-" Unite/ref and pydoc are more useful.
-let g:jedi#documentation_command = '<Leader>_K'
-let g:jedi#auto_close_doc = 1
 
 autocmd BufWritePre *.py execute ':Black'
 au FileType python nmap <leader>i :%!isort -<cr>
