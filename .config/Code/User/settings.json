@@ -52,7 +52,7 @@
     "githubPullRequests.defaultMergeMethod": "squash",
     "githubPullRequests.telemetry.enabled": false,
     "python.linting.mypyEnabled": true,
-    "window.nativeFullScreen": false,
+    "python.languageServer": "Pylance",
+    "python.showStartPage": false,
     "workbench.colorTheme": "Solarized Light+",
-    "python.languageServer": "Microsoft",
 }
