@@ -1,6 +1,3 @@
-.emacs.d/elpa/*
-.emacs.d/org/*
-.emacs.d/auto-save-list*
 ido.last
 .org-id-locations
 recentf
@@ -27,8 +24,6 @@ Package Control.system-ca-bundle
 
 *.dat
 
-.emacs.d/url/cookies
-
 *.tmTheme
 
 User/ChangeList.json
@@ -38,9 +33,7 @@ User/GoSublime-aux.sublime-settings
 GoSublime/
 User/Package Control.merged-ca-bundle
 
-.emacs.d/custom.el
 
-.emacs.d/projectile-bookmarks.eld
 storage
 compile-cache
 dev
