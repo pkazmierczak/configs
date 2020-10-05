@@ -5,18 +5,20 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
-(package-initialize)
-
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/"))
+(package-initialize)
+
 (defvar my-packages
   '(company
-    company-lsp
-    counsel
     elpy
     evil
     exec-path-from-shell
+    flycheck
     geiser
     go-add-tags
     go-autocomplete
@@ -26,6 +28,7 @@
     ivy
     lsp-mode
     lsp-ui
+    lsp-ivy
     json-mode
     magit
     git-gutter
@@ -34,15 +37,11 @@
     projectile
     rainbow-delimiters
     solarized-theme
-    swiper))
-
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
-
+    swiper
+    use-package))
 
 (when (not package-archive-contents)
     (package-refresh-contents))
-(package-initialize)
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -111,7 +110,7 @@
 (add-hook 'prog-mode-hook 'subword-mode)
 
 ;; LSP
-(use-package lsp-mode
+(use-package 'lsp-mode
   :ensure t
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred))
@@ -126,7 +125,7 @@
 
 ;;Optional - provides fancier overlays.
 
-(use-package lsp-ui
+(use-package 'lsp-ui
   :ensure t
   :commands lsp-ui-mode
   :init
@@ -136,13 +135,13 @@
 ;;company-lsp integrates company mode completion with lsp-mode.
 ;;completion-at-point also works out of the box but doesn't support snippets.
 
-(use-package company
+(use-package 'company
   :ensure t
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1))
 
-(use-package company-lsp
+(use-package 'company-lsp
   :ensure t
   :commands company-lsp)
 
