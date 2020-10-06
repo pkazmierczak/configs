@@ -49,10 +49,8 @@
     "clock.format": "HH:MM",
     "extensions.ignoreRecommendations": false,
     "search.searchOnType": false,
-    "githubPullRequests.defaultMergeMethod": "squash",
-    "githubPullRequests.telemetry.enabled": false,
     "python.linting.mypyEnabled": true,
     "python.languageServer": "Pylance",
     "python.showStartPage": false,
-    "workbench.colorTheme": "Solarized Light+",
+    "workbench.colorTheme": "Zenburn",
 }
