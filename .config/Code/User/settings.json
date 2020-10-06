@@ -10,10 +10,6 @@
     "editor.autoClosingBrackets": "never",
     "editor.renderIndentGuides": false,
     "workbench.tree.renderIndentGuides": "none",
-    "python.linting.pylintArgs": [
-        "--disable=E1129,C0114"
-    ],
-    "python.jediEnabled": false,
     "python.linting.banditEnabled": false,
     "python.linting.pylintEnabled": false,
     "python.formatting.provider": "black",
@@ -21,6 +17,9 @@
     "python.linting.pylamaArgs": [
         "--ignore=E501"
     ],
+    "python.linting.mypyEnabled": true,
+    "python.languageServer": "Pylance",
+    "python.showStartPage": false,
     "[python]": {
         "editor.formatOnSave": true
     },
@@ -49,10 +48,5 @@
     "clock.format": "HH:MM",
     "extensions.ignoreRecommendations": false,
     "search.searchOnType": false,
-    "githubPullRequests.defaultMergeMethod": "squash",
-    "githubPullRequests.telemetry.enabled": false,
-    "python.linting.mypyEnabled": true,
-    "python.languageServer": "Pylance",
-    "python.showStartPage": false,
     "workbench.colorTheme": "Solarized Light+",
 }
