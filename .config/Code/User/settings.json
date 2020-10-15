@@ -1,6 +1,6 @@
 {
     "vim.useSystemClipboard": true,
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "JuliaMono",
     "editor.letterSpacing": 0.3,
     "editor.renderWhitespace": "none",
     "editor.fontLigatures": true,
@@ -48,5 +48,7 @@
     "clock.format": "HH:MM",
     "extensions.ignoreRecommendations": false,
     "search.searchOnType": false,
-    "workbench.colorTheme": "Solarized Light+"
+    "code-runner.executorMapByFileExtension": {
+        ".scm": "mit-scheme",
+    }
 }

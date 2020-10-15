@@ -19,7 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Source Code Pro for Powerline" :size 12 :weight 'semi-light)
+(setq doom-font (font-spec :family "JuliaMono" :size 12 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "PT Sans" :size 12))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -52,3 +52,10 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(setq geiser-mit-binary "/usr/local/bin/mit-scheme")
+(setq geiser-active-implementations '(mit))
+
+(defun geiser-save ()
+  (interactive)
+  (geiser-repl--write-input-ring))

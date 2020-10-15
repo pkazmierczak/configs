@@ -29,3 +29,4 @@ mcommit=(
     "┬─┬ノ( º _ ºノ)"
 )
 alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
+[ -f "/Users/piotr/.ghcup/env" ] && source "/Users/piotr/.ghcup/env" # ghcup-env
