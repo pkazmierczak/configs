@@ -29,4 +29,13 @@ mcommit=(
     "┬─┬ノ( º _ ºノ)"
 )
 alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
-[ -f "/Users/piotr/.ghcup/env" ] && source "/Users/piotr/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+# BEGIN CW-CLI MANAGED BLOCK
+if [ -f /Users/p.kazmierczak/src/cw-cli/path.zsh.inc ] ; then source /Users/p.kazmierczak/src/cw-cli/path.zsh.inc ; fi # cw-cli
+# END CW-CLI MANAGED BLOCK
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/p.kazmierczak/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/p.kazmierczak/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/p.kazmierczak/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/p.kazmierczak/google-cloud-sdk/completion.zsh.inc'; fi

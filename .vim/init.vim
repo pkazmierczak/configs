@@ -38,6 +38,7 @@ Plug 'hashivim/vim-terraform'
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
 Plug 'jonathanfilip/vim-lucius'
+Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
 "----------------------------------------------
@@ -101,9 +102,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Colors
 "----------------------------------------------
 
-set background=light
+set background=dark
 set termguicolors
-colo NeoSolarized
+let g:gruvbox_material_background = 'soft'
+colo gruvbox-material
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -197,7 +199,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox_material'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------

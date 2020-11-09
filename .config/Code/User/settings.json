@@ -1,6 +1,6 @@
 {
     "vim.useSystemClipboard": true,
-    "editor.fontFamily": "JuliaMono",
+    "editor.fontFamily": "Fira Code",
     "editor.letterSpacing": 0.3,
     "editor.renderWhitespace": "none",
     "editor.fontLigatures": true,
@@ -46,9 +46,12 @@
     "explorer.confirmDelete": false,
     "clock.alignment": "Right",
     "clock.format": "HH:MM",
-    "extensions.ignoreRecommendations": false,
+    "extensions.ignoreRecommendations": true,
     "search.searchOnType": false,
     "code-runner.executorMapByFileExtension": {
         ".scm": "mit-scheme",
-    }
+    },
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "gruvboxMaterial.darkContrast": "soft",
+    "gruvboxMaterial.lightContrast": "soft"
 }
