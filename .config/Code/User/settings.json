@@ -38,6 +38,12 @@
         "usePlaceholders": true,
         "completionDocumentation": true
     },
+    "ruby.useBundler": true,
+    "ruby.useLanguageServer": true,
+    "ruby.interpreter.commandPath": "/usr/local/opt/ruby/bin/ruby",
+    "ruby.pathToBundler": "/usr/local/opt/ruby/bin/bundle",
+    "solargraph.useBundler": true,
+    "solargraph.bundlerPath": "/usr/local/opt/ruby/bin/bundle",
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
     "gitlens.advanced.telemetry.enabled": false,
     "telemetry.enableCrashReporter": false,
@@ -51,7 +57,7 @@
     "code-runner.executorMapByFileExtension": {
         ".scm": "mit-scheme",
     },
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.colorTheme": "Solarized Light+",
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "soft"
 }

@@ -9,8 +9,11 @@ call plug#begin('~/.vim/plugged')
 " Dependencies
 Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
-" General plugins
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+
+" General
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
@@ -19,7 +22,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
-Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
@@ -28,10 +30,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 
 " Language support
-Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
-Plug 'zchee/deoplete-jedi'                     " Python auto completion
-Plug 'davidhalter/jedi-vim'                    " Python auto completion
 Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
 Plug 'hashivim/vim-terraform'
 
@@ -168,6 +167,33 @@ nnoremap <leader>q :close<cr>
 nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
+" Plugin: LSP {{{
+autocmd BufEnter * :lua require'completion'.on_attach()
+
+lua <<EOF
+require'lspconfig'.bashls.setup { }
+require'lspconfig'.ccls.setup { }
+require'lspconfig'.dockerls.setup { }
+require'lspconfig'.gopls.setup { }
+require'lspconfig'.hls.setup { }
+require'lspconfig'.html.setup { }
+require'lspconfig'.jsonls.setup { }
+require'lspconfig'.solargraph.setup { }
+require'lspconfig'.vimls.setup { }
+require'lspconfig'.yamlls.setup { }
+EOF
+
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+" }}}
+
 "----------------------------------------------
 " Plugin: tpope/vim-fugitive
 "----------------------------------------------
@@ -175,7 +201,6 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Git push<cr>
-
 
 "----------------------------------------------
 " Plugin: bling/vim-airline
@@ -217,118 +242,6 @@ if executable('ag')
 endif
 nnoremap <leader>; :Ack<Space>
 
-"----------------------------------------------
-" Plugin: neomake/neomake
-"----------------------------------------------
-call neomake#configure#automake('w')
-call neomake#configure#automake('nw', 750)
-call neomake#configure#automake('rw', 1000)
-
-" Configure signs.
-let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-
-"----------------------------------------------
-" Language: Golang
-"----------------------------------------------
-au FileType go set noexpandtab
-au FileType go set shiftwidth=4
-au FileType go set softtabstop=4
-au FileType go set tabstop=4
-
-" Mappings
-au FileType go nmap <F9> :GoCoverageToggle -short<cr>
-au FileType go nmap <F10> :GoTest -short<cr>
-au FileType go nmap K <Plug>(go-def)
-au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
-au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
-au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-au Filetype go nmap <leader>gb <Plug>(go-build)
-au Filetype go nmap <leader>gr <Plug>(go-run-split)
-au FileType go nmap <leader>gt :GoDeclsDir<cr>
-au FileType go nmap <leader>gD <Plug>(go-doc)
-au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gi <Plug>(go-info)
-au FileType go nmap <Leader>db :DlvToggleBreakpoint<cr>
-
-" Set omni_patterns
-set completeopt+=noselect
-
-" Run goimports when running gofmt
-let g:go_fmt_command = "goimports"
-
-" Enable syntax highlighting per default
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-
-" Show the progress when running :GoCoverage
-let g:go_echo_command_info = 1
-
-" Show type information
-let g:go_auto_type_info = 0
-
-" Highlight variable uses
-let g:go_auto_sameids = 0
-
-" Fix for location list when vim-go is used together with Syntastic
-let g:go_list_type = "quickfix"
-
-" Add the failing test name to the output of :GoTest
-let g:go_test_show_name = 1
-
-" gometalinter configuration
-let g:go_metalinter_command = ""
-let g:go_metalinter_deadline = "5s"
-let g:go_metalinter_enabled = [
-    \ 'deadcode',
-    \ 'gas',
-    \ 'goconst',
-    \ 'gocyclo',
-    \ 'golint',
-    \ 'gosimple',
-    \ 'ineffassign',
-    \ 'vet',
-    \ 'vetshadow'
-\]
-
-" Set whether the JSON tags should be snakecase or camelcase.
-let g:go_addtags_transform = "snakecase"
-
-" Use gopls
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-
-" neomake configuration for Go.
-let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
-let g:neomake_go_gometalinter_maker = {
-  \ 'args': [
-  \   '--tests',
-  \   '--enable-gc',
-  \   '--concurrency=3',
-  \   '--fast',
-  \   '-D', 'aligncheck',
-  \   '-D', 'dupl',
-  \   '-D', 'gocyclo',
-  \   '-D', 'gotype',
-  \   '-E', 'misspell',
-  \   '-E', 'unused',
-  \   '%:p:h',
-  \ ],
-  \ 'append_file': 0,
-  \ 'errorformat':
-  \   '%E%f:%l:%c:%trror: %m,' .
-  \   '%W%f:%l:%c:%tarning: %m,' .
-  \   '%E%f:%l::%trror: %m,' .
-  \   '%W%f:%l::%tarning: %m'
-  \ }
 
 "----------------------------------------------
 " Language: Python
@@ -342,19 +255,6 @@ autocmd BufWritePre *.py execute ':Black'
 au FileType python nmap <leader>i :%!isort -<cr>
 
 "----------------------------------------------
-" Language: haskell
-"----------------------------------------------
-let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper', '--lsp'] }
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
-map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
-map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>lb :call LanguageClient#textDocument_references()<CR>
-map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-
-"----------------------------------------------
 " Language: terraform
 "----------------------------------------------
 let g:terraform_align=1
@@ -365,78 +265,4 @@ let g:terraform_fmt_on_save=1
 "----------------------------------------------
 au FileType gitcommit setlocal spell
 au FileType gitcommit setlocal textwidth=80
-
-"----------------------------------------------
-" Language: gitconfig
-"----------------------------------------------
-au FileType gitconfig set noexpandtab
-au FileType gitconfig set shiftwidth=2
-au FileType gitconfig set softtabstop=2
-au FileType gitconfig set tabstop=2
-
-"----------------------------------------------
-" Language: JavaScript
-"----------------------------------------------
-au FileType javascript set expandtab
-au FileType javascript set shiftwidth=2
-au FileType javascript set softtabstop=2
-au FileType javascript set tabstop=2
-
-"----------------------------------------------
-" Language: JSON
-"----------------------------------------------
-au FileType json set expandtab
-au FileType json set shiftwidth=2
-au FileType json set softtabstop=2
-au FileType json set tabstop=2
-
-"----------------------------------------------
-" Language: Make
-"----------------------------------------------
-au FileType make set noexpandtab
-au FileType make set shiftwidth=2
-au FileType make set softtabstop=2
-au FileType make set tabstop=2
-
-"----------------------------------------------
-" Language: Markdown
-"----------------------------------------------
-au FileType markdown setlocal spell
-au FileType markdown set expandtab
-au FileType markdown set shiftwidth=4
-au FileType markdown set softtabstop=4
-au FileType markdown set tabstop=4
-au FileType markdown set syntax=markdown
-
-"----------------------------------------------
-" Language: Protobuf
-"----------------------------------------------
-au FileType proto set expandtab
-au FileType proto set shiftwidth=4
-au FileType proto set softtabstop=4
-au FileType proto set tabstop=4
-
-"----------------------------------------------
-" Language: SQL
-"----------------------------------------------
-au FileType sql set expandtab
-au FileType sql set shiftwidth=2
-au FileType sql set softtabstop=2
-au FileType sql set tabstop=2
-
-"----------------------------------------------
-" Language: vimscript
-"----------------------------------------------
-au FileType vim set expandtab
-au FileType vim set shiftwidth=4
-au FileType vim set softtabstop=4
-au FileType vim set tabstop=4
-
-"----------------------------------------------
-" Language: YAML
-"----------------------------------------------
-au FileType yaml set expandtab
-au FileType yaml set shiftwidth=2
-au FileType yaml set softtabstop=2
-au FileType yaml set tabstop=2
 

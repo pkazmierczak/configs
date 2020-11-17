@@ -31,11 +31,10 @@ mcommit=(
 alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 # BEGIN CW-CLI MANAGED BLOCK
-if [ -f $HOME/src/cw-cli/path.zsh.inc ] ; then source $HOME/src/cw-cli/path.zsh.inc ; fi # cw-cli
+if [ -f /Users/p.kazmierczak/src/cw-cli/path.zsh.inc ] ; then source /Users/p.kazmierczak/src/cw-cli/path.zsh.inc ; fi # cw-cli
 # END CW-CLI MANAGED BLOCK
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
