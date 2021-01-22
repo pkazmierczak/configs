@@ -32,7 +32,6 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
-Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
@@ -102,10 +101,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Colors
 "----------------------------------------------
 
-set background=dark
+set background=light
 set termguicolors
-let g:gruvbox_material_background = 'soft'
-colo gruvbox-material
+" let g:gruvbox_material_background = 'soft'
+colo NeoSolarized
 
 " Toggle background with <leader>bg
 map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
@@ -187,7 +186,7 @@ EOF
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> gi    <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
@@ -225,7 +224,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='gruvbox_material'
+let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
@@ -301,7 +300,7 @@ au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
 
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
 au FileType python nmap <leader>i :%!isort -<cr>
 
 "----------------------------------------------
