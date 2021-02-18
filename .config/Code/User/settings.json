@@ -36,12 +36,11 @@
     },
     "gopls": {
         "usePlaceholders": true,
-        "completionDocumentation": true
+        "completionDocumentation": true,
+        "completeUnimported": true,
+        "deepCompletion": true
     },
-    "ruby.useBundler": true,
-    "ruby.useLanguageServer": true,
     "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
-    "gitlens.advanced.telemetry.enabled": false,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "explorer.confirmDragAndDrop": false,
@@ -50,17 +49,13 @@
     "clock.format": "HH:MM",
     "extensions.ignoreRecommendations": true,
     "search.searchOnType": false,
-    "code-runner.executorMapByFileExtension": {
-        ".scm": "mit-scheme",
-    },
-    "workbench.colorTheme": "Solarized Light+",
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "soft",
-    "solargraph.commandPath": "/usr/local/bundle/bin/solargraph",
     "workbench.editorAssociations": [
         {
             "viewType": "jupyter.notebook.ipynb",
             "filenamePattern": "*.ipynb"
         }
     ],
+    "workbench.colorTheme": "Solarized Light+",
 }
