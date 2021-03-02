@@ -104,11 +104,27 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 set background=light
 set termguicolors
-" let g:gruvbox_material_background = 'soft'
 colo NeoSolarized
 
+function! Switch_background()
+    if &background ==? 'dark'
+        set background=light
+        colo NeoSolarized
+        let g:airline_theme='solarized'
+        AirlineRefresh
+    else
+        set background=dark
+        let g:gruvbox_material_background = 'soft'
+        colo gruvbox-material
+        let g:airline_theme='gruvbox_material'
+        AirlineRefresh
+    endif
+endfunction
+command! SwitchBackground call Switch_background()
+
+
 " Toggle background with <leader>bg
-map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
+map <leader>bg :SwitchBackground<cr>
 
 "----------------------------------------------
 " Searching
