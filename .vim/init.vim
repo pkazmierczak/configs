@@ -11,21 +11,22 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " General
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
-Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
-Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 
@@ -37,7 +38,6 @@ Plug 'tpope/vim-rvm'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
@@ -185,8 +185,6 @@ nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
 " Plugin: LSP {{{
-autocmd BufEnter * :lua require'completion'.on_attach()
-
 lua <<EOF
 require'lspconfig'.bashls.setup { }
 require'lspconfig'.ccls.setup { }
@@ -235,29 +233,16 @@ let g:airline#extensions#tabline#show_tabs = 0
 " Enable powerline fonts.
 let g:airline_powerline_fonts = 1
 
-" Explicitly define some symbols that did not work well for me in Linux.
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.maxlinenr = ''
 let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
-" Plugin: 'junegunn/fzf.vim'
+" Plugin: 'nvim-telescope/telescope.nvim'
 "----------------------------------------------
-nnoremap <c-p> :FZF<cr>
-nnoremap <c-m> :History<cr>
-
-"----------------------------------------------
-" Plugin: mileszs/ack.vim
-"----------------------------------------------
-" Open ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-nnoremap <leader>; :Ack<Space>
+nnoremap <c-p> <cmd>Telescope find_files<cr>
+nnoremap <c-m> <cmd>Telescope oldfiles<cr>
+nnoremap <leader>; <cmd>Telescope live_grep<cr>
+nnoremap <leader>f <cmd>Telescope file_browser<cr>
 
 "----------------------------------------------
 " Language: Golang

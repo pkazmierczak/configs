@@ -58,4 +58,6 @@
         }
     ],
     "workbench.colorTheme": "Solarized Light+",
+    "window.nativeFullScreen": false,
+    "tabnine.experimentalAutoImports": true,
 }

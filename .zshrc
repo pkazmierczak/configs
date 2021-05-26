@@ -35,6 +35,3 @@ if [ -f /Users/p.kazmierczak/src/cw-cli/path.zsh.inc ] ; then source /Users/p.ka
 # END CW-CLI MANAGED BLOCK
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
