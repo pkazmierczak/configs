@@ -236,12 +236,19 @@ let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
-" Plugin: 'nvim-telescope/telescope.nvim'
+" Plugin: 'junegunn/fzf.vim'
 "----------------------------------------------
-nnoremap <c-p> <cmd>Telescope find_files<cr>
-nnoremap <c-m> <cmd>Telescope oldfiles<cr>
-nnoremap <leader>; <cmd>Telescope live_grep<cr>
-nnoremap <leader>f <cmd>Telescope file_browser<cr>
+nnoremap <c-p> :FZF<cr>
+nnoremap <c-m> :History<cr>
+
+"----------------------------------------------
+" Plugin: mileszs/ack.vim
+"----------------------------------------------
+" Open ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nnoremap <leader>; :Ack<Space>
 
 "----------------------------------------------
 " Language: Golang
