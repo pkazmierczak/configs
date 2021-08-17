@@ -12,6 +12,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
 
 alias vim="nvim"
+alias vi="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -58,6 +59,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 alias tilt='/usr/local/bin/tilt'
 
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'; fi
-

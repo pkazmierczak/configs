@@ -1,5 +1,5 @@
 {
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "off",
   "editor.accessibilitySupport": "off",
   "go.useLanguageServer": true,
   "editor.autoClosingBrackets": "never",
@@ -25,12 +25,9 @@
   "telemetry.enableTelemetry": false,
   "extensions.ignoreRecommendations": true,
   "editor.fontLigatures": true,
-  "workbench.editorAssociations": [
-    {
-      "filenamePattern": "*.ipynb",
-      "viewType": "jupyter.notebook.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
   "telemetry.enableCrashReporter": false,
   "redhat.telemetry.enabled": false,
   "python.showStartPage": false,
@@ -56,5 +53,10 @@
     "editor.formatOnSave": true
   },
   "editor.letterSpacing": 0.29999999999999999,
+  "editor.tabSize": 8,
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "workbench.colorTheme": "Solarized Light+",
 }

@@ -11,7 +11,7 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
 
 " General
 Plug 'vim-airline/vim-airline'
@@ -20,12 +20,11 @@ Plug 'enricobacis/vim-airline-clock'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
-Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 
@@ -33,11 +32,9 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'hashivim/vim-terraform'
-Plug 'tpope/vim-rvm'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
@@ -184,18 +181,17 @@ nnoremap <leader>q :close<cr>
 nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
+"----------------------------------------------
+" LSP
+"----------------------------------------------
 " Plugin: LSP {{{
-autocmd BufEnter * :lua require'completion'.on_attach()
-
 lua <<EOF
 require'lspconfig'.bashls.setup { }
 require'lspconfig'.ccls.setup { }
 require'lspconfig'.dockerls.setup { }
 require'lspconfig'.gopls.setup { }
 require'lspconfig'.hls.setup { }
-require'lspconfig'.html.setup { }
 require'lspconfig'.jsonls.setup { }
-require'lspconfig'.solargraph.setup { }
 require'lspconfig'.vimls.setup { }
 require'lspconfig'.yamlls.setup { }
 EOF
@@ -210,6 +206,7 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 " }}}
+
 
 "----------------------------------------------
 " Plugin: tpope/vim-fugitive
@@ -235,12 +232,6 @@ let g:airline#extensions#tabline#show_tabs = 0
 " Enable powerline fonts.
 let g:airline_powerline_fonts = 1
 
-" Explicitly define some symbols that did not work well for me in Linux.
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.maxlinenr = ''
 let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
@@ -321,12 +312,6 @@ au FileType python set tabstop=4
 au FileType python nmap <leader>i :%!isort -<cr>
 
 "----------------------------------------------
-" Language: Ruby
-"----------------------------------------------
-
-autocmd BufWritePost *.rb !bundle exec rubocop -x --display-only-fail-level-offenses %
-
-"----------------------------------------------
 " Language: terraform
 "----------------------------------------------
 let g:terraform_align=1
@@ -337,4 +322,3 @@ let g:terraform_fmt_on_save=1
 "----------------------------------------------
 au FileType gitcommit setlocal spell
 au FileType gitcommit setlocal textwidth=80
-
