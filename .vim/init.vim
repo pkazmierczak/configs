@@ -13,14 +13,16 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " General
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -32,6 +34,7 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-rvm'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
@@ -181,9 +184,6 @@ nnoremap <leader>q :close<cr>
 nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
-"----------------------------------------------
-" LSP
-"----------------------------------------------
 " Plugin: LSP {{{
 lua <<EOF
 require'lspconfig'.bashls.setup { }
@@ -191,7 +191,10 @@ require'lspconfig'.ccls.setup { }
 require'lspconfig'.dockerls.setup { }
 require'lspconfig'.gopls.setup { }
 require'lspconfig'.hls.setup { }
+require'lspconfig'.pyright.setup { }
+require'lspconfig'.html.setup { }
 require'lspconfig'.jsonls.setup { }
+require'lspconfig'.solargraph.setup { }
 require'lspconfig'.vimls.setup { }
 require'lspconfig'.yamlls.setup { }
 EOF
@@ -206,7 +209,6 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 " }}}
-
 
 "----------------------------------------------
 " Plugin: tpope/vim-fugitive
@@ -236,19 +238,12 @@ let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
-" Plugin: 'junegunn/fzf.vim'
+" Plugin: 'nvim-telescope/telescope.nvim'
 "----------------------------------------------
-nnoremap <c-p> :FZF<cr>
-nnoremap <c-m> :History<cr>
-
-"----------------------------------------------
-" Plugin: mileszs/ack.vim
-"----------------------------------------------
-" Open ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-nnoremap <leader>; :Ack<Space>
+nnoremap <c-p> <cmd>Telescope find_files<cr>
+nnoremap <c-m> <cmd>Telescope oldfiles<cr>
+nnoremap <leader>; <cmd>Telescope live_grep<cr>
+nnoremap <leader>f <cmd>Telescope file_browser<cr>
 
 "----------------------------------------------
 " Language: Golang
@@ -312,6 +307,12 @@ au FileType python set tabstop=4
 au FileType python nmap <leader>i :%!isort -<cr>
 
 "----------------------------------------------
+" Language: Ruby
+"----------------------------------------------
+
+autocmd BufWritePost *.rb !bundle exec rubocop -x --display-only-fail-level-offenses %
+
+"----------------------------------------------
 " Language: terraform
 "----------------------------------------------
 let g:terraform_align=1
@@ -322,3 +323,4 @@ let g:terraform_fmt_on_save=1
 "----------------------------------------------
 au FileType gitcommit setlocal spell
 au FileType gitcommit setlocal textwidth=80
+
