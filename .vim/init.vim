@@ -34,7 +34,6 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'hashivim/vim-terraform'
-Plug 'tpope/vim-rvm'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
@@ -305,12 +304,6 @@ au FileType python set tabstop=4
 
 " autocmd BufWritePre *.py execute ':Black'
 au FileType python nmap <leader>i :%!isort -<cr>
-
-"----------------------------------------------
-" Language: Ruby
-"----------------------------------------------
-
-autocmd BufWritePost *.rb !bundle exec rubocop -x --display-only-fail-level-offenses %
 
 "----------------------------------------------
 " Language: terraform
