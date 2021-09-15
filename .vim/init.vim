@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
+Plug 'lukas-reineke/format.nvim'   " fast async formatting
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
@@ -183,6 +184,27 @@ nnoremap <leader>q :close<cr>
 nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
+"----------------------------------------------
+" Plugin: lukas-reineke/format.nvim
+"----------------------------------------------
+augroup Format
+    autocmd!
+    autocmd BufWritePost * FormatWrite
+augroup END
+
+lua <<EOF
+require "format".setup {
+    ["*"] = {
+        {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
+    },
+    python = {
+        {cmd = {"black"}}
+    }
+}
+EOF
+
+
+
 " Plugin: LSP {{{
 lua <<EOF
 require'lspconfig'.bashls.setup { }
@@ -302,7 +324,6 @@ au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
 
-" autocmd BufWritePre *.py execute ':Black'
 au FileType python nmap <leader>i :%!isort -<cr>
 
 "----------------------------------------------
