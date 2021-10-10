@@ -12,6 +12,8 @@ export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
 
 alias vim="nvim"
+alias vi="nvim"
+export EDITOR="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
