@@ -1,63 +1,62 @@
 {
-    "vim.useSystemClipboard": true,
-    "editor.fontFamily": "Fira Code",
-    "editor.letterSpacing": 0.3,
-    "editor.renderWhitespace": "none",
-    "editor.fontLigatures": true,
-    "editor.wordWrap": "on",
-    "editor.renderControlCharacters": false,
-    "editor.minimap.enabled": false,
-    "editor.autoClosingBrackets": "never",
-    "editor.renderIndentGuides": false,
-    "workbench.tree.renderIndentGuides": "none",
-    "python.linting.banditEnabled": false,
-    "python.linting.pylintEnabled": false,
-    "python.formatting.provider": "black",
-    "python.linting.pylamaEnabled": true,
-    "python.linting.pylamaArgs": [
-        "--ignore=E501"
-    ],
-    "python.linting.mypyEnabled": true,
-    "python.languageServer": "Pylance",
-    "python.showStartPage": false,
-    "[python]": {
-        "editor.formatOnSave": true
+  "editor.wordWrap": "off",
+  "editor.accessibilitySupport": "off",
+  "go.useLanguageServer": true,
+  "editor.autoClosingBrackets": "never",
+  "go.toolsManagement.autoUpdate": true,
+  "go.liveErrors": {
+    "enabled": false
+  },
+  "gopls": {
+    "usePlaceholders": true,
+    "completeUnimported": true,
+    "completionDocumentation": true,
+    "deepCompletion": true
+  },
+  "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
+  "window.nativeFullScreen": false,
+  "python.linting.mypyEnabled": true,
+  "vim.useSystemClipboard": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontFamily": "Fira Code",
+  "python.linting.pylintEnabled": false,
+  "clock.alignment": "Right",
+  "editor.minimap.enabled": false,
+  "telemetry.enableTelemetry": false,
+  "extensions.ignoreRecommendations": true,
+  "editor.fontLigatures": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "telemetry.enableCrashReporter": false,
+  "redhat.telemetry.enabled": false,
+  "python.showStartPage": false,
+  "editor.renderControlCharacters": false,
+  "editor.renderIndentGuides": false,
+  "workbench.tree.renderIndentGuides": "none",
+  "python.linting.banditEnabled": false,
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
     },
-    "go.useLanguageServer": true,
-    "go.liveErrors": {
-        "enabled": false
-    },
-    "[go]": {
-        "editor.snippetSuggestions": "none",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
-    },
-    "gopls": {
-        "usePlaceholders": true,
-        "completionDocumentation": true,
-        "completeUnimported": true,
-        "deepCompletion": true
-    },
-    "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "clock.alignment": "Right",
-    "clock.format": "HH:MM",
-    "extensions.ignoreRecommendations": true,
-    "search.searchOnType": false,
-    "gruvboxMaterial.darkContrast": "soft",
-    "gruvboxMaterial.lightContrast": "soft",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
-    "workbench.colorTheme": "Solarized Light+",
-    "window.nativeFullScreen": false,
-    "tabnine.experimentalAutoImports": true,
+    "editor.snippetSuggestions": "none",
+    "editor.formatOnSave": true
+  },
+  "explorer.confirmDelete": false,
+  "search.searchOnType": false,
+  "python.languageServer": "Pylance",
+  "clock.format": "HH:MM",
+  "python.linting.pylamaArgs": [
+    "--ignore=E501"
+  ],
+  "[python]": {
+    "editor.formatOnSave": true
+  },
+  "editor.letterSpacing": 0.29999999999999999,
+  "editor.tabSize": 8,
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "workbench.colorTheme": "Solarized Light+",
 }
