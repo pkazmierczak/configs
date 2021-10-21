@@ -11,7 +11,10 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -51,7 +54,6 @@ set autowrite                     " write when switching buffers
 set autowriteall                  " write on :quit
 set clipboard=unnamedplus
 set colorcolumn=101               " highlight the 80th column as an indicator
-set completeopt-=preview          " remove the horrendous preview window
 set cursorline                    " highlight the current line for the cursor
 set encoding=utf-8
 set expandtab                     " expands tabs to spaces
@@ -203,8 +205,6 @@ require "format".setup {
 }
 EOF
 
-
-
 " Plugin: LSP {{{
 lua <<EOF
 require'lspconfig'.bashls.setup { }
@@ -212,7 +212,7 @@ require'lspconfig'.ccls.setup { }
 require'lspconfig'.dockerls.setup { }
 require'lspconfig'.gopls.setup { }
 require'lspconfig'.hls.setup { }
-require'lspconfig'.pyright.setup { }
+require'lspconfig'.pylsp.setup { }
 require'lspconfig'.html.setup { }
 require'lspconfig'.jsonls.setup { }
 require'lspconfig'.solargraph.setup { }
@@ -230,6 +230,26 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 " }}}
+"
+
+" Plugin: nvim-cmp {{{
+lua <<EOF
+  local cmp = require'cmp'
+
+  cmp.setup({
+    mapping = {
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+
+    }
+  })
+EOF
 
 "----------------------------------------------
 " Plugin: tpope/vim-fugitive
@@ -278,9 +298,6 @@ au FileType go set tabstop=4
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F10> :GoTest -short<cr>
 
-" Set omni_patterns
-set completeopt+=noselect
-
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
 
@@ -325,6 +342,7 @@ au FileType python set softtabstop=4
 au FileType python set tabstop=4
 
 au FileType python nmap <leader>i :%!isort -<cr>
+autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 "----------------------------------------------
 " Language: terraform

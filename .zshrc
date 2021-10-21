@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git autojump fzf kubectl virtualenvwrapper)
+plugins=(git autojump fzf kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,5 +49,4 @@ mcommit=(
 alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+[ -f "/Users/piotr/.ghcup/env" ] && source "/Users/piotr/.ghcup/env" # ghcup-env

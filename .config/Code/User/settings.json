@@ -1,62 +1,57 @@
 {
-  "editor.wordWrap": "off",
-  "editor.accessibilitySupport": "off",
-  "go.useLanguageServer": true,
-  "editor.autoClosingBrackets": "never",
-  "go.toolsManagement.autoUpdate": true,
-  "go.liveErrors": {
-    "enabled": false
-  },
-  "gopls": {
-    "usePlaceholders": true,
-    "completeUnimported": true,
-    "completionDocumentation": true,
-    "deepCompletion": true
-  },
-  "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
-  "window.nativeFullScreen": false,
-  "python.linting.mypyEnabled": true,
-  "vim.useSystemClipboard": true,
-  "explorer.confirmDragAndDrop": false,
-  "editor.fontFamily": "Fira Code",
-  "python.linting.pylintEnabled": false,
-  "clock.alignment": "Right",
-  "editor.minimap.enabled": false,
-  "telemetry.enableTelemetry": false,
-  "extensions.ignoreRecommendations": true,
-  "editor.fontLigatures": true,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
-  "telemetry.enableCrashReporter": false,
-  "redhat.telemetry.enabled": false,
-  "python.showStartPage": false,
-  "editor.renderControlCharacters": false,
-  "editor.renderIndentGuides": false,
-  "workbench.tree.renderIndentGuides": "none",
-  "python.linting.banditEnabled": false,
   "[go]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     },
-    "editor.snippetSuggestions": "none",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.snippetSuggestions": "none"
   },
-  "explorer.confirmDelete": false,
-  "search.searchOnType": false,
-  "python.languageServer": "Pylance",
-  "clock.format": "HH:MM",
-  "python.linting.pylamaArgs": [
-    "--ignore=E501"
-  ],
   "[python]": {
     "editor.formatOnSave": true
   },
-  "editor.letterSpacing": 0.29999999999999999,
-  "editor.tabSize": 8,
-  "editor.cursorStyle": "line",
-  "editor.insertSpaces": false,
+  "clock.alignment": "Right",
+  "clock.format": "HH:MM",
+  "editor.accessibilitySupport": "off",
+  "editor.autoClosingBrackets": "never",
+  "editor.detectIndentation": true,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.guides.indentation": false,
+  "editor.letterSpacing": 0.3,
   "editor.lineNumbers": "on",
-  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.minimap.enabled": false,
+  "editor.renderControlCharacters": false,
+  "editor.wordWrap": "off",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "gitlens.currentLine.format": "${author} wrote that shitty piece of code ${ago}",
+  "go.liveErrors": {
+    "enabled": false
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "gopls": {
+    "completeUnimported": true,
+    "completionDocumentation": true,
+    "deepCompletion": true,
+    "usePlaceholders": true
+  },
+  "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+  "python.linting.banditEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylamaArgs": [
+    "--ignore=E501"
+  ],
+  "python.linting.pylintEnabled": false,
+  "search.searchOnType": false,
+  "telemetry.telemetryLevel": "off",
+  "vim.useSystemClipboard": true,
   "workbench.colorTheme": "Solarized Light+",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "workbench.tree.renderIndentGuides": "none"
 }
