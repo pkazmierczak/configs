@@ -38,6 +38,7 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'hashivim/vim-terraform'
+Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
