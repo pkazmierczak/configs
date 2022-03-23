@@ -33,6 +33,7 @@ Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'APZelos/blamer.nvim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
+Plug 'sbdchd/neoformat'
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
@@ -99,6 +100,12 @@ autocmd BufLeave * silent! :wa
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Autoformat buffers on save
+augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " Enable blamer
 let g:blamer_enabled = 1
@@ -336,6 +343,8 @@ au FileType python set tabstop=4
 
 au FileType python nmap <leader>i :%!isort -<cr>
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+let g:neoformat_enabled_python = ['black']
 
 "----------------------------------------------
 " Language: terraform
