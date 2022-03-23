@@ -38,7 +38,6 @@ Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'                       " gotests
 Plug 'hashivim/vim-terraform'
-Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
@@ -197,7 +196,13 @@ require'lspconfig'.ccls.setup { }
 require'lspconfig'.dockerls.setup { }
 require'lspconfig'.gopls.setup { }
 require'lspconfig'.hls.setup { }
-require'lspconfig'.pylsp.setup { }
+require'lspconfig'.pylsp.setup {
+    filetypes = {"python"},
+    settings ={
+        configurationSources = {"flake8"},
+        formatCommand = {"black"}
+        }
+    }
 require'lspconfig'.html.setup { }
 require'lspconfig'.jsonls.setup { }
 require'lspconfig'.solargraph.setup { }
