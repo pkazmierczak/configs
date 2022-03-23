@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git autojump fzf kubectl)
+plugins=(git autojump fzf kubectl virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,6 +47,20 @@ mcommit=(
     "┳━┳ ヽ(ಠﻝ͜ಠ)ﾉ"
 )
 alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
-[ -f "/Users/piotr/.ghcup/env" ] && source "/Users/piotr/.ghcup/env" # ghcup-env
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+
+alias vpy='pip install black mypy flake8 python-lsp-server'
+
+function cd() {
+  if [[ -d ./venv ]] ; then
+    deactivate
+  fi
+
+  builtin cd $1
+
+  if [[ -d ./venv ]] ; then
+    . ./venv/bin/activate
+  fi
+}

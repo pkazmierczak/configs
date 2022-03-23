@@ -15,11 +15,11 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 
-
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " General
 Plug 'vim-airline/vim-airline'
@@ -30,9 +30,9 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
+Plug 'APZelos/blamer.nvim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
-Plug 'lukas-reineke/format.nvim'   " fast async formatting
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
@@ -99,6 +99,9 @@ autocmd BufLeave * silent! :wa
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Enable blamer
+let g:blamer_enabled = 1
 
 "----------------------------------------------
 " Colors
@@ -186,25 +189,6 @@ nnoremap <leader>q :close<cr>
 nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
-"----------------------------------------------
-" Plugin: lukas-reineke/format.nvim
-"----------------------------------------------
-augroup Format
-    autocmd!
-    autocmd BufWritePost * FormatWrite
-augroup END
-
-lua <<EOF
-require "format".setup {
-    ["*"] = {
-        {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
-    },
-    python = {
-        {cmd = {"black"}}
-    }
-}
-EOF
-
 " Plugin: LSP {{{
 lua <<EOF
 require'lspconfig'.bashls.setup { }
@@ -256,7 +240,7 @@ EOF
 "----------------------------------------------
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gp :Git push<cr>
 
 "----------------------------------------------
@@ -272,11 +256,10 @@ let g:airline#extensions#tabline#enabled = 1
 " what is shown in the tabline at all times.
 let g:airline#extensions#tabline#show_tabs = 0
 
-" Enable powerline fonts.
 let g:airline_powerline_fonts = 1
-
 let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
+
 
 "----------------------------------------------
 " Plugin: 'nvim-telescope/telescope.nvim'
@@ -285,6 +268,10 @@ nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <c-m> <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser<cr>
+lua <<EOF
+require("telescope").load_extension "file_browser"
+EOF
+
 
 "----------------------------------------------
 " Language: Golang
