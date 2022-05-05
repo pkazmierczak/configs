@@ -200,21 +200,25 @@ nnoremap Q :bd!<cr>
 " Plugin: LSP {{{
 lua <<EOF
 require'lspconfig'.bashls.setup { }
-require'lspconfig'.ccls.setup { }
 require'lspconfig'.dockerls.setup { }
 require'lspconfig'.gopls.setup { }
 require'lspconfig'.hls.setup { }
 require'lspconfig'.pylsp.setup {
     filetypes = {"python"},
-    settings ={
+    enable = true,
+    settings = {
         configurationSources = {"flake8"},
-        formatCommand = {"black"}
+        plugins = {
+            flake8 = {
+                enabled = true,
+                maxLineLength = 120,
+            },
+            pycodestyle = { enabled = false }
         }
-    }
-require'lspconfig'.html.setup { }
+    },
+    on_attach = on_attach
+}
 require'lspconfig'.jsonls.setup { }
-require'lspconfig'.solargraph.setup { }
-require'lspconfig'.vimls.setup { }
 require'lspconfig'.yamlls.setup { }
 EOF
 
