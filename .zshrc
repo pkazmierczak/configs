@@ -48,9 +48,6 @@ mcommit=(
 )
 alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
 
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-
 alias vpy='pip install black mypy flake8 python-lsp-server python-lsp-black'
 
 function cd() {
