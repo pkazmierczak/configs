@@ -110,6 +110,8 @@ augroup END
 
 " Enable blamer
 let g:blamer_enabled = 1
+let g:blamer_relative_time = 1
+let g:blamer_template = '<committer> wrote that shitty piece of code <committer-time>'
 
 "----------------------------------------------
 " Colors
