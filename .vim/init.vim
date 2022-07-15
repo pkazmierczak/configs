@@ -14,6 +14,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -37,7 +39,8 @@ Plug 'sbdchd/neoformat'
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
-Plug 'buoto/gotests-vim'                       " gotests
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'            " for vim-go GoDecls
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
@@ -258,6 +261,11 @@ lua <<EOF
 EOF
 
 "----------------------------------------------
+" Plugin: folke/trouble.vim
+"----------------------------------------------
+nnoremap <F8> <cmd>TroubleToggle<cr>
+
+"----------------------------------------------
 " Plugin: tpope/vim-fugitive
 "----------------------------------------------
 nnoremap <leader>gw :Gwrite<cr>
@@ -291,8 +299,17 @@ nnoremap <c-m> <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser<cr>
 lua <<EOF
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+        grouped = true
+    }
+  }
+}
 require("telescope").load_extension "file_browser"
 EOF
+
+
 
 
 "----------------------------------------------
