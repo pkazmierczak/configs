@@ -22,6 +22,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " General
 Plug 'vim-airline/vim-airline'
@@ -35,7 +36,7 @@ Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'APZelos/blamer.nvim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
-Plug 'sbdchd/neoformat'
+Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
@@ -104,12 +105,6 @@ autocmd BufLeave * silent! :wa
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Autoformat buffers on save
-augroup fmt
-    autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
-augroup END
 
 " Enable blamer
 let g:blamer_enabled = 1
@@ -206,7 +201,20 @@ nnoremap Q :bd!<cr>
 lua <<EOF
 require'lspconfig'.bashls.setup { }
 require'lspconfig'.dockerls.setup { }
-require'lspconfig'.gopls.setup { }
+util = require "lspconfig/util"
+require'lspconfig'.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+}
 require'lspconfig'.hls.setup { }
 require'lspconfig'.pylsp.setup {
     filetypes = {"python"},
@@ -295,7 +303,7 @@ let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 " Plugin: 'nvim-telescope/telescope.nvim'
 "----------------------------------------------
 nnoremap <c-p> <cmd>Telescope find_files<cr>
-nnoremap <c-m> <cmd>Telescope oldfiles<cr>
+nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser<cr>
 lua <<EOF
@@ -369,8 +377,6 @@ au FileType python set tabstop=4
 
 au FileType python nmap <leader>i :%!isort -<cr>
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-
-let g:neoformat_enabled_python = ['black']
 
 "----------------------------------------------
 " Language: terraform
