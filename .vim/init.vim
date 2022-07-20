@@ -302,10 +302,6 @@ let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 "----------------------------------------------
 " Plugin: 'nvim-telescope/telescope.nvim'
 "----------------------------------------------
-nnoremap <c-p> <cmd>Telescope find_files path=%:p:h<cr>
-nnoremap <leader>r <cmd>Telescope oldfiles<cr>
-nnoremap <leader>; <cmd>Telescope live_grep<cr>
-nnoremap <leader>f <cmd>Telescope file_browser<cr>
 lua <<EOF
 require("telescope").setup {
   extensions = {
@@ -316,6 +312,10 @@ require("telescope").setup {
 }
 require("telescope").load_extension "file_browser"
 EOF
+nnoremap <c-p> <cmd>Telescope find_files<cr>
+nnoremap <leader>r <cmd>Telescope oldfiles<cr>
+nnoremap <leader>; <cmd>Telescope live_grep<cr>
+nnoremap <leader>f <cmd>Telescope file_browser path=%p:h<cr>
 
 
 
