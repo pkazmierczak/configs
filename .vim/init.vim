@@ -302,7 +302,7 @@ let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 "----------------------------------------------
 " Plugin: 'nvim-telescope/telescope.nvim'
 "----------------------------------------------
-nnoremap <c-p> <cmd>Telescope find_files<cr>
+nnoremap <c-p> <cmd>Telescope find_files path=%:p:h<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser<cr>
@@ -329,7 +329,7 @@ au FileType go set softtabstop=4
 au FileType go set tabstop=4
 
 " Mappings
-au FileType go nmap <F9> :GoCoverageToggle -short<cr>
+au FileType go nmap <F9> :GoDecls<cr>
 au FileType go nmap <F10> :GoTest -short<cr>
 
 " Run goimports when running gofmt
