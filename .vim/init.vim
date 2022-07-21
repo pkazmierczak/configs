@@ -22,7 +22,6 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " General
 Plug 'vim-airline/vim-airline'
@@ -40,8 +39,6 @@ Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'            " for vim-go GoDecls
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
