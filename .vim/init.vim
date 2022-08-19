@@ -9,30 +9,20 @@ call plug#begin('~/.vim/plugged')
 " Dependencies
 Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'folke/trouble.nvim'
-
-" Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-
 " General
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'maralla/completor.vim'
+Plug 'maralla/validator.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
-Plug 'APZelos/blamer.nvim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
@@ -102,11 +92,6 @@ autocmd BufLeave * silent! :wa
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Enable blamer
-let g:blamer_enabled = 1
-let g:blamer_relative_time = 1
-let g:blamer_template = '<committer> wrote that shitty piece of code <committer-time>'
 
 "----------------------------------------------
 " Colors
@@ -194,87 +179,27 @@ nnoremap <leader>q :close<cr>
 nnoremap q :bp\|bd #<CR>
 nnoremap Q :bd!<cr>
 
-" Plugin: LSP {{{
-lua <<EOF
-require'lspconfig'.bashls.setup { }
-require'lspconfig'.dockerls.setup { }
-util = require "lspconfig/util"
-require'lspconfig'.gopls.setup {
-    cmd = {"gopls", "serve"},
-    filetypes = {"go", "gomod"},
-    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-    settings = {
-      gopls = {
-        analyses = {
-          unusedparams = true,
-        },
-        staticcheck = true,
-      },
-    },
-}
-require'lspconfig'.hls.setup { }
-require'lspconfig'.pylsp.setup {
-    filetypes = {"python"},
-    enable = true,
-    settings = {
-        configurationSources = {"flake8"},
-        plugins = {
-            flake8 = {
-                enabled = true,
-                maxLineLength = 120,
-            },
-            pycodestyle = { enabled = false }
-        }
-    },
-    on_attach = on_attach
-}
-require'lspconfig'.jsonls.setup { }
-require'lspconfig'.yamlls.setup { }
-EOF
-
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gi    <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" }}}
-"
-
-" Plugin: nvim-cmp {{{
-lua <<EOF
-  local cmp = require'cmp'
-
-  cmp.setup({
-    mapping = {
-      ['<Up>'] = cmp.mapping.select_prev_item(),
-      ['<Down>'] = cmp.mapping.select_next_item(),
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    },
-    sources = {
-      { name = 'nvim_lsp' },
-
-    }
-  })
-EOF
-
 "----------------------------------------------
-" Plugin: folke/trouble.vim
+" Plugin: junegunn/fzf
 "----------------------------------------------
-nnoremap <F8> <cmd>TroubleToggle<cr>
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+nnoremap <C-p> :Files<cr>
+nnoremap <C-r> :History<cr>
+nnoremap <C-/> :RG
+nnoremap <leader>gs :GFiles?<cr>
 
 "----------------------------------------------
 " Plugin: tpope/vim-fugitive
 "----------------------------------------------
 nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gp :Git push<cr>
 
@@ -295,27 +220,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
-
 "----------------------------------------------
-" Plugin: 'nvim-telescope/telescope.nvim'
+" Plugin: maralla/completor.vim
 "----------------------------------------------
-lua <<EOF
-require("telescope").setup {
-  extensions = {
-    file_browser = {
-        grouped = true
-    }
-  }
-}
-require("telescope").load_extension "file_browser"
-EOF
-nnoremap <c-p> <cmd>Telescope find_files<cr>
-nnoremap <leader>r <cmd>Telescope oldfiles<cr>
-nnoremap <leader>; <cmd>Telescope live_grep<cr>
-nnoremap <leader>f <cmd>Telescope file_browser path=%p:h<cr>
-
-
-
+" Enable lsp for go by using gopls
+let g:completor_filetype_map = {}
+let g:completor_filetype_map.go = {'ft': 'lsp', 'cmd': 'gopls -remote=auto'}"
 
 "----------------------------------------------
 " Language: Golang
