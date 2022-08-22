@@ -274,7 +274,7 @@ nnoremap <F8> <cmd>TroubleToggle<cr>
 " Plugin: tpope/vim-fugitive
 "----------------------------------------------
 nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gp :Git push<cr>
 
@@ -313,9 +313,6 @@ nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser path=%p:h<cr>
-
-
-
 
 "----------------------------------------------
 " Language: Golang
