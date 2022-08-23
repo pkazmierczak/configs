@@ -303,6 +303,7 @@ nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser<cr>
 nnoremap <F8> <cmd>Telescope diagnostics<cr>
+nnoremap <F9> <cmd>Telescope lsp_document_symbols<cr>
 
 "----------------------------------------------
 " Language: Golang
@@ -313,7 +314,6 @@ au FileType go set softtabstop=4
 au FileType go set tabstop=4
 
 " Mappings
-au FileType go nmap <F9> :GoDecls<cr>
 au FileType go nmap <F10> :GoTest -short<cr>
 
 " Run goimports when running gofmt
