@@ -31,13 +31,13 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
-Plug 'APZelos/blamer.nvim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
+Plug 'fatih/vim-hclfmt'
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
@@ -101,11 +101,6 @@ autocmd BufLeave * silent! :wa
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Enable blamer
-let g:blamer_enabled = 1
-let g:blamer_relative_time = 1
-let g:blamer_template = '<committer> wrote that underwhelming piece of code <committer-time>'
 
 "----------------------------------------------
 " Colors
