@@ -301,7 +301,7 @@ EOF
 nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
-nnoremap <leader>f <cmd>Telescope file_browser path=%p:h<cr>
+nnoremap <leader>f <cmd>Telescope file_browser<cr>
 nnoremap <F8> <cmd>Telescope diagnostics<cr>
 
 "----------------------------------------------
