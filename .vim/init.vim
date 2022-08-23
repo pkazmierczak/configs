@@ -15,7 +15,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'folke/trouble.nvim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -266,11 +265,6 @@ lua <<EOF
 EOF
 
 "----------------------------------------------
-" Plugin: folke/trouble.vim
-"----------------------------------------------
-nnoremap <F8> <cmd>TroubleToggle<cr>
-
-"----------------------------------------------
 " Plugin: tpope/vim-fugitive
 "----------------------------------------------
 nnoremap <leader>gw :Gwrite<cr>
@@ -313,6 +307,7 @@ nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser path=%p:h<cr>
+nnoremap <F8> <cmd>Telescope diagnostics<cr>
 
 "----------------------------------------------
 " Language: Golang
