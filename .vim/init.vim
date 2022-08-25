@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 
 " Dependencies
 Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
+Plug 'MunifTanjim/nui.nvim'        " dependency for neo-tree
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -20,13 +21,12 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " General
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -106,9 +106,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Colors
 "----------------------------------------------
 
-set background=light
+set background=dark
 set termguicolors
-colo NeoSolarized
+let g:gruvbox_material_background = 'soft'
+colo gruvbox-material
 
 function! Switch_background()
     if &background ==? 'dark'
@@ -281,27 +282,17 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 0
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox_material'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 
 "----------------------------------------------
 " Plugin: 'nvim-telescope/telescope.nvim'
 "----------------------------------------------
-lua <<EOF
-require("telescope").setup {
-  extensions = {
-    file_browser = {
-        grouped = true
-    }
-  }
-}
-require("telescope").load_extension "file_browser"
-EOF
 nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
-nnoremap <leader>f <cmd>Telescope file_browser<cr>
+nnoremap <leader>f :Neotree<cr>
 nnoremap <F8> <cmd>Telescope diagnostics<cr>
 nnoremap <F9> <cmd>Telescope lsp_document_symbols<cr>
 
