@@ -34,10 +34,12 @@ Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
+Plug 'APZelos/blamer.nvim'
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
 Plug 'fatih/vim-hclfmt'
+Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
 
 " Colorschemes
@@ -102,14 +104,18 @@ autocmd BufLeave * silent! :wa
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Enable blamer
+let g:blamer_enabled = 1
+let g:blamer_relative_time = 1
+let g:blamer_template = '<committer> wrote that underwhelming piece of code <committer-time>'
+
 "----------------------------------------------
 " Colors
 "----------------------------------------------
 
-set background=dark
+set background=light
 set termguicolors
-let g:gruvbox_material_background = 'soft'
-colo gruvbox-material
+colo NeoSolarized
 
 function! Switch_background()
     if &background ==? 'dark'
@@ -282,7 +288,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 0
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox_material'
+let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 
@@ -292,7 +298,7 @@ let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
-nnoremap <leader>f :Neotree<cr>
+nnoremap <leader>f :Neotree reveal<cr>
 nnoremap <F8> <cmd>Telescope diagnostics<cr>
 nnoremap <F9> <cmd>Telescope lsp_document_symbols<cr>
 

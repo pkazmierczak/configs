@@ -61,3 +61,4 @@ function cd() {
     . ./venv/bin/activate
   fi
 }
+alias tf="terraform"
