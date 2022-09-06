@@ -23,9 +23,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " General
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'enricobacis/vim-airline-clock'
 Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -34,7 +31,6 @@ Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
-Plug 'APZelos/blamer.nvim'
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
@@ -104,11 +100,6 @@ autocmd BufLeave * silent! :wa
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Enable blamer
-let g:blamer_enabled = 1
-let g:blamer_relative_time = 1
-let g:blamer_template = '<committer> wrote that underwhelming piece of code <committer-time>'
-
 "----------------------------------------------
 " Colors
 "----------------------------------------------
@@ -122,13 +113,11 @@ function! Switch_background()
         set background=light
         colo NeoSolarized
         let g:airline_theme='solarized'
-        AirlineRefresh
     else
         set background=dark
         let g:gruvbox_material_background = 'soft'
         colo gruvbox-material
         let g:airline_theme='gruvbox_material'
-        AirlineRefresh
     endif
 endfunction
 command! SwitchBackground call Switch_background()
@@ -275,24 +264,6 @@ nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gp :Git push<cr>
 
 "----------------------------------------------
-" Plugin: bling/vim-airline
-"----------------------------------------------
-" Show status bar by default.
-set laststatus=2
-
-" Enable top tabline.
-let g:airline#extensions#tabline#enabled = 1
-
-" Disable showing tabs in the tabline. This will ensure that the buffers are
-" what is shown in the tabline at all times.
-let g:airline#extensions#tabline#show_tabs = 0
-
-let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
-let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
-
-
-"----------------------------------------------
 " Plugin: 'nvim-telescope/telescope.nvim'
 "----------------------------------------------
 nnoremap <c-p> <cmd>Telescope find_files<cr>
@@ -301,6 +272,7 @@ nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f :Neotree reveal<cr>
 nnoremap <F8> <cmd>Telescope diagnostics<cr>
 nnoremap <F9> <cmd>Telescope lsp_document_symbols<cr>
+nnoremap <F5> <cmd>Telescope buffers<cr>
 
 "----------------------------------------------
 " Language: Golang
