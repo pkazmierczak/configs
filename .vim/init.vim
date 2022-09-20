@@ -105,9 +105,12 @@ autocmd BufLeave * silent! :wa
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Enable blamer
-let g:blamer_enabled = 1
+let g:blamer_enabled = 0
 let g:blamer_relative_time = 1
-let g:blamer_template = '<committer> wrote that underwhelming piece of code <committer-time>'
+let g:blamer_show_in_visual_modes = 0
+let g:blamer_show_in_insert_modes = 0
+let g:blamer_template = '<committer> wrote this underwhelming piece of code <committer-time>'
+nnoremap <leader>b :BlamerToggle<cr>
 
 "----------------------------------------------
 " Colors
