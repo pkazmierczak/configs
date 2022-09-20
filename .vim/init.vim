@@ -23,6 +23,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " General
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'enricobacis/vim-airline-clock'
 Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -31,6 +34,7 @@ Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
+Plug 'APZelos/blamer.nvim'
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
@@ -100,6 +104,11 @@ autocmd BufLeave * silent! :wa
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Enable blamer
+let g:blamer_enabled = 1
+let g:blamer_relative_time = 1
+let g:blamer_template = '<committer> wrote that underwhelming piece of code <committer-time>'
+
 "----------------------------------------------
 " Colors
 "----------------------------------------------
@@ -113,11 +122,13 @@ function! Switch_background()
         set background=light
         colo NeoSolarized
         let g:airline_theme='solarized'
+        AirlineRefresh
     else
         set background=dark
         let g:gruvbox_material_background = 'soft'
         colo gruvbox-material
         let g:airline_theme='gruvbox_material'
+        AirlineRefresh
     endif
 endfunction
 command! SwitchBackground call Switch_background()
@@ -262,6 +273,19 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gs <cmd>Telescope git_status<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gp :Git push<cr>
+
+"----------------------------------------------
+" Plugin: bling/vim-airline
+"----------------------------------------------
+" Show status bar by default.
+set laststatus=2
+
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_tabs = 0
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
+let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
 " Plugin: 'nvim-telescope/telescope.nvim'
