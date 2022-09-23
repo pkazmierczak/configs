@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
 
 " Dependencies
 Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
-Plug 'MunifTanjim/nui.nvim'        " dependency for neo-tree
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -21,12 +20,13 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'folke/trouble.nvim'
 
 " General
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -296,10 +296,21 @@ let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
-nnoremap <leader>f :Neotree reveal<cr>
-nnoremap <F8> <cmd>Telescope diagnostics<cr>
+nnoremap <leader>f <cmd>Telescope file_browser<cr>
+nnoremap <F8> <cmd>TroubleToggle<cr>
 nnoremap <F9> <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <F5> <cmd>Telescope buffers<cr>
+lua <<EOF
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+        grouped = true
+    }
+  }
+}
+require("telescope").load_extension "file_browser"
+EOF
+
 
 "----------------------------------------------
 " Language: Golang
