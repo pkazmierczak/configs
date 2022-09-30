@@ -35,6 +35,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
 Plug 'APZelos/blamer.nvim'
+Plug 'windwp/nvim-spectre'
 
 " Language support
 Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
@@ -45,6 +46,8 @@ Plug 'hashivim/vim-terraform'
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
 Plug 'sainnhe/gruvbox-material'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'mcchrish/zenbones.nvim'
 call plug#end()
 
 "----------------------------------------------
@@ -116,22 +119,18 @@ nnoremap <leader>b :BlamerToggle<cr>
 " Colors
 "----------------------------------------------
 
-set background=light
 set termguicolors
-colo NeoSolarized
+set background=light
+let g:zenbones_compat = 1
+colo zenbones
 
 function! Switch_background()
     if &background ==? 'dark'
         set background=light
-        colo NeoSolarized
-        let g:airline_theme='solarized'
-        AirlineRefresh
+         AirlineRefresh
     else
         set background=dark
-        let g:gruvbox_material_background = 'soft'
-        colo gruvbox-material
-        let g:airline_theme='gruvbox_material'
-        AirlineRefresh
+         AirlineRefresh
     endif
 endfunction
 command! SwitchBackground call Switch_background()
@@ -287,7 +286,7 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#show_tabs = 0
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme='minimalist'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
@@ -310,6 +309,18 @@ require("telescope").setup {
 }
 require("telescope").load_extension "file_browser"
 EOF
+
+"----------------------------------------------
+" Plugin: 'nvim-pack/nvim-spectre'
+"----------------------------------------------
+nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
+
+"search current word
+nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
+"  search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+" run command :Spectre
 
 
 "----------------------------------------------
