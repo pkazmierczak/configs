@@ -59,7 +59,7 @@ set autoread                      " reload file if the file changes on the disk
 set autowrite                     " write when switching buffers
 set autowriteall                  " write on :quit
 set clipboard=unnamedplus
-set colorcolumn=101               " highlight the 80th column as an indicator
+set colorcolumn=0                 " no line length marker highlight
 set cursorline                    " highlight the current line for the cursor
 set encoding=utf-8
 set expandtab                     " expands tabs to spaces
@@ -121,16 +121,22 @@ nnoremap <leader>b :BlamerToggle<cr>
 
 set termguicolors
 set background=light
-let g:zenbones_compat = 1
-colo zenbones
+let g:forestbones_compat = 1
+colo forestbones
 
 function! Switch_background()
     if &background ==? 'dark'
         set background=light
-         AirlineRefresh
+        let g:forestbones_compat = 1
+        colo forestbones
+		let g:airline_theme='solarized'
+        AirlineRefresh
     else
         set background=dark
-         AirlineRefresh
+        let g:zenbones_compat = 1
+        colo zenbones
+		let g:airline_theme='minimalist'
+        AirlineRefresh
     endif
 endfunction
 command! SwitchBackground call Switch_background()
@@ -282,11 +288,11 @@ nnoremap <leader>gp :Git push<cr>
 " Show status bar by default.
 set laststatus=2
 
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='minimalist'
+let g:airline_theme='solarized'
 let g:airline#extensions#clock#format = '%a %d %b | %H:%M'
 
 "----------------------------------------------
