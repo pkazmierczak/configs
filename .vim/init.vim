@@ -6,9 +6,6 @@
 "----------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-" Dependencies
-Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
-
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -28,7 +25,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'        " for bracket mappings
 Plug 'rbgrouleff/bclose.vim'
@@ -45,8 +41,6 @@ Plug 'hashivim/vim-terraform'
 
 " Colorschemes
 Plug 'iCyMind/NeoSolarized'
-Plug 'sainnhe/gruvbox-material'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'mcchrish/zenbones.nvim'
 call plug#end()
 
@@ -275,14 +269,6 @@ lua <<EOF
 EOF
 
 "----------------------------------------------
-" Plugin: tpope/vim-fugitive
-"----------------------------------------------
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gs <cmd>Telescope git_status<cr>
-nnoremap <leader>gc :Git commit<cr>
-nnoremap <leader>gp :Git push<cr>
-
-"----------------------------------------------
 " Plugin: bling/vim-airline
 "----------------------------------------------
 " Show status bar by default.
@@ -305,6 +291,7 @@ nnoremap <leader>f <cmd>Telescope file_browser<cr>
 nnoremap <F8> <cmd>TroubleToggle<cr>
 nnoremap <F9> <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <F5> <cmd>Telescope buffers<cr>
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
 lua <<EOF
 require("telescope").setup {
   extensions = {
@@ -336,9 +323,6 @@ au FileType go set noexpandtab
 au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
 au FileType go set tabstop=4
-
-" Mappings
-au FileType go nmap <F10> :GoTest -short<cr>
 
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
