@@ -13,7 +13,7 @@ export LC_ALL=$LANG
 
 alias vim="nvim"
 alias vi="nvim"
-alias entvim="GOFLAGS=\"-tags=ent,consul-ent\" vim"
+alias entvim="GOFLAGS=\"-tags=ent,consul-ent,consulent\" vim"
 export EDITOR="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
