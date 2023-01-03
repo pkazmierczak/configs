@@ -35,7 +35,9 @@ Plug 'APZelos/blamer.nvim'
 Plug 'windwp/nvim-spectre'
 
 " Language support
-Plug 'olexsmir/gopher.nvim'
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua'
+" Plug 'olexsmir/gopher.nvim'
 Plug 'fatih/vim-hclfmt'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -324,6 +326,19 @@ au FileType go set noexpandtab
 au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
 au FileType go set tabstop=4
+
+lua <<EOF
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
+
+require('go').setup()
+EOF
 
 "----------------------------------------------
 " Language: Python
