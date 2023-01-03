@@ -63,3 +63,9 @@ function cd() {
   fi
 }
 alias tf="terraform"
+
+team-times() {
+	zdump America/Los_Angeles America/Toronto Europe/Amsterdam Europe/London
+}
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

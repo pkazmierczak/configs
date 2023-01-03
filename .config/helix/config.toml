@@ -1,8 +1,12 @@
-theme = "gruvbox_material_dark_soft"
+theme = "everforest_light_soft"
 
 [editor]
 line-number = "relative"
 mouse = false
+bufferline = "multiple"
+
+[editor.lsp]
+display-messages = true
 
 [editor.cursor-shape]
 insert = "bar"
