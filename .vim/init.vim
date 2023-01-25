@@ -21,6 +21,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'folke/trouble.nvim'
 
 " General
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
@@ -34,7 +35,9 @@ Plug 'APZelos/blamer.nvim'
 Plug 'windwp/nvim-spectre'
 
 " Language support
-Plug 'fatih/vim-go', { 'do': ':silent :GoUpdateBinaries' }
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua'
+" Plug 'olexsmir/gopher.nvim'
 Plug 'fatih/vim-hclfmt'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -324,40 +327,18 @@ au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
 au FileType go set tabstop=4
 
-" Run goimports when running gofmt
-let g:go_fmt_command = "goimports"
+lua <<EOF
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
 
-" Enable syntax highlighting per default
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-
-" Show the progress when running :GoCoverage
-let g:go_echo_command_info = 1
-
-" Show type information
-let g:go_auto_type_info = 0
-
-" Highlight variable uses
-let g:go_auto_sameids = 0
-
-" Fix for location list when vim-go is used together with Syntastic
-let g:go_list_type = "quickfix"
-
-" Add the failing test name to the output of :GoTest
-let g:go_test_show_name = 1
-
-" Set whether the JSON tags should be snakecase or camelcase.
-let g:go_addtags_transform = "snakecase"
-
-" Use gopls
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
+require('go').setup()
+EOF
 
 "----------------------------------------------
 " Language: Python

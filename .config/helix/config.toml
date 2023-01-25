@@ -5,6 +5,10 @@ line-number = "relative"
 mouse = false
 auto-format = true
 auto-pairs = false
+bufferline = "multiple"
+
+[editor.lsp]
+display-messages = true
 
 [editor.cursor-shape]
 insert = "bar"

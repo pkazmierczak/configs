@@ -13,7 +13,8 @@ export LC_ALL=$LANG
 
 alias vim="nvim"
 alias vi="nvim"
-alias entvim="GOFLAGS=\"-tags=ent,consul-ent\" vim"
+alias entvim="GOFLAGS=\"-tags=ent,consul-ent,consulent\" vim"
+alias enthx="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
 export EDITOR="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -63,4 +64,7 @@ function cd() {
   fi
 }
 alias tf="terraform"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+team-times() {
+	zdump America/Los_Angeles America/Toronto Europe/Amsterdam Europe/London
+}
