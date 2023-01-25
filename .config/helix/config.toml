@@ -1,8 +1,10 @@
-theme = "gruvbox_material_dark_soft"
+theme = "fleet_dark"
 
 [editor]
 line-number = "relative"
 mouse = false
+auto-format = true
+auto-pairs = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -16,3 +18,4 @@ hidden = false
 left = ["mode", "spinner", "file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 separator = "│"
+

@@ -63,3 +63,4 @@ function cd() {
   fi
 }
 alias tf="terraform"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
