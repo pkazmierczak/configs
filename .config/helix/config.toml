@@ -1,14 +1,18 @@
-theme = "fleet_dark"
+theme = "solarized_light"
 
 [editor]
 line-number = "relative"
 mouse = false
 auto-format = true
 auto-pairs = false
-bufferline = "multiple"
+bufferline = "never"
+
+[editor.soft-wrap]
+enable = true
 
 [editor.lsp]
 display-messages = true
+display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -23,3 +27,8 @@ left = ["mode", "spinner", "file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 separator = "│"
 
+[keys.normal]
+"C-]" = "goto_definition"
+
+[keys.insert]
+"C-[" = "normal_mode"

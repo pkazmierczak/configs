@@ -15,7 +15,9 @@ alias vim="nvim"
 alias vi="nvim"
 alias entvim="GOFLAGS=\"-tags=ent,consul-ent,consulent\" vim"
 alias enthx="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
-export EDITOR="nvim"
+export EDITOR="hx"
+
+alias ghb="gh browse -b $(git branch --show-current) $1"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

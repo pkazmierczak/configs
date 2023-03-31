@@ -39,3 +39,4 @@ compile-cache
 dev
 .npm
 .node-gyp
+.vim/lazy-lock.json
