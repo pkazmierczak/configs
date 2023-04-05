@@ -32,12 +32,10 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'kshenoy/vim-signature'       " show marks in the gutter
 Plug 'ruanyl/vim-gh-line'          " copies gh url of the current line
 Plug 'APZelos/blamer.nvim'
-Plug 'windwp/nvim-spectre'
 
 " Language support
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
-" Plug 'olexsmir/gopher.nvim'
 Plug 'fatih/vim-hclfmt'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -292,7 +290,7 @@ nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser<cr>
 nnoremap <F8> <cmd>TroubleToggle<cr>
-nnoremap <F9> <cmd>Telescope lsp_document_symbols<cr>
+nnoremap <leader>s <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <F5> <cmd>Telescope buffers<cr>
 nnoremap <leader>gs <cmd>Telescope git_status<cr>
 lua <<EOF
@@ -305,19 +303,6 @@ require("telescope").setup {
 }
 require("telescope").load_extension "file_browser"
 EOF
-
-"----------------------------------------------
-" Plugin: 'nvim-pack/nvim-spectre'
-"----------------------------------------------
-nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
-
-"search current word
-nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
-vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
-"  search in current file
-nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
-" run command :Spectre
-
 
 "----------------------------------------------
 " Language: Golang

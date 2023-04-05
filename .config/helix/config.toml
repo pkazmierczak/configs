@@ -5,14 +5,14 @@ line-number = "relative"
 mouse = false
 auto-format = true
 auto-pairs = false
-bufferline = "never"
+bufferline = "always"
 
 [editor.soft-wrap]
 enable = true
 
 [editor.lsp]
 display-messages = true
-display-inlay-hints = true
+display-inlay-hints = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -29,6 +29,19 @@ separator = "│"
 
 [keys.normal]
 "C-]" = "goto_definition"
+F5 = ":theme solarized_light"
+F6 = ":theme rasmus"
+q = ":bc"
+"{" = ["goto_prev_paragraph", "collapse_selection"]
+"}" = ["goto_next_paragraph", "collapse_selection"]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+G = "goto_file_end"
+D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
+g = { q = ":reflow" }
+"]" = { b = "goto_next_buffer" }
+"[" = { b = "goto_previous_buffer" }
 
 [keys.insert]
 "C-[" = "normal_mode"
