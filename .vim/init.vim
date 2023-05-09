@@ -18,7 +18,6 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'folke/trouble.nvim'
 
 " General
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -238,10 +237,8 @@ EOF
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gi    <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -289,8 +286,11 @@ nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope oldfiles<cr>
 nnoremap <leader>; <cmd>Telescope live_grep<cr>
 nnoremap <leader>f <cmd>Telescope file_browser<cr>
-nnoremap <F8> <cmd>TroubleToggle<cr>
+nnoremap <leader>gr <cmd>Telescope lsp_references<cr>
+nnoremap <leader>gi <cmd>Telescope lsp_implementations<cr>
 nnoremap <leader>s <cmd>Telescope lsp_document_symbols<cr>
+nnoremap <leader>S <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
+nnoremap <F8> <cmd>Telescope diagnostics<cr>
 nnoremap <F5> <cmd>Telescope buffers<cr>
 nnoremap <leader>gs <cmd>Telescope git_status<cr>
 lua <<EOF
