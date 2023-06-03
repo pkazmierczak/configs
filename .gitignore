@@ -40,3 +40,4 @@ dev
 .npm
 .node-gyp
 .vim/lazy-lock.json
+.config/nvim/lazy-lock.json

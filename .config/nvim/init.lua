@@ -62,12 +62,22 @@ require('lazy').setup({
   },
 
   -- for extra Go goodies
-  { 'ray-x/go.nvim', opts = {} },
+  {
+    'ray-x/go.nvim',
+    dependencies = {  -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    opts = {},
+  },
 
   -- for extra HCL goodies
   'fatih/vim-hclfmt',
   'jvirtanen/vim-hcl',
-  
+
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
@@ -391,6 +401,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
   group = format_sync_grp,
 })
+vim.keymap.set({'n', 'i'}, '<F10>', '<Plug>(GoTestFunc)')
 
 require('go').setup()
 
