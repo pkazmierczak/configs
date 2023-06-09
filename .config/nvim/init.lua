@@ -25,6 +25,9 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+  -- bracket mappings
+  'tpope/vim-unimpaired',
+
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
@@ -77,6 +80,9 @@ require('lazy').setup({
   -- for extra HCL goodies
   'fatih/vim-hclfmt',
   'jvirtanen/vim-hcl',
+
+  -- mdx syntax highlighting
+  'jxnblk/vim-mdx-js',
 
 
   -- Useful plugin to show you pending keybinds.
