@@ -1,3 +1,13 @@
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
+
+[[language]]
+name = "python"
+formatter = { command = "black", args = ["--quiet", "-"] }
+auto-format = true
+
+[[language]]
+name = "haskell"
+auto-format = true
+formatter = { command = "stylish-haskell", args = [] }

@@ -2,10 +2,9 @@ theme = "solarized_light"
 
 [editor]
 line-number = "relative"
-mouse = false
 auto-format = true
-auto-pairs = false
 bufferline = "always"
+cursorline = true
 
 [editor.soft-wrap]
 enable = true
