@@ -44,7 +44,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -134,9 +134,6 @@ require('lazy').setup({
     },
   },
 
-  -- bufferline
-  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons', opts = {} },
-
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
 
@@ -160,6 +157,15 @@ vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+
+-- Highligh line
+vim.o.cursorline = true
+
+-- Relative line numbers
+vim.o.relativenumber = true
+
+-- Set scrolling margin
+vim.o.scrolloff = 5
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -258,6 +264,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Search by Grep' })
 vim.keymap.set('n', '<leader>D', require('telescope.builtin').diagnostics, { desc = 'Search [D]iagnostics' })
+vim.keymap.set('n', '<leader>st', ":TodoTelescope<cr>", { desc = '[S]earch [T]odos' })
 
 -- [[ Configure auto colors ]]
 local auto_dark_mode = require('auto-dark-mode')
