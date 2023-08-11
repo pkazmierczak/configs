@@ -112,6 +112,8 @@ require('lazy').setup({
 
   'ruanyl/vim-gh-line',
 
+  'florentc/vim-tla',
+
   { 'f-person/auto-dark-mode.nvim', opts = {} },
 
   {
