@@ -41,3 +41,4 @@ dev
 .node-gyp
 .vim/lazy-lock.json
 .config/nvim/lazy-lock.json
+.config/fish/fish_variables

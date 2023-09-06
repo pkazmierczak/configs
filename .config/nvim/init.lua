@@ -87,7 +87,6 @@ require('lazy').setup({
   -- mdx syntax highlighting
   'jxnblk/vim-mdx-js',
 
-
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
@@ -110,12 +109,16 @@ require('lazy').setup({
     },
   },
 
+  -- go to line on github
   'ruanyl/vim-gh-line',
 
+  -- TLA+ syntax
   'florentc/vim-tla',
 
+  -- auto dark mode for macOS
   { 'f-person/auto-dark-mode.nvim', opts = {} },
 
+  -- nice colors
   {
     'mcchrish/zenbones.nvim',
     priority = 1000,
@@ -138,6 +141,9 @@ require('lazy').setup({
       },
     },
   },
+
+  -- file explorer
+  { 'nvim-tree/nvim-tree.lua', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -288,7 +294,7 @@ vim.keymap.set('n', '<leader>ff', ':Telescope file_browser path=%:p:h select_buf
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Search by Grep' })
-vim.keymap.set('n', '<leader>D', require('telescope.builtin').diagnostics, { desc = 'Search [D]iagnostics' })
+vim.keymap.set('n', '<leader>wd', require('telescope.builtin').diagnostics, { desc = '[W]orkspace [D]iagnostics' })
 vim.keymap.set('n', '<leader>st', ":TodoTelescope<cr>", { desc = '[S]earch [T]odos' })
 
 -- [[ Configure auto colors ]]
@@ -306,6 +312,9 @@ auto_dark_mode.setup({
 	end,
 })
 auto_dark_mode.init()
+
+-- [[ keybiding for nvim-tree ]]
+vim.keymap.set('n', '<c-n>', ":NvimTreeFindFileToggle<cr>", {})
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -389,8 +398,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('<leader>r', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>a', vim.lsp.buf.code_action, 'Code [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
