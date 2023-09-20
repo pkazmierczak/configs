@@ -79,6 +79,20 @@ require('lazy').setup({
     },
     opts = {},
   },
+  {
+     "ray-x/lsp_signature.nvim",
+     event = "VeryLazy",
+     opts = {},
+     config = function(_, opts) require'lsp_signature'.setup(opts) end
+  },
+  {
+     "ray-x/navigator.lua",
+     dependencies = {
+       "ray-x/guihua.lua",
+       "neovim/nvim-lspconfig",
+     },
+    opts = {},
+  },
 
   -- for extra HCL goodies
   'fatih/vim-hclfmt',
@@ -296,6 +310,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Search by Grep' })
 vim.keymap.set('n', '<leader>wd', require('telescope.builtin').diagnostics, { desc = '[W]orkspace [D]iagnostics' })
 vim.keymap.set('n', '<leader>st', ":TodoTelescope<cr>", { desc = '[S]earch [T]odos' })
+vim.keymap.set('n', '<leader>\'', require('telescope.builtin').resume, { desc = 'Open last Telescope picker' })
 
 -- [[ Configure auto colors ]]
 local auto_dark_mode = require('auto-dark-mode')
@@ -403,7 +418,7 @@ local on_attach = function(_, bufnr)
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+  nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
@@ -413,7 +428,6 @@ local on_attach = function(_, bufnr)
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
   nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
   nmap('<leader>wl', function()
@@ -458,7 +472,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
   group = format_sync_grp,
 })
-vim.keymap.set({'n', 'i'}, '<F10>', '<Plug>(GoTestFunc)')
+vim.keymap.set({'n', 'i'}, '<F10>', '<Plug>(GoTestFile)')
 
 require('go').setup()
 

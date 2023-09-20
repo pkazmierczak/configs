@@ -11,3 +11,8 @@ auto-format = true
 name = "haskell"
 auto-format = true
 formatter = { command = "stylish-haskell", args = [] }
+
+[[language]]
+name = "hcl"
+auto-format = true
+formatter = { command = "hclfmt", args = [] }
