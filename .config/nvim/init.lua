@@ -24,6 +24,7 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'APZelos/blamer.nvim',
 
   -- bracket mappings
   'tpope/vim-unimpaired',
@@ -44,7 +45,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' },
+      { 'j-hui/fidget.nvim',       opts = {},    tag = 'legacy' },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -70,7 +71,7 @@ require('lazy').setup({
   -- for extra Go goodies
   {
     'ray-x/go.nvim',
-    dependencies = {  -- optional packages
+    dependencies = { -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
@@ -80,18 +81,10 @@ require('lazy').setup({
     opts = {},
   },
   {
-     "ray-x/lsp_signature.nvim",
-     event = "VeryLazy",
-     opts = {},
-     config = function(_, opts) require'lsp_signature'.setup(opts) end
-  },
-  {
-     "ray-x/navigator.lua",
-     dependencies = {
-       "ray-x/guihua.lua",
-       "neovim/nvim-lspconfig",
-     },
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
     opts = {},
+    config = function(_, opts) require 'lsp_signature'.setup(opts) end
   },
 
   -- for extra HCL goodies
@@ -102,7 +95,7 @@ require('lazy').setup({
   'jxnblk/vim-mdx-js',
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',         opts = {} },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -160,10 +153,21 @@ require('lazy').setup({
   { 'nvim-tree/nvim-tree.lua', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim' }
+  },
 
   -- File browser for telescope
-  { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { 
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    }
+  },
 
   {
     -- Highlight, edit, and navigate code
@@ -190,7 +194,7 @@ vim.o.mouse = 'a'
 vim.o.cursorline = true
 
 -- Relative line numbers
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 
 -- Set scrolling margin
 vim.o.scrolloff = 5
@@ -263,19 +267,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('telescope').setup {
   defaults = {
     extensions = {
-    file_browser = {
-      theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
+      file_browser = {
+        theme = "ivy",
+        -- disables netrw and use telescope-file-browser in its place
+        hijack_netrw = true,
+        mappings = {
+          ["i"] = {
+            -- your custom insert mode mappings
+          },
+          ["n"] = {
+            -- your custom normal mode mappings
+          },
         },
       },
-    },
     },
     mappings = {
       i = {
@@ -304,7 +308,8 @@ vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = 
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Search [F]iles' })
-vim.keymap.set('n', '<leader>ff', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { desc = 'Browse [F]iles' })
+vim.keymap.set('n', '<leader>ff', ':Telescope file_browser path=%:p:h select_buffer=true<CR>',
+  { desc = 'Browse [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Search by Grep' })
@@ -316,15 +321,15 @@ vim.keymap.set('n', '<leader>\'', require('telescope.builtin').resume, { desc = 
 local auto_dark_mode = require('auto-dark-mode')
 
 auto_dark_mode.setup({
-	update_interval = 1000,
-	set_light_mode = function()
-		vim.api.nvim_set_option('background', 'light')
-		vim.cmd('colorscheme forestbones')
-	end,
-	set_dark_mode = function()
-		vim.api.nvim_set_option('background', 'dark')
-		vim.cmd('colorscheme zenbones')
-	end,
+  update_interval = 1000,
+  set_light_mode = function()
+    vim.api.nvim_set_option('background', 'light')
+    vim.cmd('colorscheme forestbones')
+  end,
+  set_dark_mode = function()
+    vim.api.nvim_set_option('background', 'dark')
+    vim.cmd('colorscheme zenbones')
+  end,
 })
 auto_dark_mode.init()
 
@@ -468,11 +473,11 @@ local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
-   require('go.format').goimport()
+    require('go.format').goimport()
   end,
   group = format_sync_grp,
 })
-vim.keymap.set({'n', 'i'}, '<F10>', '<Plug>(GoTestFile)')
+vim.keymap.set({ 'n', 'i' }, '<F10>', '<Plug>(GoTestFile)')
 
 require('go').setup()
 

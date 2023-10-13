@@ -1,7 +1,6 @@
 theme = "solarized_light"
 
 [editor]
-line-number = "relative"
 auto-format = true
 bufferline = "always"
 cursorline = true
