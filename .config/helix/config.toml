@@ -1,4 +1,4 @@
-theme = "amberwood"
+theme = "meliora"
 
 [editor]
 auto-format = true
@@ -29,7 +29,7 @@ separator = "│"
 [keys.normal]
 "C-]" = "goto_definition"
 F5 = ":theme solarized_light"
-F6 = ":theme amberwood"
+F6 = ":theme meliora"
 q = ":bc"
 "{" = ["goto_prev_paragraph", "collapse_selection"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
