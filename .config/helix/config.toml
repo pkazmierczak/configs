@@ -5,6 +5,7 @@ auto-format = true
 bufferline = "always"
 cursorline = true
 true-color = true
+auto-pairs = false
 
 [editor.soft-wrap]
 enable = true
