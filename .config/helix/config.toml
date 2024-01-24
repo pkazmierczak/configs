@@ -42,6 +42,8 @@ D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection
 g = { q = ":reflow" }
 "]" = { b = "goto_next_buffer" }
 "[" = { b = "goto_previous_buffer" }
+"y" = ":clipboard-yank"
+"p" = ":clipboard-paste-after"
 
 [keys.insert]
 "C-[" = "normal_mode"
