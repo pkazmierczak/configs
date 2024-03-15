@@ -42,3 +42,6 @@ dev
 .vim/lazy-lock.json
 .config/nvim/lazy-lock.json
 .config/fish/fish_variables
+
+.config/zed/embeddings
+.config/zed/.tmp*
