@@ -8,9 +8,13 @@
 // from the command palette or from `Zed` application menu.
 {
   "features": {
-    "copilot": true
+    "copilot": false
   },
-  "theme": "Atelier Dune Light",
+  "theme": {
+    "mode": "system",
+    "dark": "Gruvbox Dark",
+    "light": "Atelier Dune Light"
+  },
   "buffer_font_size": 13,
   "vim_mode": true,
   "hour_format": "hour24",
