@@ -12,7 +12,7 @@
   },
   "theme": {
     "mode": "system",
-    "dark": "Gruvbox Dark",
+    "dark": "Fleet Dark",
     "light": "Atelier Dune Light"
   },
   "buffer_font_size": 13,
@@ -21,5 +21,12 @@
   "copy_on_select": true,
   "vim": {
     "use_system_clipboard": "always"
+  },
+  "terminal": {
+    "copy_on_select": true
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
   }
 }
