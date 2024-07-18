@@ -1,6 +1,8 @@
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
+[language-server.gopls.config]
+"ui.diagnostic.staticcheck" = true
 
 [[language]]
 name = "python"
