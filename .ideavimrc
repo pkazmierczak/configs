@@ -1,0 +1,11 @@
+set clipboard+=unnamed
+set visualbell
+set noerrorbells
+let mapleader = ','
+
+" Creating splits
+nnoremap <leader>v :action SplitVertically<cr>
+nnoremap <leader>h :action SplitHorizontally<cr>
+vnoremap gq :action FillParagraph<cr>
+nnoremap <leader>gh :action Github.Open.In.Browser<cr>
+nnoremap <leader>gs :action Vcs.Operations.Popup<cr>
