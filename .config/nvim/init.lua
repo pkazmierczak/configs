@@ -52,6 +52,12 @@ require('lazy').setup({
   },
 
   {
+    -- better LSP diagnostics
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    opts = {},
+  },
+
+  {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -416,6 +422,9 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Diagnostic keymaps
+vim.diagnostic.config({
+  virtual_text = false,
+})
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
