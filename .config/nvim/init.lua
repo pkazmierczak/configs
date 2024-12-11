@@ -52,12 +52,6 @@ require('lazy').setup({
   },
 
   {
-    -- better LSP diagnostics
-    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    opts = {},
-  },
-
-  {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -314,16 +308,6 @@ vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = 
 --   })
 -- end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Search [F]iles' })
-vim.keymap.set('n', '<leader>ff', ':Telescope file_browser path=%:p:h select_buffer=true<CR>',
-  { desc = 'Browse [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Search by Grep' })
-vim.keymap.set('n', '<leader>wd', require('telescope.builtin').diagnostics, { desc = '[W]orkspace [D]iagnostics' })
-vim.keymap.set('n', '<leader>st', ":TodoTelescope<cr>", { desc = '[S]earch [T]odos' })
-vim.keymap.set('n', '<leader>\'', require('telescope.builtin').resume, { desc = 'Open last Telescope picker' })
 
 -- [[ Configure auto colors ]]
 local auto_dark_mode = require('auto-dark-mode')
@@ -427,12 +411,23 @@ require'treesitter-context'.setup{
 }
 
 -- Diagnostic keymaps
-vim.diagnostic.config({
-  virtual_text = false,
-})
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Search [F]iles' })
+vim.keymap.set('n', '<leader>ff', ':Telescope file_browser path=%:p:h select_buffer=true<CR>',
+  { desc = 'Browse [F]iles' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Search by Grep' })
+vim.keymap.set('n', '<leader>wd', require('telescope.builtin').diagnostics, { desc = '[W]orkspace [D]iagnostics' })
+vim.keymap.set('n', '<leader>st', ":TodoTelescope<cr>", { desc = '[S]earch [T]odos' })
+vim.keymap.set('n', '<leader>\'', require('telescope.builtin').resume, { desc = 'Open last Telescope picker' })
+vim.keymap.set('n', 'gr', ':Telescope lsp_references symbol_width=50<CR>', { desc = '[G]oto [R]eferences' })
+vim.keymap.set('n', 'gi', ':Telescope lsp_implementations symbol_width=50<CR>', { desc = '[G]oto [I]mplementation' })
+vim.keymap.set('n', '<leader>ds', ':Telescope lsp_document_symbols symbol_width=50<cr>', { desc = '[D]ocument [S]ymbols' })
+vim.keymap.set('n', '<leader>ws', ':Telescope lsp_dynamic_workspace_symbols symbol_width=50<cr>', { desc = '[W]orkspace [S]ymbols' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -449,11 +444,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>a', vim.lsp.buf.code_action, 'Code [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
