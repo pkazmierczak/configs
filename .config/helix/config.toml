@@ -6,6 +6,7 @@ bufferline = "always"
 cursorline = true
 true-color = true
 auto-pairs = false
+end-of-line-diagnostics = "hint"
 
 [editor.soft-wrap]
 enable = true
@@ -13,6 +14,9 @@ enable = true
 [editor.lsp]
 display-messages = true
 display-inlay-hints = false
+
+[editor.inline-diagnostics]
+cursor-line = "warning" # show warnings and errors on the cursorline inline
 
 [editor.cursor-shape]
 insert = "bar"
