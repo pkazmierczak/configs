@@ -428,7 +428,6 @@ vim.keymap.set('n', 'gr', ':Telescope lsp_references symbol_width=50<CR>', { des
 vim.keymap.set('n', 'gi', ':Telescope lsp_implementations symbol_width=50<CR>', { desc = '[G]oto [I]mplementation' })
 vim.keymap.set('n', '<leader>ds', ':Telescope lsp_document_symbols symbol_width=50<cr>', { desc = '[D]ocument [S]ymbols' })
 vim.keymap.set('n', '<leader>ws', ':Telescope lsp_dynamic_workspace_symbols symbol_width=50<cr>', { desc = '[W]orkspace [S]ymbols' })
-vim.keymap.set('n', '/', ':Telescope current_buffer_fuzzy_find<cr>', {})
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.

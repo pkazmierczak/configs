@@ -43,9 +43,10 @@ q = ":bc"
 "^" = "goto_first_nonwhitespace"
 G = "goto_file_end"
 D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
-g = { q = ":reflow" }
+g = { q = ":reflow", o = ":noop %sh{gh browse %{buffer_name}:%{cursor_line} -c=%sh{git rev-parse HEAD}}" }
 "]" = { b = "goto_next_buffer" }
 "[" = { b = "goto_previous_buffer" }
+b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 
 [keys.insert]
 "C-[" = "normal_mode"
