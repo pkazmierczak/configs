@@ -11,9 +11,9 @@ source $ZSH/oh-my-zsh.sh
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
 
-alias vim="nvim"
-alias vi="nvim"
-alias entvim="GOFLAGS=\"-tags=ent,consul-ent,consulent\" vim"
+alias vim="hx"
+alias vi="hx"
+alias entvim="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
 alias enthx="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
 export EDITOR="hx"
 
