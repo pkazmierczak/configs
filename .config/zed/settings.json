@@ -14,7 +14,7 @@
   "theme": {
     "mode": "system",
     "dark": "Fleet Dark",
-    "light": "Atelier Dune Light"
+    "light": "Solarized Light"
   },
   "buffer_font_size": 13,
   "vim_mode": true,

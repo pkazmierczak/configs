@@ -45,3 +45,4 @@ dev
 
 .config/zed/embeddings
 .config/zed/.tmp*
+.config/zed/prompts
