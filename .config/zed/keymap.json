@@ -1,0 +1,10 @@
+[
+  {
+    "context": "Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      "] d": "editor::GoToDiagnostic",
+      "] c": "editor::GoToNextChange"
+    }
+  }
+]
