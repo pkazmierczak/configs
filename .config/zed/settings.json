@@ -12,7 +12,7 @@
   },
   "theme": {
     "mode": "system",
-    "dark": "One Dark",
+    "dark": "Gruvbox Dark",
     "light": "Solarized Light"
   },
   "buffer_font_size": 13,
@@ -32,5 +32,6 @@
       "enabled": true,
       "delay_ms": 1500
     }
-  }
+  },
+  "use_autoclose": false
 }
