@@ -1,0 +1,4 @@
+theme = dark:Modus Vivendi,light:iTerm2 Solarized Light
+
+macos-titlebar-style = "tabs"
+# macos-non-native-fullscreen = "true"
