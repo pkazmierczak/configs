@@ -46,3 +46,6 @@ dev
 .config/zed/embeddings
 .config/zed/.tmp*
 .config/zed/prompts
+/.config/mako/config
+/.config/sway/theme/current
+/.config/waybar/style.css
