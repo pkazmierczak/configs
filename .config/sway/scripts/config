@@ -1,4 +1,5 @@
 ### ~/.config/sway/config
+### Minimal-but-complete sway setup: ghostty + fuzzel + waybar + mako + cliphist + swaylock
 
 ### Variables
 set $mod Mod4
@@ -9,25 +10,27 @@ set $down j
 set $up k
 set $right l
 
-# Consistent palette (Solarized Light, shared with waybar/mako/swaylock)
-set $bg      #fdf6e3
-set $bg-alt  #eee8d5
-set $fg      #657b83
-set $accent  #268bd2
-set $urgent  #dc322f
-set $inactive #93a1a1
+# Palette comes from an included theme file so it can be swapped live —
+# see ~/.config/sway/theme/{light,dark} and the Mod+Shift+t toggle below.
+include $HOME/.config/sway/theme/current
+# Text color used on top of $accent/$urgent — stays light in both themes
+# since the accent blue is the same shade either way.
+set $on-accent #fdf6e3
 
 font pango:JetBrainsMono Nerd Font 10
 
 ### Output
+# Uncomment and edit for your monitor, or leave sway to auto-detect
 # output eDP-1 resolution 1920x1080 position 0,0
-output * bg ~/wallpaper.jpg fill
+output * bg #fdf6e3 solid_color
 
+### Input — keyboard: Polish layout + Caps Lock as Ctrl
 input "type:keyboard" {
     xkb_layout pl
     xkb_options ctrl:nocaps
 }
 
+# Trackpad basics if you're on a laptop — safe to leave even on desktop
 input "type:touchpad" {
     tap enabled
     natural_scroll enabled
@@ -36,15 +39,15 @@ input "type:touchpad" {
 
 ### Appearance
 gaps inner 6
-gaps outer 0
+gaps outer 2
 default_border pixel 2
 default_floating_border pixel 2
 smart_borders on
 
-client.focused          $accent $accent $bg $accent $accent
+client.focused          $accent $accent $on-accent $accent $accent
 client.focused_inactive $inactive $inactive $fg $inactive $inactive
 client.unfocused        $bg-alt $bg-alt $fg $bg-alt $bg-alt
-client.urgent           $urgent $urgent $bg $urgent $urgent
+client.urgent            $urgent $urgent $on-accent $urgent $urgent
 
 ### Autostart
 exec waybar
@@ -52,16 +55,16 @@ exec mako
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec swayidle -w \
-    timeout 300 '$HOME/.config/sway/scripts/lock.sh' \
+    timeout 300 'swaylock -f -c fdf6e3' \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep '$HOME/.config/sway/scripts/lock.sh'
+    before-sleep 'swaylock -f -c fdf6e3'
 
 # Import GTK/env vars into the systemd/dbus user session so waybar tray,
 # polkit agents, etc. behave. Harmless if these binaries don't exist.
 exec dbus-update-activation-environment --systemd --all
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
-# Polkit agent (needed for GUI password prompts)
+# Polkit agent (needed for GUI password prompts — swap for your distro's default if different)
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Core bindings
@@ -71,19 +74,20 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -B 'Yes' 'swaymsg exit'
 
 # Lock screen
-bindsym $mod+Escape exec $HOME/.config/sway/scripts/lock.sh
+bindsym $mod+Escape exec swaylock -f -c fdf6e3
+
+# Toggle light/dark theme across sway, waybar, mako, and GTK apps
+bindsym $mod+Shift+t exec $HOME/.local/bin/theme-toggle.sh
 
 # Clipboard history picker
-bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
-
-# Toggle light/dark theme
-bindsym $mod+Shift+t exec $HOME/.config/sway/scripts/theme-toggle.sh
+bindsym $mod+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 
 # Reload config
 bindsym $mod+Shift+c reload
 
 # Screenshot (uses grim+slurp if installed — optional but common enough to wire up)
-bindsym Print exec slurp | grim -t - - | tee ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy
+bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
 
 ### Focus / move (vim-style, arrows also work)
 bindsym $mod+$left focus left
@@ -162,14 +166,3 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 include /etc/sway/config.d/*
-
-exec swaymsg "workspace 1; exec $HOME/appImages/beeper.AppImage" 
-exec swaymsg "workspace 1; exec 1password --silent" 
-exec swaymsg "workspace 2; exec sleep 5 && firefox"
-
-for_window [app_id="Beeper"] floating enable
-for_window [app_id="org.gnome.Nautilus"] floating enable
-for_window [app_id="1password"] floating enable
-for_window [app_id="chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default"] floating enable # whatsapp webapp
-for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-for_window [app_id="org.gnome.Software"] floating enable

@@ -1,0 +1,7 @@
+# Solarized Dark palette
+set $bg       #002b36
+set $bg-alt   #073642
+set $fg       #839496
+set $accent   #268bd2
+set $urgent   #dc322f
+set $inactive #586e75

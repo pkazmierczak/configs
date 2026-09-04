@@ -4,6 +4,7 @@
     "position": "top",
     "height": 32,
     "spacing": 4,
+    "reload_style_on_change": true,
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
@@ -61,7 +62,6 @@
             "default": ["", "", ""]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol",
         "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
         "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },
