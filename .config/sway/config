@@ -16,7 +16,6 @@ set $fg      #657b83
 set $accent  #268bd2
 set $urgent  #dc322f
 set $inactive #93a1a1
-set $lockimg $HOME/wallpaper-blurred.png
 
 font pango:JetBrainsMono Nerd Font 10
 
@@ -53,9 +52,9 @@ exec mako
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec swayidle -w \
-    timeout 300 'swaylock -f -i $lockimg' \
+    timeout 300 '$HOME/.config/sway/scripts/lock.sh' \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -i $lockimg'
+    before-sleep '$HOME/.config/sway/scripts/lock.sh'
 
 # Import GTK/env vars into the systemd/dbus user session so waybar tray,
 # polkit agents, etc. behave. Harmless if these binaries don't exist.
@@ -72,7 +71,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -B 'Yes' 'swaymsg exit'
 
 # Lock screen
-bindsym $mod+Escape exec swaylock -f -i $lockimg
+bindsym $mod+Escape exec $HOME/.config/sway/scripts/lock.sh
 
 # Clipboard history picker
 bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
@@ -168,3 +167,6 @@ exec swaymsg "workspace 2; exec sleep 5 && firefox"
 for_window [app_id="Beeper"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [app_id="1password"] floating enable
+for_window [app_id="chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default"] floating enable # whatsapp webapp
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [app_id="org.gnome.Software"] floating enable
