@@ -1,0 +1,43 @@
+# ~/.config/mako/config-dark — Solarized Dark
+
+# Placement / layer
+anchor=top-right
+layer=overlay
+margin=8
+padding=10
+
+# Sizing
+width=340
+height=120
+border-size=2
+border-radius=8
+
+# Timing — don't let notifications pile up or linger forever
+default-timeout=6000
+ignore-timeout=0
+max-visible=5
+sort=-time
+
+# Grouping — collapse spam from the same app instead of flooding the screen
+group-by=app-name
+
+# Appearance (matches the sway/waybar Solarized Dark palette)
+background-color=#002b36ee
+text-color=#839496
+border-color=#268bd2
+progress-color=over #073642
+font=JetBrainsMono Nerd Font 10
+
+# Mouse actions: left-click dismiss, right-click dismiss all, middle-click invokes default action
+on-button-left=dismiss
+on-button-right=dismiss-all
+on-button-middle=invoke-default-action
+on-touch=dismiss
+
+[urgency=low]
+border-color=#586e75
+default-timeout=4000
+
+[urgency=critical]
+border-color=#dc322f
+default-timeout=0
