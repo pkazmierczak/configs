@@ -83,7 +83,8 @@ bindsym $mod+Shift+t exec $HOME/.config/sway/scripts/theme-toggle.sh
 bindsym $mod+Shift+c reload
 
 # Screenshot (uses grim+slurp if installed — optional but common enough to wire up)
-bindsym Print exec slurp | grim -t - - | tee ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy
+# bindsym Print exec slurp | grim -t - - | tee ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy
+bindsym Print exec grimshot savecopy anything
 
 ### Focus / move (vim-style, arrows also work)
 bindsym $mod+$left focus left
@@ -165,7 +166,7 @@ include /etc/sway/config.d/*
 
 exec swaymsg "workspace 1; exec $HOME/appImages/beeper.AppImage" 
 exec swaymsg "workspace 1; exec 1password --silent" 
-exec swaymsg "workspace 2; exec sleep 5 && firefox"
+exec swaymsg "workspace 1; exec kopia-ui"
 
 for_window [app_id="Beeper"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
