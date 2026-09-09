@@ -19,7 +19,9 @@ window#waybar {
     border-bottom: 2px solid transparent;
 }
 
-#workspaces button.focused {
+/* .focused is sway/workspaces, .active is hyprland/workspaces */
+#workspaces button.focused,
+#workspaces button.active {
     color: #268bd2;
     border-bottom: 2px solid #268bd2;
 }
@@ -35,7 +37,8 @@ window#waybar {
 #pulseaudio,
 #custom-weather,
 #tray,
-#mode {
+#mode,
+#submap {
     padding: 0 10px;
     margin: 3px 2px;
     background-color: #eee8d5;

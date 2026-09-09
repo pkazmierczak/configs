@@ -1,0 +1,82 @@
+// ~/.config/waybar/config-hyprland.jsonc
+//
+// Hyprland variant of config.jsonc. Identical except for the two
+// compositor-specific modules:
+//   sway/workspaces -> hyprland/workspaces   (focused button class: .active)
+//   sway/mode       -> hyprland/submap
+//
+// Launched from hyprland.lua as: waybar -c ~/.config/waybar/config-hyprland.jsonc
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 4,
+    "reload_style_on_change": true,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "custom/weather", "network", "battery", "pulseaudio"],
+
+    "hyprland/workspaces": {
+        // no "enable-bar-scroll" == sway's "disable-scroll": true
+        "all-outputs": false,
+        "sort-by": "number",
+        "format": "{name}"
+    },
+
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>",
+        "tooltip": false
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M   %a %d %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/weather": {
+        "exec": "~/.config/waybar/scripts/weather.sh",
+        "return-type": "json",
+        "interval": 1800,
+        "tooltip": true
+    },
+
+    "network": {
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "  {ifname}",
+        "format-linked": "  {ifname} (no IP)",
+        "format-disconnected": "⚠ disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "~/.config/waybar/scripts/network-menu.sh",
+        "on-click-right": "ghostty -e nmtui"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{timeTo}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}
