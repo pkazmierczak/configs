@@ -56,3 +56,6 @@ dev
 /.config/mako/config
 /.config/sway/theme/current
 /.config/waybar/style.css
+/.config/emacs/eln-cache/29.4-c783cde1
+/.config/emacs/straight
+/.config/fish/completions/copilot.fish
