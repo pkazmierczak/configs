@@ -17,8 +17,6 @@ alias entvim="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
 alias enthx="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
 export EDITOR="hx"
 
-alias ghb="gh browse -b $(git branch --show-current) $1"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 mcommit=(
@@ -54,19 +52,5 @@ alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
 
 alias vpy='pip install black mypy flake8 python-lsp-server python-lsp-black'
 
-function cd() {
-  if [[ -d ./venv ]] ; then
-    deactivate
-  fi
-
-  builtin cd $1
-
-  if [[ -d ./venv ]] ; then
-    . ./venv/bin/activate
-  fi
-}
 alias tf="terraform"
 
-team-times() {
-	zdump America/Los_Angeles America/Toronto Europe/Amsterdam Europe/London
-}

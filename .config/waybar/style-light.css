@@ -1,0 +1,68 @@
+/* ~/.config/waybar/style.css — Solarized Light */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #fdf6e3;
+    color: #657b83;
+    border-bottom: 2px solid #eee8d5;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #657b83;
+    border-bottom: 2px solid transparent;
+}
+
+/* .focused is sway/workspaces, .active is hyprland/workspaces */
+#workspaces button.focused,
+#workspaces button.active {
+    color: #268bd2;
+    border-bottom: 2px solid #268bd2;
+}
+
+#workspaces button.urgent {
+    color: #dc322f;
+    border-bottom: 2px solid #dc322f;
+}
+
+#clock,
+#network,
+#battery,
+#pulseaudio,
+#custom-weather,
+#tray,
+#mode,
+#submap {
+    padding: 0 10px;
+    margin: 3px 2px;
+    background-color: #eee8d5;
+    border-radius: 6px;
+    color: #657b83;
+}
+
+#battery.warning {
+    color: #b58900;
+}
+
+#battery.critical {
+    color: #dc322f;
+}
+
+#network.disconnected {
+    color: #dc322f;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #dc322f;
+}
