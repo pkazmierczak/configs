@@ -48,10 +48,5 @@
 (use-package rainbow-mode
   :hook (prog-mode . rainbow-mode))
 
-;; Reduce whitespace-mode noise added in init-defaults.el to just what the
-;; nvim listchars configuration shows (tabs/trailing/nbsp), not long lines.
-(setq whitespace-style '(face tabs trailing tab-mark space-before-tab
-                              space-after-tab))
-
 (provide 'init-editor)
 ;;; init-editor.el ends here

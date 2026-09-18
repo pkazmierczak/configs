@@ -1,0 +1,20 @@
+# Everything straight.el clones/builds, except the lockfile.
+straight/repos/
+straight/build/
+straight/build-cache.el
+
+# Runtime caches and state -- regenerated on first launch.
+eln-cache/
+transient/
+undo-fu-session/
+auto-save-list/
+recentf
+history
+places
+projectile-bookmarks.eld
+url/
+.cache/
+
+# Custom.el, if you ever let `customize' write to this directory instead of
+# a separate file.
+custom.el
