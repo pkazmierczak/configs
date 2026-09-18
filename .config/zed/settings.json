@@ -7,31 +7,313 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "features": {
-    "edit_prediction_provider": "none"
+  "project_panel": {
+    "dock": "left",
   },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "show_edit_predictions": false,
+  "agent": {
+    "sandbox_permissions": {
+      "allow_unsandboxed": true,
+      "network_hosts": [
+        "github.com",
+        "api.github.com"
+      ],
+      "write_paths": [
+        {
+          "requested": "/Users/piotrkazmierczak/Library/Caches/go-build",
+          "resolved": "/Users/piotrkazmierczak/Library/Caches/go-build"
+        },
+        {
+          "requested": "/Users/piotrkazmierczak/go/pkg/mod/cache",
+          "resolved": "/Users/piotrkazmierczak/go/pkg/mod/cache"
+        }
+      ]
+    },
+    "dock": "right",
+    "thinking_display": "always_collapsed",
+    "tool_permissions": {
+      "tools": {
+        "write_file": {
+          "always_allow": [
+            {
+              "pattern": "^internal/auth/scim/"
+            }
+          ]
+        },
+        "fetch": {
+          "always_allow": [
+            {
+              "pattern": "^https?://proxy\\.golang\\.org"
+            },
+            {
+              "pattern": "^https?://github\\.com"
+            },
+            {
+              "pattern": "^https?://raw\\.githubusercontent\\.com"
+            }
+          ],
+        },
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^go\\s+test(\\s|$)"
+            },
+            {
+              "pattern": "^semgrep\\s+ci(\\s|$)"
+            },
+            {
+              "pattern": "^gotestsum\\b"
+            },
+            {
+              "pattern": "^tail\\b"
+            },
+            {
+              "pattern": "^grep\\b"
+            },
+            {
+              "pattern": "^git\\s+status(\\s|$)"
+            },
+            {
+              "pattern": "^git\\s+log(\\s|$)"
+            },
+            {
+              "pattern": "^git\\s+diff(\\s|$)"
+            },
+            {
+              "pattern": "^go\\s+doc(\\s|$)"
+            },
+            {
+              "pattern": "^printf\\s+n\\-\\-\\-n(\\s|$)"
+            },
+            {
+              "pattern": "^corepack\\s+pnpm(\\s|$)"
+            },
+            {
+              "pattern": "^git\\s+show(\\s|$)"
+            },
+            {
+              "pattern": "^git\\s+branch(\\s|$)"
+            },
+            {
+              "pattern": "^head\\b"
+            },
+            {
+              "pattern": "^grep\\s+\\^\\+(\\s|$)"
+            },
+            {
+              "pattern": "^wc\\b"
+            },
+            {
+              "pattern": "^cat\\s+\\.changelog/27803\\.txt(\\s|$)"
+            },
+            {
+              "pattern": "^git\\b"
+            },
+            {
+              "pattern": "^cat\\s+ui/app/serializers/network\\.js(\\s|$)"
+            },
+            {
+              "pattern": "^go\\s+vet(\\s|$)"
+            },
+            {
+              "pattern": "^cd\\s+/Users/piotrkazmierczak/go/pkg/mod/github\\.com/evanoberholster/imagemeta@v1\\.0\\.0(\\s|$)"
+            },
+            {
+              "pattern": "^sed\\b"
+            },
+            {
+              "pattern": "^echo\\s+===(\\s|$)"
+            },
+            {
+              "pattern": "^cat\\b"
+            },
+            {
+              "pattern": "^cd\\s+/Users/piotrkazmierczak/go/pkg/mod/github\\.com/pterm/pterm@v0\\.12\\.83(\\s|$)"
+            },
+            {
+              "pattern": "^gh\\s+pr(\\s|$)"
+            },
+            {
+              "pattern": "^gh\\s+run(\\s|$)"
+            },
+            {
+              "pattern": "^echo\\s+=====(\\s|$)"
+            },
+            {
+              "pattern": "^echo\\b"
+            },
+            {
+              "pattern": "^sort\\b"
+            },
+            {
+              "pattern": "^echo\\s+non-race(\\s|$)"
+            },
+            {
+              "pattern": "^uniq\\b"
+            },
+            {
+              "pattern": "^gh\\s+auth(\\s|$)"
+            },
+            {
+              "pattern": "^head_lines\\s+20(\\s|$)"
+            },
+            {
+              "pattern": "^gh\\b"
+            },
+            {
+              "pattern": "^PAGER=cat\\s+gh\\s+api(\\s|$)"
+            },
+            {
+              "pattern": "^echo\\s+lines:(\\s|$)"
+            },
+            {
+              "pattern": "^cat\\s+buf\\.work\\.yaml(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+internal/proto/controller/storage/auth/(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+testing/dbtest/(\\s|$)"
+            },
+            {
+              "pattern": "^cut\\b"
+            },
+            {
+              "pattern": "^gofmt\\b"
+            },
+            {
+              "pattern": "^gh\\s+api(\\s|$)"
+            },
+            {
+              "pattern": "^base64\\b"
+            },
+            {
+              "pattern": "^gofumpt\\b"
+            },
+            {
+              "pattern": "^tr\\s+,(\\s|$)"
+            },
+            {
+              "pattern": "^nvim\\b"
+            },
+            {
+              "pattern": "^which\\s+gopls(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+/opt/homebrew/bin(\\s|$)"
+            }
+          ],
+        },
+      },
+    },
+    "default_model": {
+      "effort": "high",
+      "provider": "copilot_chat",
+      "model": "claude-opus-5",
+      "enable_thinking": true,
+    },
+    "model_parameters": [],
+  },
+  "disable_ai": false,
+  "use_system_window_tabs": false,
+  "ssh_connections": [
+    {
+      "host": "192.168.0.100",
+      "username": "piotr",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/piotr/nomad"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "3.77.100.46",
+      "username": "ubuntu",
+      "args": [
+        "-i",
+        "/Users/piotrkazmierczak/nomad-workstation/keys/nomad-workstation-trusting-oryx.pem"
+      ],
+      "projects": [
+        {
+          "paths": [
+            "/home/ubuntu/nomad"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "18.157.156.164",
+      "args": [],
+      "projects": []
+    },
+    {
+      "host": "63.185.204.12",
+      "username": "ubuntu",
+      "args": [
+        "-i",
+        "/Users/piotrkazmierczak/nomad-workstation/keys/nomad-workstation-talented-airedale.pem"
+      ],
+      "projects": [
+        {
+          "paths": [
+            "/home/ubuntu/seccomp-poc/./"
+          ]
+        }
+      ]
+    }
+  ],
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "hints": {
+          "assignVariableTypes": true,
+          "compositeLiteralFields": true,
+          "compositeLiteralTypes": true,
+          "constantValues": true,
+          "functionTypeParameters": true,
+          "ignoredError": true,
+          "parameterNames": true,
+          "rangeVariableTypes": true,
+        },
+      },
+    },
+  },
+  "wrap_guides": [80, 100],
   "theme": {
     "mode": "system",
-    "dark": "Gruvbox Dark",
-    "light": "Solarized Light"
+    "dark": "Melange Dark",
+    "light": "Solarized Light",
   },
   "buffer_font_size": 13,
+  "inline_code_actions": false,
   "vim_mode": true,
   "vim": {
-    "use_system_clipboard": "always"
+    "use_system_clipboard": "always",
   },
   "terminal": {
-    "copy_on_select": true
+    "copy_on_select": true,
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "git": {
     "inline_blame": {
       "enabled": true,
-      "delay_ms": 1500
-    }
+      "delay_ms": 1500,
+    },
   },
-  "use_autoclose": false
+  "use_autoclose": false,
 }
