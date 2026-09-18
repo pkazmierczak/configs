@@ -3,7 +3,7 @@ case $- in
     *) return;;
 esac
 
-export OSH='/Users/piotr/.oh-my-bash'
+export OSH="$HOME/.oh-my-bash"
 
 OSH_THEME="minimal"
 OMB_USE_SUDO=true
