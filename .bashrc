@@ -1,23 +1,29 @@
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/go/bin:$PATH
+case $- in
+  *i*) ;;
+    *) return;;
+esac
 
-export ZSH="$HOME/.oh-my-zsh"
+export OSH='/Users/piotr/.oh-my-bash'
 
-ZSH_THEME="robbyrussell"
+OSH_THEME="minimal"
+OMB_USE_SUDO=true
 
-plugins=(git autojump fzf kubectl virtualenv)
+completions=(
+  git
+  composer
+  ssh
+)
 
-source $ZSH/oh-my-zsh.sh
+aliases=(
+  general
+)
 
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
 
-alias vim="hx"
-alias vi="hx"
-alias entvim="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
-alias enthx="GOFLAGS=\"-tags=ent,consul-ent,consulent\" hx"
-export EDITOR="hx"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias vim="nvim"
+alias vi="nvim"
+export EDITOR="nvim"
 
 mcommit=(
     "¯\\_(ツ)_/¯"
@@ -50,7 +56,11 @@ mcommit=(
 )
 alias c='git commit -a -m "$mcommit[$(( $RANDOM % $#mcommit+1 ))]"'
 
-alias vpy='pip install black mypy flake8 python-lsp-server python-lsp-black'
+plugins=(
+  fzf
+  git
+  bashmarks
+)
 
-alias tf="terraform"
+source "$OSH"/oh-my-bash.sh
 
