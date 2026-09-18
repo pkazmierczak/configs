@@ -43,7 +43,6 @@
     "s/"  #'cfg/grep-current-filetype
     "'"   #'vertico-repeat)
   (general-nmap "<C-n>" #'dired-jump)
-  (cfg-leader "ff" #'dired-jump)
 
   (cfg-leader
     "sh" #'consult-info
