@@ -13,6 +13,8 @@
 (use-package general
   :after evil
   :config
+  (general-evil-setup) ; defines general-nmap/vmap/etc. used below
+
   (general-create-definer cfg-leader
     :states '(normal visual motion)
     :keymaps 'override
