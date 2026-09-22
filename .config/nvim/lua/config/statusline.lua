@@ -26,6 +26,48 @@ local modes = {
 
 local sep = '%#StlDim# │ %#StatusLine#'
 
+-- ---------------------------------------------------------------------------
+-- LSP progress ("indexing...", "loading workspace...", etc.)
+-- ---------------------------------------------------------------------------
+
+local spinner_frames = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
+local spinner_frame = 1
+local progress = {} -- token -> { client, title, message, percentage }
+
+vim.api.nvim_create_autocmd('LspProgress', {
+  group = vim.api.nvim_create_augroup('lsp-progress', { clear = true }),
+  callback = function(ev)
+    local value = ev.data.params.value
+    local token = ev.data.client_id .. ':' .. ev.data.params.token
+    if value.kind == 'end' then
+      progress[token] = nil
+    else
+      local client = vim.lsp.get_client_by_id(ev.data.client_id)
+      progress[token] = {
+        client = client and client.name or '?',
+        title = value.title,
+        message = value.message,
+        percentage = value.percentage,
+      }
+    end
+  end,
+})
+
+local function lsp_progress()
+  local token, p = next(progress)
+  if not token then
+    return ''
+  end
+  local text = p.title or ''
+  if p.message then
+    text = text .. ' ' .. p.message
+  end
+  if p.percentage then
+    text = text .. ' (' .. p.percentage .. '%%)'
+  end
+  return ('%%#StlDim#%s %s: %s'):format(spinner_frames[spinner_frame], p.client, text) .. sep
+end
+
 local function branch()
   local head = vim.b.gitsigns_head or vim.g.gitsigns_head
   if not head or head == '' then
@@ -63,6 +105,7 @@ function _G.Statusline()
     branch(),
     '%<%f%m%r',
     '%=',
+    lsp_progress(),
     diagnostics(),
     ft ~= '' and ('%#StlDim#' .. ft .. sep) or '',
     '%#StlDim#' .. os.date('%H:%M'),
@@ -97,6 +140,23 @@ if not M._timer then
     1000,
     10000,
     vim.schedule_wrap(function()
+      pcall(vim.api.nvim__redraw, { statusline = true })
+    end)
+  )
+end
+
+-- Animate the LSP progress spinner, but only redraw while something is
+-- actually running so this stays a no-op the rest of the time.
+if not M._spinner_timer then
+  M._spinner_timer = assert(vim.uv.new_timer())
+  M._spinner_timer:start(
+    80,
+    80,
+    vim.schedule_wrap(function()
+      if next(progress) == nil then
+        return
+      end
+      spinner_frame = spinner_frame % #spinner_frames + 1
       pcall(vim.api.nvim__redraw, { statusline = true })
     end)
   )

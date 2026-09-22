@@ -65,6 +65,7 @@ vim.ui.select = MiniPick.ui_select
 
 require('mini.extra').setup()
 require('mini.surround').setup()
+require('mini.tabline').setup()
 require('mini.files').setup({
   windows = { preview = true, width_focus = 30, width_preview = 60 },
   options = { use_as_default_explorer = true },

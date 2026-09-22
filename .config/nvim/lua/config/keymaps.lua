@@ -1,8 +1,9 @@
 -- Keymaps. `<leader>` is <Space>.
 --
--- Neovim 0.11+ already provides a lot out of the box, and none of it is
--- redefined here:
---   K / grn / gra / grr / gri / grt / gO   LSP hover, rename, code action, ...
+-- Neovim 0.11+ already provides a lot out of the box, and most of it is
+-- left alone here:
+--   grn / gra / grr / gri / grt / gO       LSP rename, code action, ...
+-- (K is overridden below to cap the hover popup's size.)
 --   gc / gcc                               comment (operator + line)
 --   [d ]d  [q ]q  [b ]b  [<Space> ]<Space> jump between things
 --   <C-w>d  <C-l>  y<C-g>  gx              diagnostics float, redraw, path, open
@@ -116,6 +117,13 @@ map('n', '<leader>ff', explorer, { desc = 'File explorer' })
 
 map('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto definition' })
 map('n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type definition' })
+
+-- Override the default `K` hover: cap the floating window's size so long
+-- doc comments (gopls, rust-analyzer, ...) stay a small popup instead of
+-- ballooning to fill the whole screen.
+map('n', 'K', function()
+  vim.lsp.buf.hover({ max_width = 80, max_height = 20 })
+end, { desc = 'Hover documentation' })
 map('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 map({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, { desc = 'Code action' })
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Line diagnostics' })
