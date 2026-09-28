@@ -21,7 +21,7 @@ font pango:JetBrainsMono Nerd Font 10
 
 ### Output
 # output eDP-1 resolution 1920x1080 position 0,0
-output * bg ~/wallpaper.jpg fill
+output * bg ~/Pictures/wallpaper.jpg fill
 
 input "type:keyboard" {
     xkb_layout pl
@@ -83,7 +83,6 @@ bindsym $mod+Shift+t exec $HOME/.config/sway/scripts/theme-toggle.sh
 bindsym $mod+Shift+c reload
 
 # Screenshot (uses grim+slurp if installed — optional but common enough to wire up)
-# bindsym Print exec slurp | grim -t - - | tee ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy
 bindsym Print exec grimshot savecopy anything
 
 ### Focus / move (vim-style, arrows also work)
@@ -164,7 +163,6 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 include /etc/sway/config.d/*
 
-exec swaymsg "workspace 1; exec $HOME/appImages/beeper.AppImage" 
 exec swaymsg "workspace 1; exec 1password --silent" 
 exec swaymsg "workspace 1; exec kopia-ui"
 
