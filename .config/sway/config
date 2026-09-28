@@ -172,3 +172,5 @@ for_window [app_id="1password"] floating enable
 for_window [app_id="chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default"] floating enable # whatsapp webapp
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="org.gnome.Software"] floating enable
+for_window [app_id="org.signal.Signal"] floating enable
+for_window [app_id="org.telegram.desktop"] floating enable
