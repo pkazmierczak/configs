@@ -38,8 +38,10 @@ input "type:touchpad" {
 gaps inner 6
 gaps outer 0
 default_border pixel 2
-default_floating_border pixel 2
+default_floating_border normal 2
 smart_borders on
+
+floating_modifier $mod normal
 
 client.focused          $accent $accent $bg $accent $accent
 client.focused_inactive $inactive $inactive $fg $inactive $inactive
