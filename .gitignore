@@ -54,6 +54,7 @@ dev
 /.config/nvim/nvim-pack-lock.json
 /.config/zed/conversations
 /.config/mako/config
+/.config/fuzzel/fuzzel.ini
 /.config/sway/theme/current
 /.config/waybar/style.css
 /.config/emacs/eln-cache/29.4-c783cde1
