@@ -56,8 +56,10 @@
         // Native module, talks D-Bus to tuned-ppd / power-profiles-daemon.
         // Left click: next profile, right click: previous. It handles clicks
         // itself, so on-click* options are ignored; use the keybinding for a menu.
+        // Default tooltip shows profile + driver. If overriding tooltip-format,
+        // waybar 0.15 only knows {profile}, {driver}, {icon}; anything else
+        // throws and silently hides the module.
         "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nCPU driver: {cpu_driver}",
         "format-icons": {
             // Escapes keep this file ASCII-only: rocket, balance-scale, leaf, bolt
             "performance": "\uf135",
