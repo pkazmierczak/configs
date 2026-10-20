@@ -77,6 +77,11 @@ bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu | cliphist decode | wl-
 # Toggle light/dark theme
 bindsym $mod+Shift+t exec $HOME/.config/sway/scripts/theme-toggle.sh
 
+# Power profile: menu, or jump straight to one
+bindsym $mod+p exec $HOME/.config/sway/scripts/power-profile.sh
+bindsym $mod+Shift+p exec $HOME/.config/sway/scripts/power-profile.sh power-saver
+bindsym $mod+Ctrl+p exec $HOME/.config/sway/scripts/power-profile.sh performance
+
 # Reload config
 bindsym $mod+Shift+c reload
 

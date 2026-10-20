@@ -15,7 +15,7 @@
 
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "custom/weather", "network", "battery", "pulseaudio"],
+    "modules-right": ["tray", "custom/weather", "network", "power-profiles-daemon", "battery", "pulseaudio"],
 
     "hyprland/workspaces": {
         // no "enable-bar-scroll" == sway's "disable-scroll": true
@@ -50,6 +50,21 @@
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "~/.config/waybar/scripts/network-menu.sh",
         "on-click-right": "ghostty -e nmtui"
+    },
+
+    "power-profiles-daemon": {
+        // Native module, talks D-Bus to tuned-ppd / power-profiles-daemon.
+        // Left click: next profile, right click: previous. It handles clicks
+        // itself, so on-click* options are ignored; use the keybinding for a menu.
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nCPU driver: {cpu_driver}",
+        "format-icons": {
+            // Escapes keep this file ASCII-only: rocket, balance-scale, leaf, bolt
+            "performance": "\uf135",
+            "balanced": "\uf24e",
+            "power-saver": "\uf06c",
+            "default": "\uf0e7"
+        }
     },
 
     "battery": {

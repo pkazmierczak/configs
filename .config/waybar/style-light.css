@@ -33,6 +33,7 @@ window#waybar {
 
 #clock,
 #network,
+#power-profiles-daemon,
 #battery,
 #pulseaudio,
 #custom-weather,
@@ -56,6 +57,14 @@ window#waybar {
 
 #network.disconnected {
     color: #dc322f;
+}
+
+#power-profiles-daemon.performance {
+    color: #cb4b16;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #859900;
 }
 
 #tray > .passive {
