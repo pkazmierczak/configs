@@ -34,9 +34,9 @@
     },
 
     "network": {
-        "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": "  {ifname}",
-        "format-linked": "  {ifname} (no IP)",
+        "format-wifi": "\uf1eb  {essid} ({signalStrength}%)",
+        "format-ethernet": "\uef44  {ifname}",
+        "format-linked": "\uef44  {ifname} (no IP)",
         "format-disconnected": "⚠ disconnected",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "~/.config/waybar/scripts/network-menu.sh",
@@ -66,17 +66,17 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-charging": "\uf0e7 {capacity}%",
+        "format-plugged": "\uf1e6 {capacity}%",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
         "tooltip-format": "{timeTo}"
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": " muted",
+        "format-muted": "\ueee8 muted",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": ["\uf026", "\uf027", "\uf028"]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol",

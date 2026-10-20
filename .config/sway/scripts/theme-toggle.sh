@@ -33,9 +33,10 @@ fi
 cp "$SWAY_THEME_DIR/$target" "$SWAY_THEME_DIR/current"
 swaymsg reload
 
-# waybar — needs "reload_style_on_change": true in config.jsonc to pick
-# this up live; falls back to a restart if that's not set.
-cp "$WAYBAR_DIR/style-$target.css" "$WAYBAR_DIR/style.css"
+# waybar — style.css just imports the active palette, so edits to
+# style-{light,dark}.css are never stale. "reload_style_on_change": true
+# in config.jsonc picks this up live (imported files are watched too).
+echo "@import \"style-$target.css\";" > "$WAYBAR_DIR/style.css"
 
 # mako
 cp "$MAKO_DIR/config-$target" "$MAKO_DIR/config"
