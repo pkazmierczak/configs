@@ -42,6 +42,16 @@
     "thinking_display": "always_collapsed",
     "tool_permissions": {
       "tools": {
+        "create_directory": {
+          "always_allow": [
+            {
+              "pattern": "^boundary-enterprise/"
+            }
+          ]
+        },
+        "skill": {
+          "default": "allow"
+        },
         "write_file": {
           "always_allow": [
             {
@@ -210,6 +220,45 @@
             },
             {
               "pattern": "^ls\\s+/opt/homebrew/bin(\\s|$)"
+            },
+            {
+              "pattern": "^go\\s+list(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+internal/auth/scim(\\s|$)"
+            },
+            {
+              "pattern": "^git\\s+ls-files(\\s|$)"
+            },
+            {
+              "pattern": "^find\\s+internal/auth/oidc(\\s|$)"
+            },
+            {
+              "pattern": "^xargs\\s+grep(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+internal/bsr(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+internal/rdp/encoding(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+internal/rdp/encoding/ber/(\\s|$)"
+            },
+            {
+              "pattern": "^go\\s+env(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+api/authmethods(\\s|$)"
+            },
+            {
+              "pattern": "^diff\\s+internal/cmd/commands/authmethodscmd/oidc_authmethods\\.gen\\.go(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+internal/db/schema/migrations/oss/postgres/99999/(\\s|$)"
+            },
+            {
+              "pattern": "^cat\\s+internal/db/schema/migrations/oss/postgres/99999/01_\\*\\.up\\.sql(\\s|$)"
             }
           ],
         },
@@ -218,7 +267,7 @@
     "default_model": {
       "effort": "high",
       "provider": "copilot_chat",
-      "model": "claude-opus-5",
+      "model": "claude-opus-5.5",
       "enable_thinking": true,
     },
     "model_parameters": [],
