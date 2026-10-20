@@ -41,6 +41,9 @@ cp "$WAYBAR_DIR/style-$target.css" "$WAYBAR_DIR/style.css"
 cp "$MAKO_DIR/config-$target" "$MAKO_DIR/config"
 makoctl reload
 
+# fuzzel — read fresh on every launch, so no reload needed
+cp "$HOME/.config/fuzzel/fuzzel-$target.ini" "$HOME/.config/fuzzel/fuzzel.ini"
+
 # GTK / libadwaita apps, best-effort — harmless no-op if gsettings/the
 # schema isn't available
 if command -v gsettings >/dev/null 2>&1; then

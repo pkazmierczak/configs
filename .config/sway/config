@@ -21,7 +21,7 @@ font pango:JetBrainsMono Nerd Font 10
 
 ### Output
 # output eDP-1 resolution 1920x1080 position 0,0
-output * bg ~/wallpaper.jpg fill
+output * bg ~/Pictures/wallpaper.jpg fill
 
 input "type:keyboard" {
     xkb_layout pl
@@ -38,8 +38,10 @@ input "type:touchpad" {
 gaps inner 6
 gaps outer 0
 default_border pixel 2
-default_floating_border pixel 2
+default_floating_border normal 2
 smart_borders on
+
+floating_modifier $mod normal
 
 client.focused          $accent $accent $bg $accent $accent
 client.focused_inactive $inactive $inactive $fg $inactive $inactive
@@ -56,13 +58,9 @@ exec swayidle -w \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep '$HOME/.config/sway/scripts/lock.sh'
 
-# Import GTK/env vars into the systemd/dbus user session so waybar tray,
-# polkit agents, etc. behave. Harmless if these binaries don't exist.
 exec dbus-update-activation-environment --systemd --all
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-
-# Polkit agent (needed for GUI password prompts)
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-mate-authentication-agent-1
 
 ### Core bindings
 bindsym $mod+Return exec $term
@@ -83,7 +81,6 @@ bindsym $mod+Shift+t exec $HOME/.config/sway/scripts/theme-toggle.sh
 bindsym $mod+Shift+c reload
 
 # Screenshot (uses grim+slurp if installed — optional but common enough to wire up)
-# bindsym Print exec slurp | grim -t - - | tee ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png | wl-copy
 bindsym Print exec grimshot savecopy anything
 
 ### Focus / move (vim-style, arrows also work)
@@ -156,15 +153,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ### Media / volume / brightness keys (uses wpctl from wireplumber + brightnessctl — optional)
-bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec $HOME/.config/sway/scripts/volume.sh up
+bindsym XF86AudioLowerVolume exec $HOME/.config/sway/scripts/volume.sh down
+bindsym XF86AudioMute exec $HOME/.config/sway/scripts/volume.sh mute
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 include /etc/sway/config.d/*
 
-exec swaymsg "workspace 1; exec $HOME/appImages/beeper.AppImage" 
 exec swaymsg "workspace 1; exec 1password --silent" 
 exec swaymsg "workspace 1; exec kopia-ui"
 
@@ -174,3 +170,5 @@ for_window [app_id="1password"] floating enable
 for_window [app_id="chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default"] floating enable # whatsapp webapp
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="org.gnome.Software"] floating enable
+for_window [app_id="org.signal.Signal"] floating enable
+for_window [app_id="org.telegram.desktop"] floating enable
