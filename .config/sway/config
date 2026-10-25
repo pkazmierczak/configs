@@ -168,6 +168,7 @@ include /etc/sway/config.d/*
 
 exec swaymsg "workspace 1; exec 1password --silent" 
 exec swaymsg "workspace 1; exec kopia-ui"
+exec swaymsg "workspace 1; exec Filen"
 
 for_window [app_id="Beeper"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
@@ -177,3 +178,4 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="org.gnome.Software"] floating enable
 for_window [app_id="org.signal.Signal"] floating enable
 for_window [app_id="org.telegram.desktop"] floating enable
+for_window [app_id="org.mozilla.firefox" title="^Picture-in-Picture$"] floating enable, sticky enable
