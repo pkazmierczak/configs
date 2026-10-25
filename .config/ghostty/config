@@ -4,3 +4,4 @@ theme = dark:Zenbones Dark,light:iTerm2 Solarized Light
 # macos-non-native-fullscreen = true
 quit-after-last-window-closed = true
 copy-on-select = clipboard
+background-opacity = 0.9
