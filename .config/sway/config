@@ -21,6 +21,7 @@ font pango:JetBrainsMono Nerd Font 10
 
 ### Output
 # output eDP-1 resolution 1920x1080 position 0,0
+output eDP-1 scale 1.5
 output * bg ~/Pictures/wallpaper.jpg fill
 
 input "type:keyboard" {
@@ -30,8 +31,11 @@ input "type:keyboard" {
 
 input "type:touchpad" {
     tap enabled
-    natural_scroll enabled
+    natural_scroll disabled
     dwt enabled
+    drag enabled
+    click_method clickfinger
+    clickfinger_button_map lrm
 }
 
 ### Appearance
@@ -168,7 +172,6 @@ include /etc/sway/config.d/*
 
 exec swaymsg "workspace 1; exec 1password --silent" 
 exec swaymsg "workspace 1; exec kopia-ui"
-exec swaymsg "workspace 1; exec Filen"
 
 for_window [app_id="Beeper"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
