@@ -23,7 +23,9 @@
     "clock": {
         "interval": 1,
         "format": "{:%H:%M   %a %d %b}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // GTK4 dropdown with EDS events; stays resident, clicks toggle it
+        "on-click": "~/.config/waybar/scripts/calendar-popup.py"
     },
 
     "custom/weather": {
