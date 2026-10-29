@@ -11,6 +11,7 @@ Server, i.e. the calendars GNOME Calendar/Evolution show, including GNOME
 Online Accounts ones. Colours follow ~/.cache/theme-mode (theme-toggle.sh).
 
 Keys: Esc close, Home today, PgUp/PgDn month, Enter open GNOME Calendar.
+Clicking anywhere outside the dropdown (including the clock) closes it.
 
 Needs: python3-gobject, gtk4-layer-shell, evolution-data-server (optional;
 without it the event list is replaced by a hint).
@@ -65,8 +66,6 @@ THEME_FILE = Path.home() / ".cache" / "theme-mode"
 # Seconds each calendar backend may take to report "connected" before its
 # cache is read. 0 would mean "wait forever" to EDS.
 CONNECT_WAIT_S = 1
-# A focus-out close immediately followed by a toggle is the same click.
-REOPEN_GUARD_S = 0.3
 DEFAULT_COLOR = "#268bd2"
 COLOR_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
 
@@ -79,6 +78,7 @@ PALETTES = {
 }
 
 CSS = string.Template("""
+window.calendar-backdrop { background: transparent; }
 window.calendar-popup {
     background-color: $bg;
     color: $fg;
@@ -246,7 +246,7 @@ class CalendarPopup(Gtk.Window):
         self._events_by_day = {}
         self._error = None
         self._loading = False
-        self._hidden_at = 0.0
+        self._backdrops = []
 
         root = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8,
                        margin_top=14, margin_bottom=14,
@@ -290,7 +290,6 @@ class CalendarPopup(Gtk.Window):
         keys = Gtk.EventControllerKey()
         keys.connect("key-pressed", self._on_key)
         self.add_controller(keys)
-        self.connect("notify::is-active", self._on_active_changed)
         self.connect("close-request", self._on_close_request)
 
     def _init_layer_shell(self):
@@ -298,19 +297,22 @@ class CalendarPopup(Gtk.Window):
             return
         LayerShell.init_for_window(self)
         LayerShell.set_namespace(self, "waybar-calendar")
-        LayerShell.set_layer(self, LayerShell.Layer.TOP)
+        # Overlay keeps it above the backdrops, which live on the top layer.
+        LayerShell.set_layer(self, LayerShell.Layer.OVERLAY)
         # Only the top edge is anchored, so it's centred under the clock;
         # the default exclusive zone of 0 keeps it below waybar.
         LayerShell.set_anchor(self, LayerShell.Edge.TOP, True)
         LayerShell.set_margin(self, LayerShell.Edge.TOP, 4)
-        LayerShell.set_keyboard_mode(self, LayerShell.KeyboardMode.ON_DEMAND)
+        # Grab the keyboard while open, so focus_follows_mouse can't steal it
+        # and Esc always works; outside clicks are caught by the backdrops.
+        LayerShell.set_keyboard_mode(self, LayerShell.KeyboardMode.EXCLUSIVE)
 
     # --- visibility -------------------------------------------------------
 
     def toggle(self):
         if self.get_visible():
             self.dismiss()
-        elif time.monotonic() - self._hidden_at > REOPEN_GUARD_S:
+        else:
             self.open()
 
     def open(self):
@@ -320,15 +322,18 @@ class CalendarPopup(Gtk.Window):
         self._date.set_text(now.strftime("%-d %B %Y"))
         self.go_today()
         self._schedule_reload()  # always refresh, events may have changed
+        if LayerShell.is_supported():
+            monitors = Gdk.Display.get_default().get_monitors()
+            self._backdrops = [
+                Backdrop(self.get_application(), monitors.get_item(i), self.dismiss)
+                for i in range(monitors.get_n_items())]
         self.present()
 
     def dismiss(self):
-        self._hidden_at = time.monotonic()
+        for backdrop in self._backdrops:
+            backdrop.destroy()
+        self._backdrops = []
         self.set_visible(False)
-
-    def _on_active_changed(self, *_):
-        if self.get_visible() and not self.is_active():
-            self.dismiss()
 
     def _on_close_request(self, *_):
         self.dismiss()
@@ -473,6 +478,31 @@ class CalendarPopup(Gtk.Window):
                                   css_classes=["event-loc"]))
         row.append(text)
         return row
+
+
+class Backdrop(Gtk.Window):
+    """Invisible full-output surface: a click anywhere but the popup closes it.
+
+    Created fresh on every open, so it stacks above waybar (same top layer)
+    and swallows the clock click that would otherwise reopen the popup.
+    """
+
+    def __init__(self, app, monitor, on_click):
+        super().__init__(application=app, css_classes=["calendar-backdrop"])
+        LayerShell.init_for_window(self)
+        LayerShell.set_namespace(self, "waybar-calendar-backdrop")
+        LayerShell.set_layer(self, LayerShell.Layer.TOP)
+        LayerShell.set_monitor(self, monitor)
+        LayerShell.set_exclusive_zone(self, -1)  # cover waybar too
+        for edge in (LayerShell.Edge.TOP, LayerShell.Edge.BOTTOM,
+                     LayerShell.Edge.LEFT, LayerShell.Edge.RIGHT):
+            LayerShell.set_anchor(self, edge, True)
+        LayerShell.set_keyboard_mode(self, LayerShell.KeyboardMode.NONE)
+        self.set_child(Gtk.Box(hexpand=True, vexpand=True))
+        click = Gtk.GestureClick(button=0)  # any button
+        click.connect("pressed", lambda *_: on_click())
+        self.add_controller(click)
+        self.present()
 
 
 class App(Gtk.Application):
